@@ -6,9 +6,9 @@ git checkout master
 cd ../
 mv .deploy_git/.git/ ./public/
 cd ./public
-git config user.name  "hadronw"
-git config user.email "hadronw@qq.com" 
+git config user.name  "rhsphere"
+git config user.email "rhsphere@gmail.com" 
 # add commit timestamp
 git add .
-git commit -m "Travis CI Auto Builder at `date +"%Y-%m-%d %H:%M"`"
+git commit -m "Travis CI Auto Bitch at `date +"%Y-%m-%d %H:%M"`"
 git push --force --quiet "https://${Travis_gh_token}@${GH_REF}" master:master
