@@ -20,5 +20,8 @@
     "hexo-renderer-marked": "^0.3.2",
     "hexo-renderer-stylus": "^0.3.3",
     "hexo-server": "^0.3.3"
+  },
+  "devDependencies": {
+    "gulp-uglify": "^3.0.2"
   }
 }
