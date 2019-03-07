@@ -10,5 +10,5 @@ git config user.name  "rhsphere"
 git config user.email "rhsphere@gmail.com" 
 # add commit timestamp
 git add .
-git commit -m "Travis CI Auto Bitch at `date +"%Y-%m-%d %H:%M"`"
+git commit -m "traviscibot commit at `date +"%Y-%m-%d %H:%M"`"
 git push --force --quiet "https://${Travis_gh_token}@${GH_REF}" master:master
