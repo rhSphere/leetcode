@@ -1,0 +1,1499 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next muse use-motion" lang="zh-Hans">
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="theme-color" content="#fff">
+
+
+
+  
+  
+    
+      
+    
+    
+      
+    
+  <script src="//cdn.bootcss.com/pace/1.0.2/pace.min.js"></script>
+  <link href="//cdn.bootcss.com/pace/1.0.2/themes/blue/pace-theme-flash.min.css" rel="stylesheet">
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.2.5/jquery.fancybox.min.css" rel="stylesheet" type="text/css">
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+    
+      
+    
+
+    
+  
+
+  
+
+  
+
+  
+    
+      
+    
+
+    
+  
+
+  
+    
+    
+    <link href="https://fonts.loli.net/css?family=Lato:300,300italic,400,400italic,700,700italic|Roboto Slab:300,300italic,400,400italic,700,700italic|Linux Biolinum:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+  
+
+<link href="https://cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.css" rel="stylesheet" type="text/css">
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#fff">
+
+
+
+
+
+  <meta name="keywords" content="得到，职场写作，软技能,">
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="Depeng's Blog for Algorithms" type="application/atom+xml">
+
+
+
+
+
+
+<meta name="description" content="职场写作最忌讳打开电脑就写，请你先想再写。TCS法三个步骤完成构思过程，即tone、content和structure，对应基调、内容和结构。">
+<meta name="keywords" content="得到，职场写作，软技能">
+<meta property="og:type" content="article">
+<meta property="og:title" content="第一讲|先想后写——TCS三步构思法">
+<meta property="og:url" content="https://www.leetcode.rhsphere.com/2019/02/26/tone-content-structure.html">
+<meta property="og:site_name" content="Depeng&#39;s Blog for Algorithms">
+<meta property="og:description" content="职场写作最忌讳打开电脑就写，请你先想再写。TCS法三个步骤完成构思过程，即tone、content和structure，对应基调、内容和结构。">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2019-02-27T14:34:43.935Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="第一讲|先想后写——TCS三步构思法">
+<meta name="twitter:description" content="职场写作最忌讳打开电脑就写，请你先想再写。TCS法三个步骤完成构思过程，即tone、content和structure，对应基调、内容和结构。">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Muse',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"hide","offset":12,"b2t":false,"scrollpercent":true,"onmobile":true},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":true,"transition":{"post_block":"perspectiveLeftIn","post_header":"fadeIn","post_body":"fadeIn","coll_header":"perspectiveLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js">
+</script>
+
+
+
+  <link rel="canonical" href="https://www.leetcode.rhsphere.com/2019/02/26/tone-content-structure.html">
+
+
+
+
+
+  <title>第一讲|先想后写——TCS三步构思法 | Depeng's Blog for Algorithms</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Depeng's Blog for Algorithms</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">北京邮电大学研究生在读</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br>
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br>
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br>
+            
+            标签
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br>
+            
+            搜索
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocomplete="off" placeholder="搜索..." spellcheck="false" type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+
+    </div>
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://www.leetcode.rhsphere.com/2019/02/26/tone-content-structure.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Depeng Lu">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/uploads/avatar.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Depeng's Blog for Algorithms">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">第一讲|先想后写——TCS三步构思法</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-02-26T23:15:25+08:00">
+                2019-02-26
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/得到/" itemprop="url" rel="index">
+                    <span itemprop="name">得到</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+             <span id="/2019/02/26/tone-content-structure.html" class="leancloud_visitors" data-flag-title="第一讲|先想后写——TCS三步构思法">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数&#58;</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计&#58;</span>
+                
+                <span title="字数统计">
+                  
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                
+                <span title="阅读时长">
+                  
+                </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p class="description">职场写作最忌讳打开电脑就写，请你先想再写。TCS法三个步骤完成构思过程，即tone、content和structure，对应基调、内容和结构。</p>
+
+
+<a id="more"></a>
+<h2 id="基调为王，七种文案的标志性语气"><a href="#基调为王，七种文案的标志性语气" class="headerlink" title="基调为王，七种文案的标志性语气"></a>基调为王，七种文案的标志性语气</h2><p>第一步，基调，文章以基调为“王”。基调对了，事半功倍；基调错了，哪怕你传递的信息再重要，我也不会关注。<br>正确的基调能传递出文章真正的价值，也就是你的价值。职场写作可以分成四大类，那么每一类都需要传递你的什么价值呢？</p>
+<ul>
+<li>第一，总结类，写的是<span style="color:#bf91e8;">成绩</span>，呈现的是<span style="color:#FF0033;">你的潜力</span>；</li>
+<li>第二，调查报告类，写的是<span style="color:#bf91e8;">调查结果</span>，呈现的是<span style="color:#FF0033;">你求实的态度</span>；</li>
+<li>第三，申请类，内容是<span style="color:#bf91e8;">提问</span>，呈现的是<span style="color:#FF0033;">你主动的思考方式</span>；</li>
+<li>第四，计划类，写的是<span style="color:#bf91e8;">阶段任务</span>，呈现的是<span style="color:#FF0033;">你的责任感</span>。</li>
+</ul>
+<p>如果明白了要呈现自己什么价值，那你拿捏起文章的基调来，正确的概率就会很高。</p>
+<p><em>以常见的六种具体文案为例，探讨一下它们的标志性的基调。</em></p>
+<h3 id="年终总结，基调要求：有深度"><a href="#年终总结，基调要求：有深度" class="headerlink" title="年终总结，基调要求：有深度"></a>年终总结，基调要求：有深度</h3><p>不要写成一份业绩的流水账——因为你的工作结果，领导在看你的总结之前就知道。可他为什么还要看？<br>他要读到你的分析能力；他希望你能从对工作感性的认知，上升到理性的规律性的总结；他需要你协助他，对未来做出更正确的决定。<br><span style="color:#5073b8;">由此来看，年终总结不是回顾，而是行动指南。</span>好的年终总结应该：</p>
+<ul>
+<li>会将工作成果写出意义，会提供难得的一线经验、不同的视角；</li>
+<li>会在罗列了贡献之后，找出问题或机遇，以及怎样解决这个问题，或抓住这个机遇。<br>这就是“有深度”。</li>
+</ul>
+<h3 id="进展汇报，基调要求：不讨教"><a href="#进展汇报，基调要求：不讨教" class="headerlink" title="进展汇报，基调要求：不讨教"></a>进展汇报，基调要求：不讨教</h3><p>在进展汇报里，不能只提问题，向领导讨教，而应该给出方案，向领导汇报。讨教的公式是：您告诉我该怎么做。<span style="color:#5073b8;">汇报的公式是：我这样做，您同意吗？<br>这里我想提醒你，哪怕领导没有要求你写进展汇报，你也要养成定期向他汇报的习惯。</span><br>你需要将解决问题过程中的一些重要发现、关键结论、阶段性成果等小胜利，实时呈现给他，让他读出你的认真，让他看到你不断提高工作能力的过程。</p>
+<h3 id="调查报告，基调要求：实事求是"><a href="#调查报告，基调要求：实事求是" class="headerlink" title="调查报告，基调要求：实事求是"></a>调查报告，基调要求：实事求是</h3><p>在收集充分的事实资料后，你的措辞是“资料显示、数字表明”，而不是“我认为、我估计”。这种报告才能展现事情的真相，才会有让人惊喜的收获。</p>
+<h3 id="请示，基调要求：有主见"><a href="#请示，基调要求：有主见" class="headerlink" title="请示，基调要求：有主见"></a>请示，基调要求：有主见</h3><p>有的人这么写：</p>
+<p><blockquote>“客户投诉如下，请指示。”</blockquote><br>不管是找领导要人、要钱，或其他任何资源，一定要有清晰的主见。<br>比如申请款项，你要给一个量化的标准让领导来裁决，不能模糊不清，让他无据可依、无处下手。<span style="color:#5073b8;">让他做选择题的时候，你也需要提供最佳选项。</span><br>另外，部门主管向上级递交请示的时候，不能采用传声筒的语气。<br>不要写“他们抱怨”或“他们声称”，要写“我注意到” “我相信我的团队会……”，这才是有担当、有主见的语气。</p>
+<h3 id="批复，基调要求：态度明确"><a href="#批复，基调要求：态度明确" class="headerlink" title="批复，基调要求：态度明确"></a>批复，基调要求：态度明确</h3><p>不能出现这样的措辞：“似属可行” “酌情办理”。</p>
+<h3 id="项目计划，基调要求：“可交付”"><a href="#项目计划，基调要求：“可交付”" class="headerlink" title="项目计划，基调要求：“可交付”"></a>项目计划，基调要求：“可交付”</h3><p>不能仅仅写行为。一个项目的成功，不是行动了就可以，而是众多可交付结果的总和。</p>
+<ul>
+<li>比如：“选择外部供应商”，这是写行为，改为可交付的结果：<strong>“确定外部供应商”</strong>。</li>
+<li>又比如：“草拟消费者调查报告”，这又是写行为，改为可交付结果：<strong>“递交消费者调查报告”</strong>。</li>
+</ul>
+<p>这里我再和你多说一点。最好的项目计划书，是按照 <strong>OKR目标管理工具</strong>来写的。O：Objective 目标，KR：Key Results 关键结果。<br>简单地说，计划就是由目标和关键结果构成。其中，大目标可以分解成小目标，关键结果是用来衡量这些目标有没有完成的。按照这个工具来写，你的基调自然就是可交付的结果。<br><span style="background-color: #f0ad4e;">  以上就是构思的第一步——基调。</span></p>
+<h2 id="从“作者逻辑”切换到“读者逻辑”"><a href="#从“作者逻辑”切换到“读者逻辑”" class="headerlink" title="从“作者逻辑”切换到“读者逻辑”"></a>从“作者逻辑”切换到“读者逻辑”</h2><p>TCS的第二步，C：content，内容。<br>你意识到了吗？我们在学校里的写作，读者是教授，他读你的文章的时候是有薪水拿的。在职场上的写作，可不是这样。<br><strong>职场上的读者，大多是“甲方读者”，比如领导、客户、重要合作伙伴，等等。也就是说，他们没有义务读完你的文章，他们可以随时终止阅读。</strong><br>怎么才能让这些甲方读者被你的内容吸引呢？请遵照这个原则：</p>
+<p><blockquote>先从“作者逻辑”切换到“读者逻辑”，提供“所有必需信息”，然后按照“要话先说”的顺序排列。<br></blockquote><br>也就是说， 你的文章每个部分都要对读者有价值。<br>你写第一句话，是为了让他继续看第二句话；你写第二句话，是为了让他继续看第三句话。</p>
+<p>举个例子，如果要写一份给投资人的商业计划书，俗称项目BP(Business Plan)。我们先做发散思维，想一想在初次接触时，投资人需要哪些信息来判断是否对项目有信心，是否愿意投资参与该项目？然后，为这些信息排序。<br>我最担心你一上来就急着展示自己公司有多厉害，这是作者逻辑。没搭好台就展示自己，操之过急。相反，文章应该从分析整个行业下手，彰显市场空缺。搭建好舞台后，才有机会介绍自己。<br>风险投资人也是要最大限度地规避风险的。而先选择行业，再选择个体，是他规避风险的方式，是读者逻辑。<br>按照这个逻辑，文章怎样写呢？</p>
+<p><span style="background:#eee;"><em>第一部分</em></span>，写 <strong>“项目愿景”</strong>。 也就是，你要做一件什么样的大事。<br>这部分需要有一句高度精炼的话，比如黄太吉的“打造以煎饼果子为核心的中式时尚快餐连锁品牌”。<br>对方会问，这件事为什么值得做？于是你给出 <strong>“市场痛点”</strong>。<br>比如，摩拜单车是为了解决最后一公里的交通痛点。如果投资人根本不认为这是个痛点，后面一切都白写了。<br><span style="background:#eee;"><em>再往下</em></span>，是 <strong>“解决方案”</strong>。<br>论证的是，我们正在做的这个事业，真正能解决得了这个痛点，这把钥匙能开得了这把锁。OK,读者表示认同。<br><span style="background:#eee;"><em>然后</em></span>，他会想，<strong>“市场潜力”</strong>大吗？<br><span style="background:#eee;"><em>这时</em></span>，你该展示市场调查结果了，包括市场规模、用户画像、竞品分析等等。<br>那他会接着问，为什么要投你们，而不是别人呢？<br>你要阐述自己的 <strong>“独特优势”</strong>。包括行业经验、核心技术、牛人团队，等等。<br>OK, 这时读者对你有点儿感觉了。</p>
+<p><span style="background:#eee;"><em>下一部分</em></span>，趁他对你有感觉的时候，拉着他一块儿画饼，你要写 <strong>“发展规划”</strong>了。<br>写清楚盈利模式和发展路径。也许你觉得奇怪，为什么这个内容现在才写？其实投资人很有经验，他只要决定和你一块儿干，他会在后期帮你一起完善盈利模式，清晰发展路径。</p>
+<p><span style="background:#eee;"><em>最后</em></span>，做 <strong>“财务分析”</strong>，告诉他，你们缺多少钱。<br>为什么把融资额度放最后写呢？<br>你想想看，有经验的销售想把东西卖给你的时候，通常不会一上来就报价的。他们都是把商品的价值点全部讲完以后，才把价格说出来，这个时候出现的数字，会让对方觉得是个合理的数字。<br>至于 <strong>“退出机制” “利润分红”</strong>这些内容，在初次接触中并不重要，它们都有谈判的空间，所以可以不写。<br><span style="background-color: #f0ad4e;">在<strong>“要话先说”</strong>的顺序下，文章环环相扣，你前一部分阐述得精彩，读者才有兴趣问下一个问题，了解下一个部分。</span></p>
+<h2 id="“向下想三层”，假设变结论"><a href="#“向下想三层”，假设变结论" class="headerlink" title="“向下想三层”，假设变结论"></a>“向下想三层”，假设变结论</h2><p>进入构思的第三步，TCS的S，structure结构。在你的文章里，可以用向下想三层的逻辑搭建金字塔结构。<span style="color:#5073b8;">金字塔的塔尖，是你鲜明的观点或建议，而下面两层，是证据。</span><br>在这个金字塔里，塔尖，<span style="color:#5073b8;">你鲜明的观点或建议</span>，是 <strong>“投钱给我们吧”</strong>。<br>读者自然会问：为什么？<br>金字塔第二层，两方面：因为有市场，因为我们强。<br>读者又问：有市场？——哪块市场？你们强？——强在哪里？<br>金字塔进入第三层的阐述。<br>这种顺序，让读者先读到塔尖，这样，不仅他能理解你更快，甚至认同你都更快。<br><span style="color:#5073b8;">因为塔尖就像一个熠熠生辉的宝石，抢先占据了他的阅读记忆，也许他会惴惴不安，也许他会兴奋不已，于是，在他接下来的阅读中，他会自己有意无意地将下面的证据与塔尖做链接，这个被说服过程由他自己来完成了。</span><br>这就是先想再写的TCS构思法。如果不这么做，文章可能会一点一点地偏离方向，最后主张模糊、脉络不明。而修改一份粗糙的文案，花费时间和力气更多。</p>
+<h2 id="压缩三分之一的文字"><a href="#压缩三分之一的文字" class="headerlink" title="压缩三分之一的文字"></a>压缩三分之一的文字</h2><p>写完以后，还有一个步骤，<span style="color:#5073b8;">压缩，删掉三分之一的文字。</span>相信我，你可以做得到。 商务写作谨遵KISS原则：<span style="color:#5073b8;">keep it short and simple。</span> 句中不能有多余的词，段落中不能有多余的句子。<br>你可能会问我：文章到底是要简洁还是详实呢？<br><span style="color:#5073b8;">文字表达要简洁，内容提供要详实。</span><br>深度阐述和实例细节，会让文章更长，但不是冗长。 <strong>“用最少的字表达最多的意思”</strong>，这是我们追求的语言审美境界。<br>可以用这三个方法来做到 <strong>“减无可减”</strong>：</p>
+<ul>
+<li>把注水的文字压缩掉：“大概”、“一般来说”、“话说回来”，等等。</li>
+<li>把“在我看来、我认为、我相信”之类的短语删掉，这是你写的文章，没有必要反复提醒读者这是你的观点。</li>
+<li>把意思重复的句子压缩掉：相信读者是聪明人。</li>
+</ul>
+<p>简洁的文字体现自律。</p>
+<h2 id="本讲小结"><a href="#本讲小结" class="headerlink" title="本讲小结"></a>本讲小结</h2><p>第一讲要结束了。在这一讲中，你要养成先想再写，然后再删的写作习惯。<br>写之前，做好TCS三步构思——基调、内容、结构。</p>
+<p><span style="background:#EFF890;">第一步， 基调为王，用正确的基调传递出4类文案的真正价值；<br>第二步， 内容，提供“所有必需信息”，从“作者逻辑”切换到“读者逻辑”，并要话先说；<br>第三步， 结构，用向下想三层的金字塔结构，把你的假设，变成结论，用结论去说服他人。<br>最后， 商务写作的KISS原则要求我们压缩文章，我教了你三个方法。</span></p>
+<hr>
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/得到，职场写作，软技能/" rel="tag"><i class="fa fa-tags"></i> 得到，职场写作，软技能</a>
+          
+        </div>
+      
+
+      
+      
+        <div class="post-widgets">
+        
+          <div class="wp_rating">
+              <div style="color: rgba(0, 0, 0, 0.75); font-size:13px; letter-spacing:3px">(&gt;看完记得五星好评哦亲&lt;)</div>
+            <div id="wpac-rating"></div>
+          </div>
+        
+
+        
+
+        
+        </div>
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2019/03/07/hello-world.html" rel="prev" title="Hello World">
+                <i class="fa fa-chevron-left"></i> Hello World
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2019/02/24/improve-writing-skills-in-workplace.html" rel="next" title="得到|怎样提升你的职场写作能力">
+                得到|怎样提升你的职场写作能力 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+      <div id="sidebar-dimmer"></div>
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <a href="/">
+                <img class="site-author-image" itemprop="image" src="/uploads/avatar.png" alt="Depeng Lu">
+              </a>
+            
+              <p class="site-author-name" itemprop="name">Depeng Lu</p>
+              <p class="site-description motion-element" itemprop="description">学会给自己找事，不要总闲下来；学会总结和反思，过一段时间，停下来总结得失；执行力比你的目标更重要，贯彻执行力，不要三天打鱼两天晒网</p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">4</span>
+                  <span class="site-state-item-name">文章</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">2</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">2</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+            <div class="feed-link motion-element">
+              <a href="/atom.xml" rel="alternate">
+                <i class="fa fa-rss"></i>
+                RSS
+              </a>
+            </div>
+          
+
+          
+            <div class="links-of-author motion-element">
+                
+                  <span class="links-of-author-item">
+                    <a href="https://github.com/rhsphere" target="_blank" title="GitHub">
+                      
+                        <i class="fa fa-fw fa-github"></i>GitHub</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="mailto:rhsphere@gmail.com" target="_blank" title="E-Mail">
+                      
+                        <i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="https://weibo.com/rhsphere" target="_blank" title="Weibo">
+                      
+                        <i class="fa fa-fw fa-weibo"></i>Weibo</a>
+                  </span>
+                
+            </div>
+          
+
+          
+          
+
+          
+          
+            <div class="links-of-blogroll motion-element links-of-blogroll-inline">
+              <div class="links-of-blogroll-title">
+                <i class="fa  fa-fw fa-globe"></i>
+                神奇的链接
+              </div>
+              <ul class="links-of-blogroll-list">
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="http://wufan.site/" title="Fan Wu" target="_blank">Fan Wu</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://www.ouyangsong.com/" title="Song Ba" target="_blank">Song Ba</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="http://blogs.rhsphere.com/" title="Depeng Official Website" target="_blank">Depeng Official Website</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="http://www.bilibili.com/video/av6211226/" title="尼古拉·特斯拉：发明了现代世界的人" target="_blank">尼古拉·特斯拉：发明了现代世界的人</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://rhsphere.github.io/" title="意味深长的叹息" target="_blank">意味深长的叹息</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="http://chenxiaoyou.com/" title="舐め犬本物のお香" target="_blank">舐め犬本物のお香</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://www.cnblogs.com/zjdbupt/p/cycling318-day1.html" title="2015年8月“318川藏线”骑行学长博客(初生牛犊)" target="_blank">2015年8月“318川藏线”骑行学长博客(初生牛犊)</a>
+                  </li>
+                
+              </ul>
+              <div id="days"></div>
+<script>
+function show_date_time(){
+window.setTimeout("show_date_time()", 1000);
+BirthDay=new Date("04/11/2018 15:40:00");
+today=new Date();
+timeold=(today.getTime()-BirthDay.getTime());
+sectimeold=timeold/1000
+secondsold=Math.floor(sectimeold);
+msPerDay=24*60*60*1000
+e_daysold=timeold/msPerDay
+daysold=Math.floor(e_daysold);
+e_hrsold=(e_daysold-daysold)*24;
+hrsold=setzero(Math.floor(e_hrsold));
+e_minsold=(e_hrsold-hrsold)*60;
+minsold=setzero(Math.floor((e_hrsold-hrsold)*60));
+seconds=setzero(Math.floor((e_minsold-minsold)*60));
+document.getElementById('days').innerHTML="在一起 "+daysold+" 天 "+hrsold+" 小时 "+minsold+" 分 "+seconds+" 秒";
+}
+function setzero(i){
+if (i<10)
+{i="0" + i};
+return i;
+}
+show_date_time();
+</script>
+
+            </div>
+          
+          
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#基调为王，七种文案的标志性语气"><span class="nav-number">1.</span> <span class="nav-text">基调为王，七种文案的标志性语气</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#年终总结，基调要求：有深度"><span class="nav-number">1.1.</span> <span class="nav-text">年终总结，基调要求：有深度</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#进展汇报，基调要求：不讨教"><span class="nav-number">1.2.</span> <span class="nav-text">进展汇报，基调要求：不讨教</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#调查报告，基调要求：实事求是"><span class="nav-number">1.3.</span> <span class="nav-text">调查报告，基调要求：实事求是</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#请示，基调要求：有主见"><span class="nav-number">1.4.</span> <span class="nav-text">请示，基调要求：有主见</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#批复，基调要求：态度明确"><span class="nav-number">1.5.</span> <span class="nav-text">批复，基调要求：态度明确</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#项目计划，基调要求：“可交付”"><span class="nav-number">1.6.</span> <span class="nav-text">项目计划，基调要求：“可交付”</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#从“作者逻辑”切换到“读者逻辑”"><span class="nav-number">2.</span> <span class="nav-text">从“作者逻辑”切换到“读者逻辑”</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#“向下想三层”，假设变结论"><span class="nav-number">3.</span> <span class="nav-text">“向下想三层”，假设变结论</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#压缩三分之一的文字"><span class="nav-number">4.</span> <span class="nav-text">压缩三分之一的文字</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#本讲小结"><span class="nav-number">5.</span> <span class="nav-text">本讲小结</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; 2018 &mdash; <span itemprop="copyrightYear">2019</span>
+  <span class="with-love" id="heart">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Depeng Lu</span>
+
+  
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-area-chart"></i>
+    </span>
+    
+      <span class="post-meta-item-text">Site words total count&#58;</span>
+    
+    <span title="Site words total count"></span>
+  
+</div>
+
+
+
+
+
+
+
+
+
+<div class="weixin-box">
+  <div class="weixin-menu">
+    <div class="weixin-hover">
+      <div class="weixin-description">微信扫一扫，加我好友</div>
+    </div>
+  </div>
+</div>
+
+        
+<div class="busuanzi-count">
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+  
+    <span class="site-uv">
+      <i class="fa fa-user"></i>
+      <span class="busuanzi-value" id="busuanzi_value_site_uv"></span>
+      
+    </span>
+  
+
+  
+    <span class="site-pv">
+      
+      <span class="busuanzi-value" id="busuanzi_value_site_pv"></span>
+      <i class="fa fa-eye"></i>
+    </span>
+  
+</div>
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+          <span id="scrollpercent"><span>0</span>%</span>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/fastclick/1.0.6/fastclick.min.js"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery_lazyload/1.9.7/jquery.lazyload.min.js"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/velocity/1.2.1/velocity.min.js"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/velocity/1.2.1/velocity.ui.min.js"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.2.5/jquery.fancybox.min.js"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (/json$/i.test(search_path)) {
+      isXml = false;
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    var onPopupClose = function (e) {
+      $('.popup').hide();
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.search-popup-overlay').click(onPopupClose);
+      $('.popup').toggle();
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+
+      // start loading animation
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
+          '<div id="search-loading-icon">' +
+          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
+          '</div>' +
+          '</div>')
+        .css('overflow', 'hidden');
+      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
+
+      $.ajax({
+        url: path,
+        dataType: isXml ? "xml" : "json",
+        async: true,
+        success: function(res) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = isXml ? $("entry", res).map(function() {
+            return {
+              title: $("title", this).text(),
+              content: $("content",this).text(),
+              url: $("url" , this).text()
+            };
+          }).get() : res;
+          var input = document.getElementById(search_id);
+          var resultContent = document.getElementById(content_id);
+          var inputEventFunction = function() {
+            var searchText = input.value.trim().toLowerCase();
+            var keywords = searchText.split(/[\s\-]+/);
+            if (keywords.length > 1) {
+              keywords.push(searchText);
+            }
+            var resultItems = [];
+            if (searchText.length > 0) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var hitCount = 0;
+                var searchTextCount = 0;
+                var title = data.title.trim();
+                var titleInLowerCase = title.toLowerCase();
+                var content = data.content.trim().replace(/<[^>]+>/g,"");
+                var contentInLowerCase = content.toLowerCase();
+                var articleUrl = decodeURIComponent(data.url);
+                var indexOfTitle = [];
+                var indexOfContent = [];
+                // only match articles with not empty titles
+                if(title != '') {
+                  keywords.forEach(function(keyword) {
+                    function getIndexByWord(word, text, caseSensitive) {
+                      var wordLen = word.length;
+                      if (wordLen === 0) {
+                        return [];
+                      }
+                      var startPosition = 0, position = [], index = [];
+                      if (!caseSensitive) {
+                        text = text.toLowerCase();
+                        word = word.toLowerCase();
+                      }
+                      while ((position = text.indexOf(word, startPosition)) > -1) {
+                        index.push({position: position, word: word});
+                        startPosition = position + wordLen;
+                      }
+                      return index;
+                    }
+
+                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+                  });
+                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+                    isMatch = true;
+                    hitCount = indexOfTitle.length + indexOfContent.length;
+                  }
+                }
+
+                // show search results
+
+                if (isMatch) {
+                  // sort index by position of keyword
+
+                  [indexOfTitle, indexOfContent].forEach(function (index) {
+                    index.sort(function (itemLeft, itemRight) {
+                      if (itemRight.position !== itemLeft.position) {
+                        return itemRight.position - itemLeft.position;
+                      } else {
+                        return itemLeft.word.length - itemRight.word.length;
+                      }
+                    });
+                  });
+
+                  // merge hits into slices
+
+                  function mergeIntoSlice(text, start, end, index) {
+                    var item = index[index.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    var hits = [];
+                    var searchTextCountInSlice = 0;
+                    while (position + word.length <= end && index.length != 0) {
+                      if (word === searchText) {
+                        searchTextCountInSlice++;
+                      }
+                      hits.push({position: position, length: word.length});
+                      var wordEnd = position + word.length;
+
+                      // move to next position of hit
+
+                      index.pop();
+                      while (index.length != 0) {
+                        item = index[index.length - 1];
+                        position = item.position;
+                        word = item.word;
+                        if (wordEnd > position) {
+                          index.pop();
+                        } else {
+                          break;
+                        }
+                      }
+                    }
+                    searchTextCount += searchTextCountInSlice;
+                    return {
+                      hits: hits,
+                      start: start,
+                      end: end,
+                      searchTextCount: searchTextCountInSlice
+                    };
+                  }
+
+                  var slicesOfTitle = [];
+                  if (indexOfTitle.length != 0) {
+                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+                  }
+
+                  var slicesOfContent = [];
+                  while (indexOfContent.length != 0) {
+                    var item = indexOfContent[indexOfContent.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    // cut out 100 characters
+                    var start = position - 20;
+                    var end = position + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if (end < position + word.length) {
+                      end = position + word.length;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+                  }
+
+                  // sort slices in content by search text's count and hits' count
+
+                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                      return sliceRight.hits.length - sliceLeft.hits.length;
+                    } else {
+                      return sliceLeft.start - sliceRight.start;
+                    }
+                  });
+
+                  // select top N slices in content
+
+                  var upperBound = parseInt('1');
+                  if (upperBound >= 0) {
+                    slicesOfContent = slicesOfContent.slice(0, upperBound);
+                  }
+
+                  // highlight title and content
+
+                  function highlightKeyword(text, slice) {
+                    var result = '';
+                    var prevEnd = slice.start;
+                    slice.hits.forEach(function (hit) {
+                      result += text.substring(prevEnd, hit.position);
+                      var end = hit.position + hit.length;
+                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                      prevEnd = end;
+                    });
+                    result += text.substring(prevEnd, slice.end);
+                    return result;
+                  }
+
+                  var resultItem = '';
+
+                  if (slicesOfTitle.length != 0) {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
+                  } else {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
+                  }
+
+                  slicesOfContent.forEach(function (slice) {
+                    resultItem += "<a href='" + articleUrl + "'>" +
+                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
+                      "...</p>" + "</a>";
+                  });
+
+                  resultItem += "</li>";
+                  resultItems.push({
+                    item: resultItem,
+                    searchTextCount: searchTextCount,
+                    hitCount: hitCount,
+                    id: resultItems.length
+                  });
+                }
+              })
+            };
+            if (keywords.length === 1 && keywords[0] === "") {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>'
+            } else if (resultItems.length === 0) {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>'
+            } else {
+              resultItems.sort(function (resultLeft, resultRight) {
+                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+                  return resultRight.searchTextCount - resultLeft.searchTextCount;
+                } else if (resultLeft.hitCount !== resultRight.hitCount) {
+                  return resultRight.hitCount - resultLeft.hitCount;
+                } else {
+                  return resultRight.id - resultLeft.id;
+                }
+              });
+              var searchResultList = '<ul class=\"search-result-list\">';
+              resultItems.forEach(function (result) {
+                searchResultList += result.item;
+              })
+              searchResultList += "</ul>";
+              resultContent.innerHTML = searchResultList;
+            }
+          }
+
+          if ('auto' === 'auto') {
+            input.addEventListener('input', inputEventFunction);
+          } else {
+            $('.search-icon').click(inputEventFunction);
+            input.addEventListener('keypress', function (event) {
+              if (event.keyCode === 13) {
+                inputEventFunction();
+              }
+            });
+          }
+
+          // remove loading animation
+          $(".local-search-pop-overlay").remove();
+          $('body').css('overflow', '');
+
+          proceedsearch();
+        }
+      });
+    }
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 &&
+        $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+  </script>
+
+
+
+
+
+  
+
+  
+  <script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.4.js"></script>
+  <script>AV.initialize("82jdCI9UYCgNFzKdNh1QLY3W-gzGzoHsz", "3BLDtyhvEleDl8lJId0wQwMB");</script>
+  <script>
+    function showTime(Counter) {
+      var query = new AV.Query(Counter);
+      var entries = [];
+      var $visitors = $(".leancloud_visitors");
+
+      $visitors.each(function () {
+        entries.push( $(this).attr("id").trim() );
+      });
+
+      query.containedIn('url', entries);
+      query.find()
+        .done(function (results) {
+          var COUNT_CONTAINER_REF = '.leancloud-visitors-count';
+
+          if (results.length === 0) {
+            $visitors.find(COUNT_CONTAINER_REF).text(0);
+            return;
+          }
+
+          for (var i = 0; i < results.length; i++) {
+            var item = results[i];
+            var url = item.get('url');
+            var time = item.get('time');
+            var element = document.getElementById(url);
+
+            $(element).find(COUNT_CONTAINER_REF).text(time);
+          }
+          for(var i = 0; i < entries.length; i++) {
+            var url = entries[i];
+            var element = document.getElementById(url);
+            var countSpan = $(element).find(COUNT_CONTAINER_REF);
+            if( countSpan.text() == '') {
+              countSpan.text(0);
+            }
+          }
+        })
+        .fail(function (object, error) {
+          console.log("Error: " + error.code + " " + error.message);
+        });
+    }
+
+    function addCount(Counter) {
+      var $visitors = $(".leancloud_visitors");
+      var url = $visitors.attr('id').trim();
+      var title = $visitors.attr('data-flag-title').trim();
+      var query = new AV.Query(Counter);
+
+      query.equalTo("url", url);
+      query.find({
+        success: function(results) {
+          if (results.length > 0) {
+            var counter = results[0];
+            counter.fetchWhenSave(true);
+            counter.increment("time");
+            counter.save(null, {
+              success: function(counter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(counter.get('time'));
+              },
+              error: function(counter, error) {
+                console.log('Failed to save Visitor num, with error message: ' + error.message);
+              }
+            });
+          } else {
+            var newcounter = new Counter();
+            /* Set ACL */
+            var acl = new AV.ACL();
+            acl.setPublicReadAccess(true);
+            acl.setPublicWriteAccess(true);
+            newcounter.setACL(acl);
+            /* End Set ACL */
+            newcounter.set("title", title);
+            newcounter.set("url", url);
+            newcounter.set("time", 1);
+            newcounter.save(null, {
+              success: function(newcounter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(newcounter.get('time'));
+              },
+              error: function(newcounter, error) {
+                console.log('Failed to create');
+              }
+            });
+          }
+        },
+        error: function(error) {
+          console.log('Error:' + error.code + " " + error.message);
+        }
+      });
+    }
+
+    $(function() {
+      var Counter = AV.Object.extend("Counter");
+      if ($('.leancloud_visitors').length == 1) {
+        addCount(Counter);
+      } else if ($('.post-title-link').length > 1) {
+        showTime(Counter);
+      }
+    });
+  </script>
+
+
+
+  
+
+  
+
+  
+  
+  <script type="text/javascript">
+  wpac_init = window.wpac_init || [];
+  wpac_init.push({widget: 'Rating', id: 16073,
+    el: 'wpac-rating',
+    color: 'f79533'
+  });
+  (function() {
+    if ('WIDGETPACK_LOADED' in window) return;
+    WIDGETPACK_LOADED = true;
+    var mc = document.createElement('script');
+    mc.type = 'text/javascript';
+    mc.async = true;
+    mc.src = '//embed.widgetpack.com/widget.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(mc, s.nextSibling);
+  })();
+  </script>
+
+
+  
+
+  
+
+  
+
+  
+  <!-- 实现页面加载速度 -->
+  <script type="text/javascript" src="/js/src/instantclick.min.js" data-no-instant></script>
+  <script data-no-instant>InstantClick.init();</script>
+
+  <!-- 背景图片 -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-backstretch/2.0.4/jquery.backstretch.min.js"></script>
+  <script> $("body").backstretch("/images/background/andrii-shafetov-03-npc-camp-empty.jpg"); </script>
+
+  <!-- 页面点击小红心 -->
+  <script type="text/javascript" src="/js/src/clicklove.js"></script>
+
+</body>
+</html>
