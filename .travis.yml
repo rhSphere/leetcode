@@ -1,31 +1,28 @@
-language: node_js
-node_js: stable
-
-branches:
-  only:
-  - source
-
+language: node_js # 设置语言
+node_js: stable # 设置相应版本
 cache:
-  directories:
-    - node_modules
-
+    apt: true
+    directories:
+        - node_modules # 缓存不经常更改的内容
 install:
-  - npm install
-
-script:
-  - hexo clean
-  - hexo g
-
+    - npm install # 安装hexo及插件
+    - npm rebuild node-sass --force #该命令是根据构建失败的日志提示添加的
+before_install:
+    - export TZ='Asia/Shanghai' # 更改时区
+    - npm install hexo-cli -g  # 安装hexo环境
+    - chmod +x ./publish-to-gh-pages.sh  # 为shell文件添加可执行权限
 after_script:
-  - cd ./public
-  - git init
-  - git config user.name "rhsphere"
-  - git config user.email "rhsphere@gmail.com"
-  - git add .
-  - git commit -m "Travis ci son of a bitch"
-  - git push --force --quiet "https://${leetcode}@${GH_REF}" master:master
-
+    - ./publish-to-gh-pages.sh
+script:
+    - hexo clean # 清除
+    - hexo g # 生成
+branches:
+    only:
+        - source # 只监测hexo分支
 env:
- global:
-   - GH_REF: git@github.com:rhSphere/leetcode.git
-   - secure: "TXkfPMM5tK47Cxl61Jzt1TXm07zKNR0HSxjnjFmoY1ULUxJKnd+dA1W4i2YVEylXVzfil6gfwPPgvEpyKEMjxgY0w8Lj23VW0q5vfwSXumNV/wCwNHBRvC7rq5sOVvzzbcr/qp4BpshtkwoK2WPj5AJy5dc4/jRdmRqQcmU5XSddqlS48z3DiqAMsZZxfjW7zezqENbbJEoTwDuZ1VkGttkqXtYbUtLyfgk04FZIfrKs2icnY+De0DvEn4WPfKMhqdD4K5JDrPuEwnAyVpCWmaS9x2EEZia+G+/HwjYmq+1t5XFxMyColVeMXzGUe+lWKoI3IBFttmseKMHQFFNAT4BlZko01rW//dk1JHPGvGNcAoFOU83fjreqmLCZHr3DhAHcO4jibBqXKBrMsfJNU0E38ZgJH6+3Mp4xsANiUrLNObAB2nkeRNhl9yc4HfPBTNZf3Rr0Iweq7q39xmann9bgEVVBwhDtv56h1iyw4zOf/5XrLyZVObP8bTXYgtR8bEM1umP6NvHhSjd8Qhn8TUu5bV2RHHFfpkr39s52Sw1Yug/C8GJwENL3WDwA5p0tgTpm72A+VagxzsQZ7oG9cXqwYYnAKHYic4mi7f1oXQyJb4P5aS8z5Is158HNR1Mc2m+GcO95YGgDgRqIFbhQDBBGtna7tdcoo7wLMRzh59w="
+    global:
+        # Github Pages
+        - GH_REF: github.com/rhSphere/leetcode.git #设置GH_REF，注意更改成自己的仓库地址
+        - secure: "TXkfPMM5tK47Cxl61Jzt1TXm07zKNR0HSxjnjFmoY1ULUxJKnd+dA1W4i2YVEylXVzfil6gfwPPgvEpyKEMjxgY0w8Lj23VW0q5vfwSXumNV/wCwNHBRvC7rq5sOVvzzbcr/qp4BpshtkwoK2WPj5AJy5dc4/jRdmRqQcmU5XSddqlS48z3DiqAMsZZxfjW7zezqENbbJEoTwDuZ1VkGttkqXtYbUtLyfgk04FZIfrKs2icnY+De0DvEn4WPfKMhqdD4K5JDrPuEwnAyVpCWmaS9x2EEZia+G+/HwjYmq+1t5XFxMyColVeMXzGUe+lWKoI3IBFttmseKMHQFFNAT4BlZko01rW//dk1JHPGvGNcAoFOU83fjreqmLCZHr3DhAHcO4jibBqXKBrMsfJNU0E38ZgJH6+3Mp4xsANiUrLNObAB2nkeRNhl9yc4HfPBTNZf3Rr0Iweq7q39xmann9bgEVVBwhDtv56h1iyw4zOf/5XrLyZVObP8bTXYgtR8bEM1umP6NvHhSjd8Qhn8TUu5bV2RHHFfpkr39s52Sw1Yug/C8GJwENL3WDwA5p0tgTpm72A+VagxzsQZ7oG9cXqwYYnAKHYic4mi7f1oXQyJb4P5aS8z5Is158HNR1Mc2m+GcO95YGgDgRqIFbhQDBBGtna7tdcoo7wLMRzh59w="
+        
+        
