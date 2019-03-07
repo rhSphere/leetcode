@@ -119,7 +119,7 @@ search:
 deploy:
   type: git
   repo: 
-    github: https://git@github.com/rhSphere/leetcode
+    github: git@github.com:rhSphere/leetcode.git
     branch: master
   message: hexo deploy
 
