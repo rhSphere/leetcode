@@ -2,47 +2,37 @@ language: node_js
 
 node_js: stable
 
-# 只监听 source 分支的改动
+cache:
+  directories:
+    - node_modules
+
+before_install:
+  - npm install hexo-cli -g
+
+install:
+  - npm install
+
+script:
+  - hexo clean
+  - hexo generate
+
+after_script:
+  - cd ./public
+  - git init
+  - git config user.name "rhsphere"
+  - git config user.email "rhsphere@gmail.com"
+  - git add .
+  - git commit -m "TravisCI Auto Deploy"
+  # Github Pages
+  - git push --force --quiet "https://${CI_TOKEN}@${GH_REF}" master:master 
+  
+
 branches:
   only:
   - source
 
-# 缓存依赖，节省持续集成时间
-cache:
-  yarn: true
-  directories:
-    - node_modules
-  
-
-install:
-  - npm install  
-
-before_install:
-    - export TZ='Asia/Shanghai' # 更改时区
-
-script:
-  - hexo g
-
-after_script:
-  - git clone https://${GH_REF} .deploy_git  # GH_REF是最下面配置的仓库地址
-  - cd .deploy_git
-  - git checkout master
-  - cd ../
-  - mv .deploy_git/.git/ ./public/   # 这一步之前的操作是为了保留master分支的提交记录，不然每次git init的话只有1条commit
-  - cd ./public
-  - git config user.name "rhsphere"  #修改name
-  - git config user.email "rhsphere@gmail.com"  #修改email
-  - git add .
-  - git commit -m "Travis CI Bot at `date +"%Y-%m-%d %H:%M"`"  # 提交记录包含时间 跟上面更改时区配合
-  - git push --force --quiet "https://${leetcode}@${GH_REF}" master:master  #Travis_Token是在Travis中配置环境变量的名称
-
-
-#设置GH_REF，注意更改yourname
 env:
-  global:
-    - secure: J1cFxmdWAQ/xChZ1YBt8aElHEOAiNSPe0opMxlpS4gn8MfB5QXrqawrgu0zJk5WI7kCmTepSwAj3uNy19om7NG3LkRpG7q1Up29K6XNDzFgmp4ca5b6FPoQxLNDKWS67Mzg3s8vz943e0gmmDhApyDLkIagByyd3Kl2RghuPm+KtQCoXszR8fUM59j3FTB4PYjBacFm8Rv0ZrvA2M/N89ITZGxtI1pw7u+L7z/SQOrG1G57VMpLNSh6tGQA9hkFo6yRb7K1gw3+cI/1OhiT1lbCaAV0Z9iKNjvTEGkN8LREO5SkMHfy04l739vP0wgVxelbAhpyOgJ3YQlNh+KEVRJsFiSV9+ICHmchVZjhVw1BjFwIK272N+JBx+MIyEF7FzAaYzZCBAcyZYniFHEtryFwrChpT2wD654TbvDHfgdwamDgXw8wSDjtGHICsAaLrlk+4lN5ICAVRzfPxntexBttY86YOJO6hUAtIJ/PJgOj1EwP5L40VunFwDrpN6NFWra0AtToBUx1pJTPA+gECmzMowQvsby0RNSEP0i+DtvEgrQ67tjsmLXIrJOkix2cvdPh1BSDjfDOMgbYJmwDYFVqHuF6FLGlHJc1RqPiGSrXZ2itxtIa6fn6gSC1xqcopo9BZ6PHp1UmyrmNnmvLHxWsU78UvZ0dcNAbs3+ZeF1I=
-    - GH_REF: git@github.com:rhSphere/leetcode.git
-
-
-
-
+ global:
+   # Github Pages
+   - GH_REF: git@github.com:rhSphere/leetcode.git
+  
