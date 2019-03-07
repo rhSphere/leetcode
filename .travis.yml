@@ -1,29 +1,37 @@
 language: node_js
-
 node_js: stable
-
 branches:
-  only:
-    - source
+    only:
+        - source
 
 cache:
-  directories:
-    - node_modules
-
+    directories:
+        - node_modules
 
 install:
-  - npm install
+    - npm install
 
 script:
-  - hexo generate
+    - hexo clean
+    - hexo g
 
-deploy:
-  provider: pages
-  skip_cleanup: true
-  github_token: $leetcode
-  local_dir: public
-  on:
-    branch: master
+after_script:
+    - git clone https://${GH_REF} .deploy_git
+    - cd .deploy_git
+    - git checkout master
+    - cd ../
+    - mv .deploy_git/.git/ ./public/
+    - cd ./public
+    - git config user.name "rhsphere"
+    - git config user.email "rhsphere@gmail.com"
+    - git add .
+    - git commit -m "Travis CI Auto Builder"
+    - git push --force --quiet "https://${leetcode}@${GH_REF}" master:master
+
+env:
+    global:
+        - GH_REF: git@github.com:rhSphere/leetcode.git
+
 
 
 
