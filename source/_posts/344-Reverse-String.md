@@ -16,7 +16,6 @@ description:
 - 头尾两个指针
 
 ```java 344. 反转字符串
-
 class Solution {
     public void reverseString(char[] s) {
         int start = 0;
