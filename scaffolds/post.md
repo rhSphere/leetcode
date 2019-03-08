@@ -1,5 +1,22 @@
 ---
 title: {{ title }}
+
 date: {{ date }}
-tags:
+
+permalink: 
+
+categories:
+
+tags: []
+
+description: 
+
 ---
+<p class="description"></p>
+
+
+<!-- more -->
+
+
+
+<hr />
