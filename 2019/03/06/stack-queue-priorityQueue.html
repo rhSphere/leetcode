@@ -121,7 +121,7 @@
 
 
 
-  <meta name="keywords" content="Math,">
+  <meta name="keywords" content="Stack,Queue,PriorityQueue,">
 
 
 
@@ -134,18 +134,18 @@
 
 
 
-<meta name="description" content="如果一个字符在字符串S中有且仅有出现一次，那么我们称其为独特字符。对于给定字符串S，计算其所有非空子串的独特字符的个数，即 UNIQ(substring)。如果出现两个或者多个相同的子串，将其认为是不同的两个子串。">
-<meta name="keywords" content="Math">
+<meta name="description" content="可以使用数组线性表实现栈，使用链表实现队列。">
+<meta name="keywords" content="Stack,Queue,PriorityQueue">
 <meta property="og:type" content="article">
-<meta property="og:title" content="828. Unique Letter String">
-<meta property="og:url" content="https://rhsphere.github.io/leetcode/2019/03/07/828.html">
+<meta property="og:title" content="栈、队列和优先队列">
+<meta property="og:url" content="https://rhsphere.github.io/leetcode/2019/03/06/stack-queue-priorityQueue.html">
 <meta property="og:site_name" content="Depeng&#39;s Blog for Algorithms">
-<meta property="og:description" content="如果一个字符在字符串S中有且仅有出现一次，那么我们称其为独特字符。对于给定字符串S，计算其所有非空子串的独特字符的个数，即 UNIQ(substring)。如果出现两个或者多个相同的子串，将其认为是不同的两个子串。">
+<meta property="og:description" content="可以使用数组线性表实现栈，使用链表实现队列。">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:updated_time" content="2019-03-17T13:53:25.016Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="828. Unique Letter String">
-<meta name="twitter:description" content="如果一个字符在字符串S中有且仅有出现一次，那么我们称其为独特字符。对于给定字符串S，计算其所有非空子串的独特字符的个数，即 UNIQ(substring)。如果出现两个或者多个相同的子串，将其认为是不同的两个子串。">
+<meta name="twitter:title" content="栈、队列和优先队列">
+<meta name="twitter:description" content="可以使用数组线性表实现栈，使用链表实现队列。">
 
 
 
@@ -178,13 +178,13 @@
 
 
 
-  <link rel="canonical" href="https://rhsphere.github.io/leetcode/2019/03/07/828.html">
+  <link rel="canonical" href="https://rhsphere.github.io/leetcode/2019/03/06/stack-queue-priorityQueue.html">
 
 
 
 
 
-  <title>828. Unique Letter String | Depeng's Blog for Algorithms</title>
+  <title>栈、队列和优先队列 | Depeng's Blog for Algorithms</title>
   
 
 
@@ -343,7 +343,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://rhsphere.github.io/leetcode/leetcode/2019/03/07/828.html">
+    <link itemprop="mainEntityOfPage" href="https://rhsphere.github.io/leetcode/leetcode/2019/03/06/stack-queue-priorityQueue.html">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Depeng Lu">
@@ -360,7 +360,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">828. Unique Letter String</h1>
+          <h1 class="post-title" itemprop="name headline">栈、队列和优先队列</h1>
         
 
         <div class="post-meta">
@@ -372,8 +372,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-03-07T15:59:33+08:00">
-                2019-03-07
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-03-06T20:23:16+08:00">
+                2019-03-06
               </time>
             
 
@@ -395,8 +395,8 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/leetcode/categories/Hard/" itemprop="url" rel="index">
-                    <span itemprop="name">Hard</span>
+                  <a href="/leetcode/categories/List/" itemprop="url" rel="index">
+                    <span itemprop="name">List</span>
                   </a>
                 </span>
 
@@ -412,7 +412,7 @@
 
           
           
-             <span id="/leetcode/2019/03/07/828.html" class="leancloud_visitors" data-flag-title="828. Unique Letter String">
+             <span id="/leetcode/2019/03/06/stack-queue-priorityQueue.html" class="leancloud_visitors" data-flag-title="栈、队列和优先队列">
                <span class="post-meta-divider">|</span>
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -443,16 +443,38 @@
       
 
       
-        <p class="description">如果一个字符在字符串S中有且仅有出现一次，那么我们称其为独特字符。对于给定字符串S，计算其所有非空子串的独特字符的个数，即 UNIQ(substring)。如果出现两个或者多个相同的子串，将其认为是不同的两个子串。</p>
+        <p class="description">可以使用数组线性表实现栈，使用链表实现队列。</p>
 
 
 <a id="more"></a>
-<p>In each loop, We caculate cur[i], which represent the sum of Uniq() for all substrings whose last char is S.charAt(i).</p>
-<p>For example,<br>S = ‘ABCBD’<br>When i = 2, cur[2] = Uniq(‘ABC’) + Uniq(‘BC’) + Uniq(‘C’)<br>When i = 3, cur[3] = Uniq(‘ABCB’) + Uniq(‘BCB’) + Uniq(‘CB’) + Uniq(‘B’)</p>
-<p>Notice, we append char ‘B’ into each previous substrings. Only in substrings ‘CB’ and ‘B’, the char ‘B’ can be identified as uniq. The contribution of ‘B’ from cur[2] to cur[3] is i - showLastPosition[‘B’]. At the same time, in substrings ‘ABCB’, ‘BCB’, the char ‘B’ can‘t’ be identified as uniq any more, the previous contribution of ‘B’ should be removed.</p>
-<p>So we have’cur[i] = cur[i - 1] - contribution[S.charAt(i)] + (i - showLastPosition[S.charAt(i)])<br>Then the new contribution[S.charAt(i)] = i - showLastPosition[S.charAt(i)]</p>
-<p>The final result is the sum of all cur[i].</p>
-<figure class="highlight java"><figcaption><span>828. 独特字符串</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">uniqueLetterString</span><span class="params">(String S)</span> </span>&#123;             </span><br><span class="line">        <span class="keyword">int</span> res = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">if</span> (S == <span class="keyword">null</span> || S.length() == <span class="number">0</span>)</span><br><span class="line">            <span class="keyword">return</span> res;    </span><br><span class="line">        <span class="keyword">int</span>[] showLastPosition = <span class="keyword">new</span> <span class="keyword">int</span>[<span class="number">128</span>];</span><br><span class="line">        <span class="keyword">int</span>[] contribution = <span class="keyword">new</span> <span class="keyword">int</span>[<span class="number">128</span>];</span><br><span class="line">        <span class="keyword">int</span> cur = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; S.length(); i++) &#123;</span><br><span class="line">            <span class="keyword">char</span> x = S.charAt(i);</span><br><span class="line">            cur -= contribution[x]; </span><br><span class="line">            contribution[x] = (i - (showLastPosition[x] - <span class="number">1</span>));</span><br><span class="line">            cur += contribution[x]; </span><br><span class="line">            showLastPosition[x] = i + <span class="number">1</span>;</span><br><span class="line">            res += cur;</span><br><span class="line">        &#125;   </span><br><span class="line">        <span class="keyword">return</span> res;    </span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="栈-Stack"><a href="#栈-Stack" class="headerlink" title="栈(Stack)"></a>栈(Stack)</h2><p>将数组线性表定义为栈类中的数据域，而不是使用继承ArrayList的方法是因为，一般来说加强或扩展类的功能时才使用继承的方式。<br>AbstractList &lt;— Vector &lt;— Stack<br>ArrayList和Vector类是一样的。如果不需要同步使用ArrayList类。<br>Stack方法：</p>
+<ul>
+<li>peak() 返回栈顶元素而不移除它</li>
+<li>pop()  返回并移除栈顶元素</li>
+<li>push(e) 添加元素到栈里</li>
+<li>search(e) 检测指定元素是否在栈中</li>
+</ul>
+<h3 id="组合的方式实现栈"><a href="#组合的方式实现栈" class="headerlink" title="组合的方式实现栈"></a>组合的方式实现栈</h3><figure class="highlight java"><figcaption><span>GenericStack.java</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> java.util.ArrayList;</span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Generictack</span> </span>&#123;</span><br><span class="line">    <span class="keyword">private</span> ArrayList&lt;E&gt; list = <span class="keyword">new</span> ArrayList&lt;&gt;();</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">getSize</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> list.size();</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> E <span class="title">peek</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> list.get(getSize() - <span class="number">1</span>);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">push</span><span class="params">(E e)</span> </span>&#123;</span><br><span class="line">        list.add(e);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> E <span class="title">pop</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        E e = list.get(getSize() -<span class="number">1</span>);</span><br><span class="line">        list.remove(getSize() -<span class="number">1</span>);</span><br><span class="line">        <span class="keyword">return</span> e;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">isEmpty</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> list.isEmpty();</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">toString</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="string">"stack: "</span> + list.toString();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="用栈存储素数"><a href="#用栈存储素数" class="headerlink" title="用栈存储素数"></a>用栈存储素数</h3><figure class="highlight java"><figcaption><span>TestGenericStack.java</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">TestGenericStack</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        GenericStack&lt;Integer&gt; stack = <span class="keyword">new</span> GenericStack&lt;&gt;();</span><br><span class="line">        <span class="keyword">final</span> <span class="keyword">int</span> NUMBER_OF_PRIMES = <span class="number">50</span>;</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">int</span> count = <span class="number">0</span>;</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">2</span>; count &lt; NUMBER_OF_PRIMES; i++) &#123;</span><br><span class="line">            <span class="keyword">if</span> (isPrime(i)) &#123;</span><br><span class="line">                stack.push(i);</span><br><span class="line">                count++;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        System.out.println(<span class="string">"The first 50 prime numbers in descending order: "</span>);</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; !stack.isEmpty(); i++)&#123;</span><br><span class="line">            <span class="keyword">if</span> (i % <span class="number">10</span> == <span class="number">0</span>)</span><br><span class="line">                System.out.printf(<span class="string">"%3d\n"</span>, stack.pop());</span><br><span class="line">            <span class="keyword">else</span></span><br><span class="line">                System.out.printf(<span class="string">"%3d "</span>, stack.pop());</span><br><span class="line">        &#125;</span><br><span class="line">        System.out.println();</span><br><span class="line">        </span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">boolean</span> <span class="title">isPrime</span><span class="params">(<span class="keyword">int</span> n)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">2</span>; i &lt;= n / <span class="number">2</span>; i++) &#123;</span><br><span class="line">            <span class="keyword">if</span> (n % i == <span class="number">0</span>)</span><br><span class="line">                <span class="keyword">return</span> <span class="keyword">false</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">true</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="队列-Queue"><a href="#队列-Queue" class="headerlink" title="队列(Queue)"></a>队列(Queue)</h2><p>java API中java.util.Queue是一个接口<br>可以用Queue作为父类引用，LinkedList作为实例<br>java.util.Queue&lt;TreeNode<e>&gt; queue = new java.util.LinkedList&lt;&gt;();</e></p>
+<p>Queue是LinkedList的父类接口<br>继承关系：<br>Collection &lt;— Queue &lt;— Deque &lt;— LinkedList<br>                Queue &lt;— AbstractQueue &lt;— PriorityQueue<br>Queue的方法：</p>
+<ul>
+<li>offer(e) 插入元素e到队列中</li>
+<li>poll() 获取并移除队头(front)元素，，队为空返回null</li>
+<li>remove() 获取并移除队头(front)元素，队为空抛出异常</li>
+<li>peek() 获取但不移除对头元素，队为空返回null</li>
+<li>element() 获取但不移除对头元素，队为空抛出异常</li>
+</ul>
+<p>使用继承和组合的方式实现队列和栈都是可行的，但是组合更好一点，因为可以定义一个全新的栈类和队列类，而不需要继承ArrayList和LinkedList中不必要和不合适的方法。</p>
+<p><span style="color:#5073b8;">类仅在它们需要被加强或修改时，才会使用继承！！！！</span></p>
+<h3 id="使用组合的方式实现队列"><a href="#使用组合的方式实现队列" class="headerlink" title="使用组合的方式实现队列"></a>使用组合的方式实现队列</h3><figure class="highlight java"><figcaption><span>组合的方式实现Queue</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> java.util.LinkedList;</span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">GenericQueue</span>&lt;<span class="title">E</span>&gt; </span>&#123;</span><br><span class="line">    <span class="keyword">private</span> LinkedList&lt;E&gt; list = <span class="keyword">new</span> LinkedList&lt;&gt;();</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">enqueue</span><span class="params">(E e)</span> </span>&#123;</span><br><span class="line">        list.addFirst(e);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> E <span class="title">dequeu</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> list.removeFirst();</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">getSize</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> list.size();</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">toString</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="string">"Queue: "</span> + list.toString();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="继承关系实现Queue"><a href="#继承关系实现Queue" class="headerlink" title="继承关系实现Queue"></a>继承关系实现Queue</h3><figure class="highlight java"><figcaption><span>继承关系实现Queue</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">GenericQueue</span>&lt;<span class="title">E</span>&gt; <span class="keyword">extends</span> <span class="title">java</span>.<span class="title">util</span>.<span class="title">LinkedList</span>&lt;<span class="title">E</span>&gt; </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">enqueue</span><span class="params">(E e)</span> </span>&#123;</span><br><span class="line">        addLast(e);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> E <span class="title">dequeue</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> removeFirst();</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">getSize</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> size();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="优先队列-PriorityQueue"><a href="#优先队列-PriorityQueue" class="headerlink" title="优先队列(PriorityQueue)"></a>优先队列(PriorityQueue)</h2><p>对于使用Comparable和Comparator实现的Heap类见文章<a href="https://blogs.rhsphere.com/leetcode/2019/03/14/heap-sort.html" target="_blank" rel="noopener">堆排序</a></p>
+<h3 id="用堆实现优先队列"><a href="#用堆实现优先队列" class="headerlink" title="用堆实现优先队列"></a>用堆实现优先队列</h3><p>普通队列是一种先进先出的数据结构，元素在rear添加，在front删除。在优先队列中，元素被赋予优先级，当访问元素时，具有最高优先级的元素最先删除。<br>Largest-in, first-Out 高进先出<br>在java API中继承顺序如下：<br>Queue &lt;— AbstractQueue &lt;— PriorityQueue </p>
+<p>可以使用堆实现优先队列，其中根节点是队列中具有最高优先级的对象。</p>
+<p>使用Comparable接口</p>
+<figure class="highlight java"><figcaption><span>用Comparable实现泛型PriorityQueue</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">MyPriorityQueue</span>&lt;<span class="title">E</span> <span class="keyword">extends</span> <span class="title">Comparable</span>&lt;<span class="title">E</span>&gt;&gt; </span>&#123;</span><br><span class="line">    <span class="keyword">private</span> Heap&lt;E&gt; heap = <span class="keyword">new</span> Heap&lt;&gt;();</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">enqueue</span><span class="params">(E newOject)</span> </span>&#123;</span><br><span class="line">        heap.add(newObject);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> E <span class="title">dequeue</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> heap.remove();</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">getSize</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> heap.getSize();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="用Comparator实现泛型PriorityQueue"><a href="#用Comparator实现泛型PriorityQueue" class="headerlink" title="用Comparator实现泛型PriorityQueue"></a>用Comparator实现泛型PriorityQueue</h3><figure class="highlight java"><figcaption><span>用Comparator实现泛型PriorityQueue</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> java.util.Comparator;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">MyPriorityQueue</span>&lt;<span class="title">E</span>&gt; </span>&#123;</span><br><span class="line">    <span class="keyword">private</span> Comparator&lt;? <span class="keyword">super</span> E&gt; comparator;</span><br><span class="line">    <span class="keyword">private</span> Heap&lt;E&gt; heap;</span><br><span class="line">    </span><br><span class="line">    MyPriorityQueue(Comparator&lt;? <span class="keyword">super</span> E&gt; comparator) &#123;</span><br><span class="line">        <span class="keyword">this</span>.comparator = comparator;</span><br><span class="line">        <span class="keyword">this</span>.heap = <span class="keyword">new</span> Heap&lt;&gt;(comparator);</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">enqueue</span><span class="params">(E newObject)</span> </span>&#123;</span><br><span class="line">        heap.add(newObject);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> E <span class="title">dequeue</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> heap.remove();</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">getSize</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> heap.getSize();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <hr>
       
     </div>
@@ -470,7 +492,11 @@
       
         <div class="post-tags">
           
-            <a href="/leetcode/tags/Math/" rel="tag"><i class="fa fa-tags"></i> Math</a>
+            <a href="/leetcode/tags/Stack/" rel="tag"><i class="fa fa-tags"></i> Stack</a>
+          
+            <a href="/leetcode/tags/Queue/" rel="tag"><i class="fa fa-tags"></i> Queue</a>
+          
+            <a href="/leetcode/tags/PriorityQueue/" rel="tag"><i class="fa fa-tags"></i> PriorityQueue</a>
           
         </div>
       
@@ -496,8 +522,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/leetcode/2019/03/08/344.html" rel="prev" title="344. Reverse String">
-                <i class="fa fa-chevron-left"></i> 344. Reverse String
+              <a href="/leetcode/2019/03/07/91.html" rel="prev" title="91. Decode Ways">
+                <i class="fa fa-chevron-left"></i> 91. Decode Ways
               </a>
             
           </div>
@@ -506,8 +532,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/leetcode/2019/03/07/91.html" rel="next" title="91. Decode Ways">
-                91. Decode Ways <i class="fa fa-chevron-right"></i>
+              <a href="/leetcode/2019/03/05/LinkedList.html" rel="next" title="链表">
+                链表 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -562,8 +588,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -719,6 +754,22 @@ show_date_time();
         </div>
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#栈-Stack"><span class="nav-number">1.</span> <span class="nav-text">栈(Stack)</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#组合的方式实现栈"><span class="nav-number">1.1.</span> <span class="nav-text">组合的方式实现栈</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#用栈存储素数"><span class="nav-number">1.2.</span> <span class="nav-text">用栈存储素数</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#队列-Queue"><span class="nav-number">2.</span> <span class="nav-text">队列(Queue)</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#使用组合的方式实现队列"><span class="nav-number">2.1.</span> <span class="nav-text">使用组合的方式实现队列</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#继承关系实现Queue"><span class="nav-number">2.2.</span> <span class="nav-text">继承关系实现Queue</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#优先队列-PriorityQueue"><span class="nav-number">3.</span> <span class="nav-text">优先队列(PriorityQueue)</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#用堆实现优先队列"><span class="nav-number">3.1.</span> <span class="nav-text">用堆实现优先队列</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#用Comparator实现泛型PriorityQueue"><span class="nav-number">3.2.</span> <span class="nav-text">用Comparator实现泛型PriorityQueue</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
