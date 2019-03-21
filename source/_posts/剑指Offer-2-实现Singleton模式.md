@@ -1,5 +1,5 @@
 ---
-title: 剑指offer|面试题02：实现Singleton模式
+title: 剑指Offer(2) 实现Singleton模式
 tags: [DPModel, Singleton, volatile]
 date: 2019-03-21 15:47:17
 permalink: singleton
