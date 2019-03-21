@@ -95,12 +95,12 @@ public class Singleton {
 
 memory =allocate();    //1：分配对象的内存空间 
 ctorInstance(memory);  //2：初始化对象 
-instance =memory;     //3：设置instance指向刚分配的内存地址 
+singleton =memory;     //3：设置instance指向刚分配的内存地址 
 
 但是这些指令顺序并非一成不变，有可能会经过JVM和CPU的优化，指令重排成下面的顺序：
 
 memory =allocate();    //1：分配对象的内存空间 
-instance =memory;     //3：设置instance指向刚分配的内存地址 
+singleton =memory;     //3：设置instance指向刚分配的内存地址 
 ctorInstance(memory);  //2：初始化对象 
 
 
@@ -135,7 +135,7 @@ public class Singleton {
 
 memory =allocate();    //1：分配对象的内存空间
 ctorInstance(memory);  //2：初始化对象 
-instance =memory;     //3：设置instance指向刚分配的内存地址 
+singleton =memory;     //3：设置instance指向刚分配的内存地址 
 
 如此在线程B看来，singleton对象的引用要么指向null，要么指向一个初始化完毕的Singleton，而不会出现某个中间态，保证了安全。
 
@@ -225,7 +225,7 @@ System.out.println(singleton1.equals(singleton2));
 
 ```java
 public enum SingletonEnum {
-    INSTANCE;
+    SINGLETON;
 }
 ```
 
