@@ -115,6 +115,38 @@ public class ReplaceSpaces {
 
 ```
 
+## 替换空格-采用数组的方法
+因为java字符串是不可变的，所以也可以使用字符数组来解决这个问题。
+
+处理字符串的时候，常见做法是从尾部开始编辑，从后往前反向操作。这种做法很有用，因为字符串尾部有额外的缓冲，可以直接修改，不必担心会覆写原有数据。
+采用上面的做法，进行两次扫描，第一次扫描先数出字符串中有多少空格，从而计算出最终的字符串有多长。第二次扫描才真正开始反向编辑字符串。检测到空格则将%20复制到下一个位置，若不是空白，就复制原先的字符。
+
+```java  替换空格-采用数组的方法
+public void replaceSpace(char[] str, int length) {
+    int spaceCount = 0;
+    int newLength;
+    for (int i = 0; i < length; i++) {
+        if (str[i] == ' ') {
+            spaceCount++;
+        }
+    }
+    newLength = length + spaceCount * 2;
+    str[newLength] = '\0';
+    for (int i = length - 1; i >= 0; i--) {
+        if (str[i] == ' ') {
+            str[newLength - 1] = '0';
+            str[newLength - 2] = '2';
+            str[newLength - 3] = '%';
+            newLength -= 3;
+        } else {
+            str[newLength - 1] = str[i];
+            newLength -= 1;
+        }
+    }
+}
+```
+
+
 ## 无序字母排序
 
 ### 题目
