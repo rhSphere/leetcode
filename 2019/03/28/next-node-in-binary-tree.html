@@ -121,7 +121,7 @@
 
 
 
-  <meta name="keywords" content="LeetCode, 刷题笔记, 答案">
+  <meta name="keywords" content="BinaryTree,">
 
 
 
@@ -134,16 +134,18 @@
 
 
 
-<meta name="description" content="学会给自己找事，不要总闲下来；学会总结和反思，过一段时间，停下来总结得失；执行力比你的目标更重要，贯彻执行力，不要三天打鱼两天晒网">
-<meta property="og:type" content="website">
-<meta property="og:title" content="Depeng&#39;s Blog for Algorithms">
-<meta property="og:url" content="https://rhsphere.github.io/leetcode/categories/Tree/index.html">
+<meta name="description" content="给定一棵二叉树和其中的一个结点，如何找出中序遍历顺序的下一个结点？ 树中的结点除了有两个分别指向左右子结点的指针以外，还有一个指向父结点的指针。">
+<meta name="keywords" content="BinaryTree">
+<meta property="og:type" content="article">
+<meta property="og:title" content="剑指Offer(8) 二叉树的下一个节点">
+<meta property="og:url" content="https://rhsphere.github.io/leetcode/2019/03/28/next-node-in-binary-tree.html">
 <meta property="og:site_name" content="Depeng&#39;s Blog for Algorithms">
-<meta property="og:description" content="学会给自己找事，不要总闲下来；学会总结和反思，过一段时间，停下来总结得失；执行力比你的目标更重要，贯彻执行力，不要三天打鱼两天晒网">
+<meta property="og:description" content="给定一棵二叉树和其中的一个结点，如何找出中序遍历顺序的下一个结点？ 树中的结点除了有两个分别指向左右子结点的指针以外，还有一个指向父结点的指针。">
 <meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2019-03-31T05:55:42.844Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Depeng&#39;s Blog for Algorithms">
-<meta name="twitter:description" content="学会给自己找事，不要总闲下来；学会总结和反思，过一段时间，停下来总结得失；执行力比你的目标更重要，贯彻执行力，不要三天打鱼两天晒网">
+<meta name="twitter:title" content="剑指Offer(8) 二叉树的下一个节点">
+<meta name="twitter:description" content="给定一棵二叉树和其中的一个结点，如何找出中序遍历顺序的下一个结点？ 树中的结点除了有两个分别指向左右子结点的指针以外，还有一个指向父结点的指针。">
 
 
 
@@ -176,13 +178,13 @@
 
 
 
-  <link rel="canonical" href="https://rhsphere.github.io/leetcode/categories/Tree/">
+  <link rel="canonical" href="https://rhsphere.github.io/leetcode/2019/03/28/next-node-in-binary-tree.html">
 
 
 
 
 
-  <title>分类: Tree | Depeng's Blog for Algorithms</title>
+  <title>剑指Offer(8) 二叉树的下一个节点 | Depeng's Blog for Algorithms</title>
   
 
 
@@ -201,7 +203,7 @@
     
   
 
-  <div class="container sidebar-position-left ">
+  <div class="container sidebar-position-left page-post-detail">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -327,64 +329,222 @@
           <div id="content" class="content">
             
 
+  <div id="posts" class="posts-expand">
+    
+
+  
+
   
   
   
-  <div class="post-block category">
-
-    <div id="posts" class="posts-collapse">
-      <div class="collection-title">
-        <h1>Tree<small>分类</small>
-        </h1>
-      </div>
-
-      
-        
-        
-        
-        
-          
-          <div class="collection-title">
-            <h2 class="archive-year motion-element" id="archive-year-2019">2019</h2>
-          </div>
-          
-          
-
-        
 
   <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://rhsphere.github.io/leetcode/leetcode/2019/03/28/next-node-in-binary-tree.html">
 
-      <h2 class="post-title">
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Depeng Lu">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/leetcode/uploads/avatar.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Depeng's Blog for Algorithms">
+    </span>
+
+    
+      <header class="post-header">
+
         
-            <a class="post-title-link" href="/leetcode/2019/03/16/binary-search-tree.html" itemprop="url">
-              
-                <span itemprop="name">二叉搜索树</span>
-              
-            </a>
         
-      </h2>
+          <h1 class="post-title" itemprop="name headline">剑指Offer(8) 二叉树的下一个节点</h1>
+        
 
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated" datetime="2019-03-16T22:00:40+08:00" content="2019-03-16">
-          03-16
-        </time>
-      </div>
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-03-28T12:24:39+08:00">
+                2019-03-28
+              </time>
+            
 
-    </header>
-  </article>
+            
 
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/leetcode/categories/剑指Offer/" itemprop="url" rel="index">
+                    <span itemprop="name">剑指Offer</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+             <span id="/leetcode/2019/03/28/next-node-in-binary-tree.html" class="leancloud_visitors" data-flag-title="剑指Offer(8) 二叉树的下一个节点">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数&#58;</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
 
       
-    </div>
+      
 
+      
+        <p class="description">给定一棵二叉树和其中的一个结点，如何找出中序遍历顺序的下一个结点？ 树中的结点除了有两个分别指向左右子结点的指针以外，还有一个指向父结点的指针。</p>
+
+
+<a id="more"></a>
+<h2 id="二叉树的下一个节点"><a href="#二叉树的下一个节点" class="headerlink" title="二叉树的下一个节点"></a>二叉树的下一个节点</h2><p><strong>思路：</strong><br>首先自己在草稿纸上画图，进行分析（不再展开）。可以发现下一个结点的规律为：</p>
+<ol>
+<li>若当前节点有右子树，旗下一个节点为右子树中最左子节点；</li>
+<li>若当前节点无右子树时，<ol>
+<li>若当前节点为其父节点的左子结点时，其子啊一个节点为其父节点；</li>
+<li>若当前节点为其父节点的右子节点时，继续向上遍历父节点的父节点，直到找到一个节点是其父节点的左子结点（与(1)中判断相同），该节点的父节点即为下一节点。</li>
+</ol>
+</li>
+</ol>
+<p><strong>测试用例：</strong></p>
+<ol>
+<li>正常二叉树</li>
+<li>左斜树、右斜树</li>
+<li>单个节点</li>
+<li>null</li>
+<li>不同位置节点的下一节点(包含下一个节点为当前节点的右子树节点，右子树的最左子节点，父节点，跨层的父节点等；当前节点没有下一个节点)</li>
+</ol>
+<h3 id="完整Java代码"><a href="#完整Java代码" class="headerlink" title="完整Java代码"></a>完整Java代码</h3><figure class="highlight java"><figcaption><span>二叉树的下一个节点</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> chapter2.tree;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">NextNodeInBinaryTrees</span> </span>&#123;</span><br><span class="line">    <span class="keyword">private</span> <span class="class"><span class="keyword">class</span> <span class="title">TreeLinkNode</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span> val;</span><br><span class="line"></span><br><span class="line">        TreeLinkNode left = <span class="keyword">null</span>;</span><br><span class="line">        TreeLinkNode right = <span class="keyword">null</span>;</span><br><span class="line">        TreeLinkNode parent = <span class="keyword">null</span>;</span><br><span class="line"></span><br><span class="line">        TreeLinkNode(<span class="keyword">int</span> val) &#123;</span><br><span class="line">            <span class="keyword">this</span>.val = val;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> TreeLinkNode <span class="title">getNext</span><span class="params">(TreeLinkNode pNode)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (pNode == <span class="keyword">null</span>) &#123;</span><br><span class="line">            System.out.print(<span class="string">"节点为null"</span>);</span><br><span class="line">            <span class="keyword">return</span> <span class="keyword">null</span>;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">if</span> (pNode.right != <span class="keyword">null</span>) &#123;</span><br><span class="line">            pNode = pNode.right;</span><br><span class="line">            <span class="keyword">while</span> (pNode.left != <span class="keyword">null</span>) &#123;</span><br><span class="line">                pNode = pNode.left;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">return</span> pNode;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">while</span> (pNode.parent != <span class="keyword">null</span>) &#123;</span><br><span class="line">            <span class="keyword">if</span> (pNode == pNode.parent.left) &#123;</span><br><span class="line">                <span class="keyword">return</span> pNode.parent;</span><br><span class="line">            &#125;</span><br><span class="line">            pNode = pNode.parent;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">null</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// ==================================测试代码==================================</span></span><br><span class="line">    <span class="comment">// 创建树较为繁琐，未包括所有测试代码。</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">test1</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        TreeLinkNode node = <span class="keyword">null</span>;</span><br><span class="line">        TreeLinkNode nextNode = getNext(node);</span><br><span class="line">        <span class="keyword">if</span> (nextNode != <span class="keyword">null</span>)</span><br><span class="line">            System.out.println(nextNode.val);</span><br><span class="line">        <span class="keyword">else</span></span><br><span class="line">            System.out.println(<span class="string">"无下一结点"</span>);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">test2</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        TreeLinkNode node1 = <span class="keyword">new</span> TreeLinkNode(<span class="number">1</span>);</span><br><span class="line">        TreeLinkNode node2 = <span class="keyword">new</span> TreeLinkNode(<span class="number">2</span>);</span><br><span class="line">        TreeLinkNode node3 = <span class="keyword">new</span> TreeLinkNode(<span class="number">3</span>);</span><br><span class="line">        TreeLinkNode node4 = <span class="keyword">new</span> TreeLinkNode(<span class="number">4</span>);</span><br><span class="line">        node1.left = node2;</span><br><span class="line">        node1.right = node3;</span><br><span class="line">        node2.parent = node1;</span><br><span class="line">        node3.parent = node1;</span><br><span class="line">        node4.left = node1;</span><br><span class="line">        node1.parent = node4;</span><br><span class="line">        TreeLinkNode nextNodeOf1 = getNext(node1);</span><br><span class="line">        TreeLinkNode nextNodeOf2 = getNext(node2);</span><br><span class="line">        TreeLinkNode nextNodeOf3 = getNext(node3);</span><br><span class="line">        TreeLinkNode nextNodeOf4 = getNext(node4);</span><br><span class="line">        <span class="keyword">if</span> (nextNodeOf1 != <span class="keyword">null</span>)</span><br><span class="line">            System.out.println(<span class="string">"1结点的下一个结点值为："</span> + nextNodeOf1.val);</span><br><span class="line">        <span class="keyword">else</span></span><br><span class="line">            System.out.println(<span class="string">"1结点无下一结点"</span>);</span><br><span class="line">        <span class="keyword">if</span> (nextNodeOf2 != <span class="keyword">null</span>)</span><br><span class="line">            System.out.println(<span class="string">"2结点的下一个结点值为："</span> + nextNodeOf2.val);</span><br><span class="line">        <span class="keyword">else</span></span><br><span class="line">            System.out.println(<span class="string">"2结点无下一结点"</span>);</span><br><span class="line">        <span class="keyword">if</span> (nextNodeOf3 != <span class="keyword">null</span>)</span><br><span class="line">            System.out.println(<span class="string">"3结点的下一个结点值为："</span> + nextNodeOf3.val);</span><br><span class="line">        <span class="keyword">else</span></span><br><span class="line">            System.out.println(<span class="string">"3结点无下一结点"</span>);</span><br><span class="line">        <span class="keyword">if</span> (nextNodeOf4 != <span class="keyword">null</span>)</span><br><span class="line">            System.out.println(<span class="string">"4结点的下一个结点值为："</span> + nextNodeOf4.val);</span><br><span class="line">        <span class="keyword">else</span></span><br><span class="line">            System.out.println(<span class="string">"4结点无下一结点"</span>);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        NextNodeInBinaryTrees demo = <span class="keyword">new</span> NextNodeInBinaryTrees();</span><br><span class="line">        System.out.print(<span class="string">"test1:"</span>);</span><br><span class="line">        demo.test1();</span><br><span class="line">        System.out.print(<span class="string">"test2:"</span>);</span><br><span class="line">        demo.test2();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="得到"><a href="#得到" class="headerlink" title="得到"></a>得到</h3><ol>
+<li>在面对复杂问题时要学会画图和举例分析。</li>
+<li>在分情况讨论时，一定要考虑到所有情况，这些都是在写代码前需要考虑到的。</li>
+</ol>
+<hr>
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/leetcode/tags/BinaryTree/" rel="tag"><i class="fa fa-tags"></i> BinaryTree</a>
+          
+        </div>
+      
+
+      
+      
+        <div class="post-widgets">
+        
+          <div class="wp_rating">
+              <div style="color: rgba(0, 0, 0, 0.75); font-size:13px; letter-spacing:3px">(&gt;看完记得五星好评哦亲&lt;)</div>
+            <div id="wpac-rating"></div>
+          </div>
+        
+
+        
+
+        
+        </div>
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/leetcode/2019/03/29/queue-with-two-stacks.html" rel="prev" title="剑指Offer(9) 用两个栈实现队列">
+                <i class="fa fa-chevron-left"></i> 剑指Offer(9) 用两个栈实现队列
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/leetcode/2019/03/27/construct-binary-tree.html" rel="next" title="剑指Offer(7) 重建二叉树">
+                剑指Offer(7) 重建二叉树 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
   </div>
   
   
   
+  </article>
 
-  
 
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
 
 
           </div>
@@ -392,6 +552,10 @@
 
 
           
+
+  
+
+
 
         </div>
         
@@ -414,8 +578,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -571,6 +744,22 @@ show_date_time();
         </div>
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#二叉树的下一个节点"><span class="nav-number">1.</span> <span class="nav-text">二叉树的下一个节点</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#完整Java代码"><span class="nav-number">1.1.</span> <span class="nav-text">完整Java代码</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#得到"><span class="nav-number">1.2.</span> <span class="nav-text">得到</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
@@ -737,7 +926,9 @@ show_date_time();
   
 
   
-  
+  <script type="text/javascript" src="/leetcode/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/leetcode/js/src/post-details.js?v=5.1.4"></script>
+
 
 
   
@@ -1218,6 +1409,23 @@ show_date_time();
 
   
   
+  <script type="text/javascript">
+  wpac_init = window.wpac_init || [];
+  wpac_init.push({widget: 'Rating', id: 16073,
+    el: 'wpac-rating',
+    color: 'f79533'
+  });
+  (function() {
+    if ('WIDGETPACK_LOADED' in window) return;
+    WIDGETPACK_LOADED = true;
+    var mc = document.createElement('script');
+    mc.type = 'text/javascript';
+    mc.async = true;
+    mc.src = '//embed.widgetpack.com/widget.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(mc, s.nextSibling);
+  })();
+  </script>
+
 
   
 
