@@ -137,14 +137,14 @@
 <meta name="description" content="快速排序的基本思想：通过一趟排序将待排记录分隔成独立的两部分，其中一部分记录的关键字均比另一部分的关键字小，则可分别对这两部分记录继续进行排序，以达到整个序列有序。其中，最重要的partition主要有两种方法： A.先把选定为pivot的元素放到最后，然后设定指针low和指针high，low指针右移，high指针左移，当两个指针相撞后停止移动。期间如果符合交换条件，两元素交换。最后把pivot元">
 <meta name="keywords" content="sort,QuickSort">
 <meta property="og:type" content="article">
-<meta property="og:title" content="排序(6) 快速排序">
+<meta property="og:title" content="排序(7) 快速排序">
 <meta property="og:url" content="https://rhsphere.github.io/leetcode/2019/04/01/quick-sort.html">
 <meta property="og:site_name" content="Depeng&#39;s Blog for Algorithms">
 <meta property="og:description" content="快速排序的基本思想：通过一趟排序将待排记录分隔成独立的两部分，其中一部分记录的关键字均比另一部分的关键字小，则可分别对这两部分记录继续进行排序，以达到整个序列有序。其中，最重要的partition主要有两种方法： A.先把选定为pivot的元素放到最后，然后设定指针low和指针high，low指针右移，high指针左移，当两个指针相撞后停止移动。期间如果符合交换条件，两元素交换。最后把pivot元">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-04-13T07:26:38.231Z">
+<meta property="og:updated_time" content="2019-04-13T11:37:24.437Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="排序(6) 快速排序">
+<meta name="twitter:title" content="排序(7) 快速排序">
 <meta name="twitter:description" content="快速排序的基本思想：通过一趟排序将待排记录分隔成独立的两部分，其中一部分记录的关键字均比另一部分的关键字小，则可分别对这两部分记录继续进行排序，以达到整个序列有序。其中，最重要的partition主要有两种方法： A.先把选定为pivot的元素放到最后，然后设定指针low和指针high，low指针右移，high指针左移，当两个指针相撞后停止移动。期间如果符合交换条件，两元素交换。最后把pivot元">
 
 
@@ -184,7 +184,7 @@
 
 
 
-  <title>排序(6) 快速排序 | Depeng's Blog for Algorithms</title>
+  <title>排序(7) 快速排序 | Depeng's Blog for Algorithms</title>
   
 
 
@@ -360,7 +360,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">排序(6) 快速排序</h1>
+          <h1 class="post-title" itemprop="name headline">排序(7) 快速排序</h1>
         
 
         <div class="post-meta">
@@ -412,7 +412,7 @@
 
           
           
-             <span id="/leetcode/2019/04/01/quick-sort.html" class="leancloud_visitors" data-flag-title="排序(6) 快速排序">
+             <span id="/leetcode/2019/04/01/quick-sort.html" class="leancloud_visitors" data-flag-title="排序(7) 快速排序">
                <span class="post-meta-divider">|</span>
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -471,6 +471,8 @@
 <p>空间复杂度：  O(nlogn)<br>快速排序是不稳定的排序算法。</p>
 <p>快速排序有两个方向，左边的left指针一直往右走，当arr[left] &lt;= pivot。而右边的right指针一直往左走，当arr[right] &gt; pivot。如果left和right都走不动了，left &lt;= right，交换arr[left]和arr[right],重复上面的过程，直到left &gt; right。 交换arr[left]和arr[startIndex]，完成一趟快速排序。<br>在中枢元素和a[left]交换的时候，很有可能把前面的元素的稳定性打乱，比如序列为5 3 3 4 3 8 9 10 11，现在中枢元素5和3（第5个元素，下标从1开始计）交换就会把元素3的稳定性打乱，所以快速排序是一个不稳定的排序算法，不稳定发生在中枢元素和arr[left] 交换的时刻。</p>
 <h2 id="比较快排和归并"><a href="#比较快排和归并" class="headerlink" title="比较快排和归并"></a>比较快排和归并</h2><p>归并排序和快速排序都使用了分而治之法。<br>对于归并排序，大量的工作是将两个子线性表进行归并，归并是在两个子线性表都 <strong>排好序后</strong>进行的。<br>对于快速排序，大量的工作是将线性表划分成两个子线性表，划分是在子线性表 <strong>排好序前</strong>进行的。<br>最差的情况下，归并排序的效率高于快速排序，但是，在平均情况下，两者效率相同。归并排序在归并两个数组是需要一个临时数组，二快速排序不需要额外的数组空间。因此，快速排序的空间效率高于归并排序。</p>
+<h2 id="比较快排和堆排序"><a href="#比较快排和堆排序" class="headerlink" title="比较快排和堆排序"></a>比较快排和堆排序</h2><p>相同点：堆排序和快速排序的平均时间复杂度都是O(nlogn)，并且都是 <strong>不稳定排序</strong>。</p>
+<p>不同点：快速排序的最坏时间复杂度是O(n^2)，而堆排序最坏时间复杂度稳定在O(nlogn)。<br>此外，快速排序的递归和非递归的空间复杂度都是O(n)，而堆排序的空间复杂度是O(1)。</p>
 <hr>
       
     </div>
@@ -516,14 +518,18 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
+              <a href="/leetcode/2019/04/01/count-sort.html" rel="prev" title="排序(8) 计数排序">
+                <i class="fa fa-chevron-left"></i> 排序(8) 计数排序
+              </a>
+            
           </div>
 
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/leetcode/2019/04/01/merge-sort.html" rel="next" title="排序(5) 归并排序">
-                排序(5) 归并排序 <i class="fa fa-chevron-right"></i>
+              <a href="/leetcode/2019/04/01/merge-sort.html" rel="next" title="排序(6) 归并排序">
+                排序(6) 归并排序 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -607,7 +613,7 @@
               
                 <a href="/leetcode/archives/">
               
-                  <span class="site-state-item-count">28</span>
+                  <span class="site-state-item-count">33</span>
                   <span class="site-state-item-name">文章</span>
                 </a>
               </div>
@@ -629,7 +635,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/leetcode/tags/index.html">
-                  <span class="site-state-item-count">34</span>
+                  <span class="site-state-item-count">39</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
@@ -754,7 +760,7 @@ show_date_time();
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#快速排序"><span class="nav-number">1.</span> <span class="nav-text">快速排序</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#分治法与最坏情况"><span class="nav-number">1.1.</span> <span class="nav-text">分治法与最坏情况</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#元素的移动"><span class="nav-number">1.2.</span> <span class="nav-text">元素的移动</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#挖坑法代码实现"><span class="nav-number">2.</span> <span class="nav-text">挖坑法代码实现</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#指针交换法代码实现"><span class="nav-number">3.</span> <span class="nav-text">指针交换法代码实现</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#非递归实现"><span class="nav-number">4.</span> <span class="nav-text">非递归实现</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#改进主元选择的快排"><span class="nav-number">5.</span> <span class="nav-text">改进主元选择的快排</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#总结及算法复杂度"><span class="nav-number">6.</span> <span class="nav-text">总结及算法复杂度</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#比较快排和归并"><span class="nav-number">7.</span> <span class="nav-text">比较快排和归并</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#快速排序"><span class="nav-number">1.</span> <span class="nav-text">快速排序</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#分治法与最坏情况"><span class="nav-number">1.1.</span> <span class="nav-text">分治法与最坏情况</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#元素的移动"><span class="nav-number">1.2.</span> <span class="nav-text">元素的移动</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#挖坑法代码实现"><span class="nav-number">2.</span> <span class="nav-text">挖坑法代码实现</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#指针交换法代码实现"><span class="nav-number">3.</span> <span class="nav-text">指针交换法代码实现</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#非递归实现"><span class="nav-number">4.</span> <span class="nav-text">非递归实现</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#改进主元选择的快排"><span class="nav-number">5.</span> <span class="nav-text">改进主元选择的快排</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#总结及算法复杂度"><span class="nav-number">6.</span> <span class="nav-text">总结及算法复杂度</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#比较快排和归并"><span class="nav-number">7.</span> <span class="nav-text">比较快排和归并</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#比较快排和堆排序"><span class="nav-number">8.</span> <span class="nav-text">比较快排和堆排序</span></a></li></ol></div>
             
 
           </div>
@@ -788,7 +794,7 @@ show_date_time();
     
       <span class="post-meta-item-text">Site words total count&#58;</span>
     
-    <span title="Site words total count">43.6k</span>
+    <span title="Site words total count">49.1k</span>
   
 </div>
 
