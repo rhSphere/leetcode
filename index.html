@@ -342,6 +342,165 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://rhsphere.github.io/leetcode/leetcode/2019/04/10/sort-summary.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Depeng Lu">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/leetcode/uploads/avatar.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Depeng's Blog for Algorithms">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/leetcode/2019/04/10/sort-summary.html" itemprop="url">排序总结</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-04-10T09:28:28+08:00">
+                2019-04-10
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/leetcode/categories/Sorting/" itemprop="url" rel="index">
+                    <span itemprop="name">Sorting</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+             <span id="/leetcode/2019/04/10/sort-summary.html" class="leancloud_visitors" data-flag-title="排序总结">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数&#58;</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <p class="description">排序算法可以说是一项基本功，解决实际问题中经常遇到，针对实际数据的特点选择合适的排序算法可以使程序获得更高的效率，有时候排序的稳定性还是实际问题中必须考虑的，这篇博客对常见的排序算法进行整理，包括：插入排序、选择排序、冒泡排序、快速排序、堆排序、归并排序、希尔排序、二叉树排序、计数排序、桶排序、基数排序。</p>
+                   
+
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/leetcode/2019/04/10/sort-summary.html" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="https://rhsphere.github.io/leetcode/leetcode/2019/04/01/external-sort.html">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -604,7 +763,7 @@
 
       
         
-          <p class="description"></p>
+          <p class="description">堆排序是把数组看作堆，第i个结点的孩子结点为第 2i + 1和 2i + 2个结点（不超出数组长度前提下），堆排序的第一步是建堆，然后是取堆顶元素然后调整堆。建堆的过程是自底向上不断调整达成的，这样当调整某个结点时，其左节点和右结点已经是满足条件的，此时如果两个子结点不需要动，则整个子树不需要动，如果调整，则父结点交换到子结点位置，再以此结点继续调整。</p>
                    
 
           <!--noindex-->
@@ -763,7 +922,7 @@
 
       
         
-          <p class="description"></p>
+          <p class="description">假设有一组长度为N的待排关键字序列K[1….n]。首先将这个序列划分成M个的子区间(桶) 。然后基于某种映射函数，将待排序列的关键字k映射到第i个桶中(即桶数组B的下标i)，那么该关键字k就作为B[i]中的元素(每个桶B[i]都是一组大小为N/M的序列)。接着对每个桶B[i]中的所有元素进行比较排序(可以使用快排)。 然后依次枚举输出B[0]….B[M]中的全部内容即是一个有序序列。</p>
                    
 
           <!--noindex-->
@@ -1081,7 +1240,7 @@
 
       
         
-          <p class="description">快速排序的基本思想：通过一趟排序将待排记录分隔成独立的两部分，其中一部分记录的关键字均比另一部分的关键字小，则可分别对这两部分记录继续进行排序，以达到整个序列有序。其中，最重要的partition主要有两种方法： A.先把选定为pivot的元素放到最后，然后设定指针low和指针high，low指针右移，high指针左移，当两个指针相撞后停止移动。期间如果符合交换条件，两元素交换。最后把pivot元素放到中间。 B.类似冒泡排序的思路，把比pivot大的元素“往下沉”，把比pivot小的元素“往上浮”。</p>
+          <p class="description">快速排序的基本思想：通过一趟排序将待排数列分隔成独立的两部分，其中一部分数列的关键字均比另一部分的关键字小，则可分别对这两部分数列继续进行排序，以达到整个序列有序。 其中，最重要的partition主要有两种方法： 1)指针交换法。先把选定为pivot的元素放到最后，然后设定指针low和指针high，low指针右移，high指针左移，当两个指针相撞后停止移动。期间如果符合交换条件，两元素交换。最后把pivot元素放到中间。 2)挖坑法。类似冒泡排序的思路，把比pivot大的元素“往下沉”，把比pivot小的元素“往上浮”。</p>
                    
 
           <!--noindex-->
@@ -1240,7 +1399,7 @@
 
       
         
-          <p class="description">归并排序算法将数组分为两半，对每部分递归地应用归并排序。在两部分都排好序后，对他们进行归并。</p>
+          <p class="description">归并排序是采用分治法（Divide and Conquer）的一个非常典型的应用。归并排序的性能不受输入数据的影响，但表现比选择排序好的多，因为始终都是O(nlogn）的时间复杂度，代价是需要额外的内存空间。 归并排序算法将数组分为两半，对每部分递归地应用归并排序。在两部分都排好序后，对它们进行归并。</p>
                    
 
           <!--noindex-->
@@ -1399,7 +1558,7 @@
 
       
         
-          <p class="description">鸡尾酒排序又叫快乐小时排序（不知道为什么起这个名字），它是基于冒泡排序做了一点小小优化。</p>
+          <p class="description">冒泡排序已经对算法进行有优化，但仍然不是最优。鸡尾酒排序又叫快乐小时排序，它基于冒泡排序又做了一点优化。博客中给出了鸡尾酒排序的优化版本。</p>
                    
 
           <!--noindex-->
@@ -1558,7 +1717,7 @@
 
       
         
-          <p class="description">冒泡排序算法多次遍历数组，在每次遍历中连续比较相邻的元素，如果元素没有按照顺序排列，则互换他们的值。 本文讨论了朴素版本，优化了一步（减少遍历轮次）的needNextPass版本和isSorted版本，以及进一步优化判断边界的sortBorder版本，sortBorder版本为最优化版本。</p>
+          <p class="description">冒泡排序算法多次遍历数组，在每次遍历中连续比较相邻的元素，如果元素没有按照顺序排列，则互换他们的值。 博客中先给出了朴素版本，再给出了优化了每一轮内循环结束点（减少遍历轮次）的needNextPass版本和isSorted版本，还有进一步优化判断边界的sortBorder版本，sortBorder版本为最优化版本。</p>
                    
 
           <!--noindex-->
@@ -1717,171 +1876,12 @@
 
       
         
-          <p class="description">1959年Shell发明，第一个突破O(n^2)的排序算法，是简单插入排序的改进版。它与插入排序的不同之处在于，它会优先比较距离较远的元素。希尔排序又叫缩小增量排序。</p>
+          <p class="description">希尔排序又叫缩小增量排序，是简单插入排序的改进版。它与插入排序的不同之处在于，它会优先比较距离较远的元素。 希尔排序是对插入排序的优化，基于以下两个认识：1.数据量较小时插入排序速度较快，因为n和n²差距很小；2.数据基本有序时插入排序效率很高，因为比较和移动的数据量少。 希尔排序的时间复杂度和增量的选择策略有关，博客中的选择策略会导致排序的不稳定性。</p>
                    
 
           <!--noindex-->
           <div class="post-button text-center">
             <a class="btn" href="/leetcode/2019/04/01/shell-sort.html" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://rhsphere.github.io/leetcode/leetcode/2019/04/01/insertion-sort.html">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Depeng Lu">
-      <meta itemprop="description" content>
-      <meta itemprop="image" content="/leetcode/uploads/avatar.png">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Depeng's Blog for Algorithms">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/leetcode/2019/04/01/insertion-sort.html" itemprop="url">排序(2) 插入排序</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-04-01T16:13:17+08:00">
-                2019-04-01
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category">
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/leetcode/categories/Sorting/" itemprop="url" rel="index">
-                    <span itemprop="name">Sorting</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-             <span id="/leetcode/2019/04/01/insertion-sort.html" class="leancloud_visitors" data-flag-title="排序(2) 插入排序">
-               <span class="post-meta-divider">|</span>
-               <span class="post-meta-item-icon">
-                 <i class="fa fa-eye"></i>
-               </span>
-               
-                 <span class="post-meta-item-text">阅读次数&#58;</span>
-               
-                 <span class="leancloud-visitors-count"></span>
-             </span>
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <p class="description">插入排序重复地将新的元素插入到一个排好序的子线性表中，直到整个线性表排好序。</p>
-                   
-
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/leetcode/2019/04/01/insertion-sort.html" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
@@ -1975,7 +1975,7 @@
               
                 <a href="/leetcode/archives/">
               
-                  <span class="site-state-item-count">33</span>
+                  <span class="site-state-item-count">34</span>
                   <span class="site-state-item-name">文章</span>
                 </a>
               </div>
@@ -2140,7 +2140,7 @@ show_date_time();
     
       <span class="post-meta-item-text">Site words total count&#58;</span>
     
-    <span title="Site words total count">52.5k</span>
+    <span title="Site words total count">61.3k</span>
   
 </div>
 
