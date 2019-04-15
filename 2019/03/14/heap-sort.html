@@ -134,18 +134,18 @@
 
 
 
-<meta name="description" content="堆排序使用的是二叉堆。首先将所有的元素添加到一个对上，然后不断移除最大的元素以获得一个排好序的线性表。">
+<meta name="description" content="堆排序使用的是二叉堆。首先将所有的元素添加到一个堆上，然后不断移除最大的元素以获得一个排好序的线性表。">
 <meta name="keywords" content="sort,heap">
 <meta property="og:type" content="article">
 <meta property="og:title" content="堆排序">
 <meta property="og:url" content="https://rhsphere.github.io/leetcode/2019/03/14/heap-sort.html">
 <meta property="og:site_name" content="Depeng&#39;s Blog for Algorithms">
-<meta property="og:description" content="堆排序使用的是二叉堆。首先将所有的元素添加到一个对上，然后不断移除最大的元素以获得一个排好序的线性表。">
+<meta property="og:description" content="堆排序使用的是二叉堆。首先将所有的元素添加到一个堆上，然后不断移除最大的元素以获得一个排好序的线性表。">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-04-15T12:39:28.852Z">
+<meta property="og:updated_time" content="2019-04-15T14:14:48.667Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="堆排序">
-<meta name="twitter:description" content="堆排序使用的是二叉堆。首先将所有的元素添加到一个对上，然后不断移除最大的元素以获得一个排好序的线性表。">
+<meta name="twitter:description" content="堆排序使用的是二叉堆。首先将所有的元素添加到一个堆上，然后不断移除最大的元素以获得一个排好序的线性表。">
 
 
 
@@ -443,11 +443,12 @@
       
 
       
-        <p class="description">堆排序使用的是二叉堆。首先将所有的元素添加到一个对上，然后不断移除最大的元素以获得一个排好序的线性表。</p>
+        <p class="description">堆排序使用的是二叉堆。首先将所有的元素添加到一个堆上，然后不断移除最大的元素以获得一个排好序的线性表。</p>
 
 
 <a id="more"></a>
-<h2 id="堆的存储"><a href="#堆的存储" class="headerlink" title="堆的存储"></a>堆的存储</h2><p>堆排序(heap sort)使用二叉堆(binary heap)，它是一棵完全二叉树，每个节点大于或等于它的任意一个孩子。如果一颗二叉树的每一层都是满的，或者最后一层可以不填满并且最后一层的叶子都是靠左放置的，那么这棵二叉树就是完全的(complete)。<br>如果堆的大小事事先知道的，那么尅讲堆存储在一个ArrayList或一个数组中。树根在位置0处，他的两个子节点在位置1和位置2出。<br>对于位置<i>i</i>处的节点，它的：</p>
+<h2 id="堆的存储"><a href="#堆的存储" class="headerlink" title="堆的存储"></a>堆的存储</h2><p>堆排序(heap sort)使用二叉堆(binary heap)，它是一棵 <strong>完全二叉树</strong>，<strong>每个节点大于或等于它的任意一个孩子</strong>。<br>如果一颗二叉树的每一层都是满的，或者最后一层可以不填满并且最后一层的叶子都是靠左放置的，那么这棵二叉树就是完全的(complete)。<br>如果堆的大小是事先知道的，那么可将堆存储在一个ArrayList或一个数组中。树根在位置0处，它的两个子节点在位置1和位置2处。</p>
+<p>对于位置<i>i</i>处的节点，它的：</p>
 <ul>
 <li>左子结点在位置 <span style="color:#5073b8">2i+1</span> 处</li>
 <li>右子结点在位置 <span style="color:#5073b8">2i+2</span> 处</li>
@@ -456,7 +457,7 @@
 <h2 id="添加一个新结点"><a href="#添加一个新结点" class="headerlink" title="添加一个新结点"></a>添加一个新结点</h2><p>给堆添加一个新结点，首先将它添加到堆的末尾，然后按如下方式重建这棵树：<br><figure class="highlight java"><figcaption><span>Adding a New Node Psuedo Code</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">Let the last node be the current node;</span><br><span class="line"><span class="keyword">while</span> (the current node is greater than its parent) &#123;</span><br><span class="line">    Swap the current node with its parent;</span><br><span class="line">    Now the current node is one level up;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">令最后一个节点的那个做当前节点;</span><br><span class="line"><span class="keyword">while</span> (当前节点大于他的父节点) &#123;</span><br><span class="line">    将当前节点和它的父节点交换;</span><br><span class="line">    现在当前节点往上面进了一个层级;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
 <h2 id="删除一个结点"><a href="#删除一个结点" class="headerlink" title="删除一个结点"></a>删除一个结点</h2><p>经常需要从堆中删除最大的元素，也就是这个堆中的根节点。在删除根节点之后，就必须重建这棵树以保持堆的属性。重建该树的算法如下所示：</p>
 <figure class="highlight java"><figcaption><span>Removing the Root Psuedo code</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">Move the last node to replace the root;</span><br><span class="line">Let the root be the current node;</span><br><span class="line"><span class="keyword">while</span> (the current node has childen &amp;&amp; the current node is </span><br><span class="line">       smaller than one of its children) &#123;</span><br><span class="line">    Swap the current node with the larger of its children;</span><br><span class="line">    Now the current node is one level down;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">用最后一个节点替换根节点;</span><br><span class="line">让根节点成为当前节点;</span><br><span class="line"><span class="keyword">while</span> (当前节点具有子节点&amp;&amp;当前节点小于它的子节点) &#123;</span><br><span class="line">    将当前节点和它的较大子节点交换;</span><br><span class="line">    现在当前节点往下面退了一个层次;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h2 id="Heap类"><a href="#Heap类" class="headerlink" title="Heap类"></a>Heap类</h2><p>Comparable可以认为是一个内比较器，实现了Comparable接口的类有一个特点，就是这些类是可以和自己比较的，至于具体和另一个实现了Comparable接口的类如何比较，则依赖compareTo方法的实现，compareTo方法也被称为自然比较方法。如果开发者add进入一个Collection的对象想要Collections的sort方法帮你自动进行排序的话，那么这个对象必须实现Comparable接口。compareTo方法的返回值是int，有三种情况：</p>
+<h2 id="Heap类"><a href="#Heap类" class="headerlink" title="Heap类"></a>Heap类</h2><p>Comparable可以认为是一个内比较器，实现了Comparable接口的类有一个特点，就是这些类是可以和自己比较的，至于具体和另一个实现了Comparable接口的类如何比较，则依赖compareTo方法的实现，compareTo方法也被称为自然比较方法。如果开发者进入一个Collection的对象想要Collections的sort方法帮你自动进行排序的话，那么这个对象必须实现Comparable接口。compareTo方法的返回值是int，有三种情况：</p>
 <ol>
 <li>比较者大于被比较者（也就是compareTo方法里面的对象），那么返回正整数</li>
 <li>比较者等于被比较者，那么返回0</li>
