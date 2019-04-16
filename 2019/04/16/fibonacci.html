@@ -121,7 +121,7 @@
 
 
 
-  <meta name="keywords" content="LeetCode, 刷题笔记, 答案">
+  <meta name="keywords" content="fibonacci,">
 
 
 
@@ -134,17 +134,18 @@
 
 
 
-<meta name="description" content="学会给自己找事，不要总闲下来；学会总结和反思，过一段时间，停下来总结得失；执行力比你的目标更重要，贯彻执行力，不要三天打鱼两天晒网">
-<meta property="og:type" content="website">
-<meta property="og:title" content="分类">
-<meta property="og:url" content="https://rhsphere.github.io/leetcode/categories/index.html">
+<meta name="description" content="如果我们需要重复地多次计算相同的问题，则通常可以选择用递归或循环两种不同的方法。 递归就是把问题层层分解，直到程序出口处。而循环则是通过设置计算的初始值及终止条件，在一个范围内重复运算。">
+<meta name="keywords" content="fibonacci">
+<meta property="og:type" content="article">
+<meta property="og:title" content="剑指Offer(10) 斐波那契数列及青蛙跳台阶问题">
+<meta property="og:url" content="https://rhsphere.github.io/leetcode/2019/04/16/fibonacci.html">
 <meta property="og:site_name" content="Depeng&#39;s Blog for Algorithms">
-<meta property="og:description" content="学会给自己找事，不要总闲下来；学会总结和反思，过一段时间，停下来总结得失；执行力比你的目标更重要，贯彻执行力，不要三天打鱼两天晒网">
+<meta property="og:description" content="如果我们需要重复地多次计算相同的问题，则通常可以选择用递归或循环两种不同的方法。 递归就是把问题层层分解，直到程序出口处。而循环则是通过设置计算的初始值及终止条件，在一个范围内重复运算。">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-04-16T08:12:35.284Z">
+<meta property="og:updated_time" content="2019-04-16T08:12:35.280Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="分类">
-<meta name="twitter:description" content="学会给自己找事，不要总闲下来；学会总结和反思，过一段时间，停下来总结得失；执行力比你的目标更重要，贯彻执行力，不要三天打鱼两天晒网">
+<meta name="twitter:title" content="剑指Offer(10) 斐波那契数列及青蛙跳台阶问题">
+<meta name="twitter:description" content="如果我们需要重复地多次计算相同的问题，则通常可以选择用递归或循环两种不同的方法。 递归就是把问题层层分解，直到程序出口处。而循环则是通过设置计算的初始值及终止条件，在一个范围内重复运算。">
 
 
 
@@ -177,13 +178,13 @@
 
 
 
-  <link rel="canonical" href="https://rhsphere.github.io/leetcode/categories/">
+  <link rel="canonical" href="https://rhsphere.github.io/leetcode/2019/04/16/fibonacci.html">
 
 
 
 
 
-  <title>分类 | Depeng's Blog for Algorithms</title>
+  <title>剑指Offer(10) 斐波那契数列及青蛙跳台阶问题 | Depeng's Blog for Algorithms</title>
   
 
 
@@ -330,40 +331,229 @@
 
   <div id="posts" class="posts-expand">
     
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://rhsphere.github.io/leetcode/leetcode/2019/04/16/fibonacci.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Depeng Lu">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/leetcode/uploads/avatar.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Depeng's Blog for Algorithms">
+    </span>
+
     
-    
-    <div class="post-block page">
       <header class="post-header">
 
-	<h1 class="post-title" itemprop="name headline">分类</h1>
-
-
-
-</header>
-
-      
-      
-      
-      <div class="post-body">
         
         
-          <div class="category-all-page">
-            <div class="category-all-title">
-                目前共计 11 个分类
-            </div>
-            <div class="category-all">
-              <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/leetcode/categories/Dynamic-Programming/">Dynamic Programming</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/leetcode/categories/Easy/">Easy</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/leetcode/categories/Hard/">Hard</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/leetcode/categories/HashMap/">HashMap</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/leetcode/categories/HashSet/">HashSet</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/leetcode/categories/List/">List</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/leetcode/categories/Medium/">Medium</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/leetcode/categories/Search/">Search</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/leetcode/categories/Sorting/">Sorting</a><span class="category-list-count">13</span></li><li class="category-list-item"><a class="category-list-link" href="/leetcode/categories/Tree/">Tree</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/leetcode/categories/剑指Offer/">剑指Offer</a><span class="category-list-count">9</span></li></ul>
-            </div>
-          </div>
+          <h1 class="post-title" itemprop="name headline">剑指Offer(10) 斐波那契数列及青蛙跳台阶问题</h1>
         
-      </div>
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-04-16T14:46:10+08:00">
+                2019-04-16
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/leetcode/categories/剑指Offer/" itemprop="url" rel="index">
+                    <span itemprop="name">剑指Offer</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+             <span id="/leetcode/2019/04/16/fibonacci.html" class="leancloud_visitors" data-flag-title="剑指Offer(10) 斐波那契数列及青蛙跳台阶问题">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数&#58;</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
       
       
+
+      
+        <p class="description">如果我们需要重复地多次计算相同的问题，则通常可以选择用递归或循环两种不同的方法。 递归就是把问题层层分解，直到程序出口处。而循环则是通过设置计算的初始值及终止条件，在一个范围内重复运算。</p>
+
+
+<a id="more"></a>
+<h2 id="递归和循环"><a href="#递归和循环" class="headerlink" title="递归和循环"></a>递归和循环</h2><p>递归虽然有简洁的优点，但它同时也有显著的缺点。递归由于是函数调用自身，而函数调用是有时间和空间的消耗的：每一次函数调用，都需要在内存栈中分配空间以保存参数、返回地址及临时变量，而且往栈里压入数据和弹出数据都需要时间。<br>另外，递归中有可能很多计算都是重复的，从而对性能带来很大的负面影响。递归的本质是把一个问题分解成两个或者多个小问题。如果多个小问题存在相互重叠的部分，就存在重复的计算。</p>
+<p>通常应用动态规划解决问题时，我们都是用递归的思路分析问题，但由于递归分解的子问题中存在大量的重复，因此我们总是用自上而下的循环来实现代码。</p>
+<p>除了效率，递归还有可能引起更严重的问题：调用栈溢出。每一次函数调用在内存栈中分配空间，而每个进程的栈的容量是有限的。当递归调用层级太多时，就会超出栈的容量，从而导致调用栈溢出。</p>
+<h2 id="斐波那契数列"><a href="#斐波那契数列" class="headerlink" title="斐波那契数列"></a>斐波那契数列</h2><h3 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h3><p>如果直接写递归函数，由于会出现很多重复计算，效率非常底，不采用。</p>
+<p>要避免重复计算，采用从下往上计算，可以把计算过了的保存起来，下次要计算时就不必重复计算了：先由f(0)和f(1)计算f(2)，再由f(1)和f(2)计算f(3)……以此类推就行了，计算第n个时，只要保存第n-1和第n-2项就可以了。</p>
+<h3 id="测试用例"><a href="#测试用例" class="headerlink" title="测试用例"></a>测试用例</h3><p>1.功能测试（3，5，8等）</p>
+<p>2.边界值测试（0，1，2等）</p>
+<p>3.性能测试（50，100等）</p>
+<p>4.特殊（负数）</p>
+<h3 id="完整java代码"><a href="#完整java代码" class="headerlink" title="完整java代码"></a>完整java代码</h3><p>时间复杂度为O(n)</p>
+<figure class="highlight java"><figcaption><span>斐波那契数列</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Fibonacci</span> </span>&#123;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">long</span> <span class="title">Fib</span><span class="params">(<span class="keyword">long</span> n)</span> </span>&#123;</span><br><span class="line">		<span class="keyword">if</span> (n &lt; <span class="number">0</span>)</span><br><span class="line">			<span class="keyword">throw</span> <span class="keyword">new</span> RuntimeException(<span class="string">"下标错误，应从0开始！"</span>);</span><br><span class="line">		<span class="keyword">if</span> (n == <span class="number">0</span>)</span><br><span class="line">			<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">		<span class="keyword">if</span> (n == <span class="number">1</span>)</span><br><span class="line">			<span class="keyword">return</span> <span class="number">1</span>;</span><br><span class="line">		<span class="keyword">long</span> prePre = <span class="number">0</span>;</span><br><span class="line">		<span class="keyword">long</span> pre = <span class="number">1</span>;</span><br><span class="line">		<span class="keyword">long</span> result = <span class="number">1</span>;</span><br><span class="line">		<span class="keyword">for</span> (<span class="keyword">long</span> i = <span class="number">2</span>; i &lt;= n; i++) &#123;</span><br><span class="line">			result = prePre + pre;</span><br><span class="line">			prePre = pre;</span><br><span class="line">			pre = result;</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="keyword">return</span> result;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="comment">// 附：缩略版（考虑到代码的可读性，其实还是上面的方法比较好）</span></span><br><span class="line"></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">long</span> <span class="title">Fib2</span><span class="params">(<span class="keyword">long</span> n)</span> </span>&#123;</span><br><span class="line">		<span class="keyword">if</span> (n &lt; <span class="number">0</span>)</span><br><span class="line">			<span class="keyword">throw</span> <span class="keyword">new</span> RuntimeException(<span class="string">"下标错误，应从0开始！"</span>);</span><br><span class="line">		<span class="keyword">if</span> (n == <span class="number">0</span>)</span><br><span class="line">			<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">		<span class="keyword">if</span> (n == <span class="number">1</span>)</span><br><span class="line">			<span class="keyword">return</span> <span class="number">1</span>;</span><br><span class="line">		<span class="keyword">long</span> pre = <span class="number">0</span>;</span><br><span class="line">		<span class="keyword">long</span> result = <span class="number">1</span>;</span><br><span class="line">		<span class="keyword">for</span> (<span class="keyword">long</span> i = <span class="number">2</span>; i &lt;= n; i++) &#123;</span><br><span class="line">			result += pre;</span><br><span class="line">			pre = result - pre;</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="keyword">return</span> result;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">		Fibonacci demo = <span class="keyword">new</span> Fibonacci();</span><br><span class="line">		System.out.println(demo.Fib(<span class="number">0</span>));</span><br><span class="line">		System.out.println(demo.Fib(<span class="number">1</span>));</span><br><span class="line">		System.out.println(demo.Fib(<span class="number">2</span>));</span><br><span class="line">		System.out.println(demo.Fib(<span class="number">8</span>));</span><br><span class="line">		System.out.println(demo.Fib(<span class="number">50</span>));</span><br><span class="line">		System.out.println(demo.Fib(<span class="number">100</span>));</span><br><span class="line">		System.out.println(demo.Fib(-<span class="number">5</span>));</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="牛客网提交"><a href="#牛客网提交" class="headerlink" title="牛客网提交"></a>牛客网提交</h3><figure class="highlight java"><figcaption><span>牛客网提交版</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">Fibonacci</span><span class="params">(<span class="keyword">int</span> n)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span>[] result = &#123;<span class="number">0</span>, <span class="number">1</span>&#125;;</span><br><span class="line">        <span class="keyword">if</span> (n &lt; <span class="number">2</span>)</span><br><span class="line">            <span class="keyword">return</span> result[n];</span><br><span class="line">        <span class="keyword">int</span> fib1 = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">int</span> fib2 = <span class="number">1</span>;</span><br><span class="line">        <span class="keyword">int</span> fibN = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">2</span>; i &lt;=n; i++) &#123;</span><br><span class="line">            fibN = fib1 + fib2;</span><br><span class="line">            fib1 = fib2;</span><br><span class="line">            fib2 = fibN;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> fibN;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="青蛙跳台阶问题"><a href="#青蛙跳台阶问题" class="headerlink" title="青蛙跳台阶问题"></a>青蛙跳台阶问题</h2><h3 id="题目1"><a href="#题目1" class="headerlink" title="题目1"></a>题目1</h3><p>一只青蛙一次可以跳上1级台阶，也可以跳上2级。求该青蛙跳上一个n级的台阶总共有多少种跳法。</p>
+<p>　　将跳法总数记为f(n)，可以知道f(1)=1，f(2)=2。当n&gt;2时，第一次跳1级的话，还有f(n-1)种跳法；第一次跳2级的话，还有f(n-2)种跳法，所以可以推得f(n)=f(n-1)+f(n-2)，即为斐波那契数列。</p>
+<h3 id="题目2"><a href="#题目2" class="headerlink" title="题目2"></a>题目2</h3><p>一只青蛙一次可以跳上1级台阶，也可以跳上2级……它也可以跳上n级。求该青蛙跳上一个n级的台阶总共有多少种跳法。</p>
+<p>解法1：</p>
+<p>　　当n=1时，f(1)=1。</p>
+<p>　　当n大于1时，归纳总结可知：跳上n级台阶，第一次跳1级的话，有f(n-1)种方法；第一次跳2级的话，有f(n-2)种方法……第一次跳n-1级的话，有f(1)种方法；直接跳n级的话，有1种方法，所以可以得到如下公式：</p>
+<p>　　f(n) = f(n-1)+f(n-2)+……f(1)+1　　（n≥2）</p>
+<p>　　f(n-1) = f(n-2)+f(n-3)+…..f(1)+1　　（n&gt;2）</p>
+<p>　　由上面两式相减可得，f(n)-f(n-1)=f(n-1)，即f(n) = 2*f(n-1)  (n&gt;2)</p>
+<p>　　最终结合f(1)和f(2)，可以推得：f(n)=2^(n-1)</p>
+<p>解法2：</p>
+<p>　　假设跳到第n级总共需要k次，说明要在中间n-1级台阶中选出任意k-1个台阶，即C(n-1,k-1)种方法。</p>
+<p>　　所以：跳1次就跳上n级台阶，需要C(n-1,0)种方法；跳2次需要C(n-1,1)种方法……跳n次需要C(n-1,n-1)种方法</p>
+<p>　　总共需要跳C(n-1,0)+C(n-1,1)+C(n-1,2)+……C(n-1,n-1)=2^(n-1)种方法。</p>
+<p>解法3：</p>
+<p>　　除了必须到达最后一级台阶，第1级到第n-1级台阶都可以有选择的跳，也就是说对于这n-1个台阶来说，每个台阶都有跳上和不跳上2种情况，所以一共有2^(n-1)种方法。</p>
+<h2 id="矩形覆盖问题"><a href="#矩形覆盖问题" class="headerlink" title="矩形覆盖问题"></a>矩形覆盖问题</h2><h3 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h3><p>用n个2 · 1的小矩形无重叠地覆盖一个2 · n的大矩形，总共有多少种方法？</p>
+<p>当n = 1时，有一种方法。</p>
+<p>当n = 2时，有两种方法。</p>
+<p>当n &gt;= 3时，和斐波那契数列类似。第一步竖着放，有f(n-1)种方法；第一步横着放，有f(n-2)种方法。所以f(n)=f(n-1)+f(n-2)。</p>
+<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>1.求n次方时，可以利用递归来降低时间复杂度</p>
+<p>2.当遇到涉及n的问题时（类似青蛙跳台阶问题），不要紧张，可以进行归纳分析，特别注意f(n)与f(n-1)、f(n-2)等的关联，从而找出规律，进行合理建模。</p>
+<p>3.return (int)Math.pow(2,target-1);</p>
+<p>　　1) 转int类型</p>
+<hr>
       
     </div>
     
     
     
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/leetcode/tags/fibonacci/" rel="tag"><i class="fa fa-tags"></i> fibonacci</a>
+          
+        </div>
+      
+
+      
+      
+        <div class="post-widgets">
+        
+          <div class="wp_rating">
+              <div style="color: rgba(0, 0, 0, 0.75); font-size:13px; letter-spacing:3px">(&gt;看完记得五星好评哦亲&lt;)</div>
+            <div id="wpac-rating"></div>
+          </div>
+        
+
+        
+
+        
+        </div>
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/leetcode/2019/04/16/binary-search.html" rel="next" title="二分查找">
+                二分查找 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
   </div>
 
 
@@ -398,8 +588,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -555,6 +754,22 @@ show_date_time();
         </div>
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#递归和循环"><span class="nav-number">1.</span> <span class="nav-text">递归和循环</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#斐波那契数列"><span class="nav-number">2.</span> <span class="nav-text">斐波那契数列</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#思路"><span class="nav-number">2.1.</span> <span class="nav-text">思路</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#测试用例"><span class="nav-number">2.2.</span> <span class="nav-text">测试用例</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#完整java代码"><span class="nav-number">2.3.</span> <span class="nav-text">完整java代码</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#牛客网提交"><span class="nav-number">2.4.</span> <span class="nav-text">牛客网提交</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#青蛙跳台阶问题"><span class="nav-number">3.</span> <span class="nav-text">青蛙跳台阶问题</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#题目1"><span class="nav-number">3.1.</span> <span class="nav-text">题目1</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#题目2"><span class="nav-number">3.2.</span> <span class="nav-text">题目2</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#矩形覆盖问题"><span class="nav-number">4.</span> <span class="nav-text">矩形覆盖问题</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#题目"><span class="nav-number">4.1.</span> <span class="nav-text">题目</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#总结"><span class="nav-number">5.</span> <span class="nav-text">总结</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
@@ -1204,6 +1419,23 @@ show_date_time();
 
   
   
+  <script type="text/javascript">
+  wpac_init = window.wpac_init || [];
+  wpac_init.push({widget: 'Rating', id: 16073,
+    el: 'wpac-rating',
+    color: 'f79533'
+  });
+  (function() {
+    if ('WIDGETPACK_LOADED' in window) return;
+    WIDGETPACK_LOADED = true;
+    var mc = document.createElement('script');
+    mc.type = 'text/javascript';
+    mc.async = true;
+    mc.src = '//embed.widgetpack.com/widget.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(mc, s.nextSibling);
+  })();
+  </script>
+
 
   
 
