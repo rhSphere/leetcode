@@ -6,6 +6,8 @@ cache:
         - node_modules # 缓存不经常更改的内容
 install:
     - npm install # 安装hexo及插件
+    - npm install hexo-generator-search
+    - npm install hexo-generator-searchdb
     - npm rebuild node-sass --force #该命令是根据构建失败的日志提示添加的
 before_install:
     - export TZ='Asia/Shanghai' # 更改时区
