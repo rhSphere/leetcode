@@ -121,7 +121,7 @@
 
 
 
-  <meta name="keywords" content="LeetCode, 刷题笔记, 答案">
+  <meta name="keywords" content="BinarySearch,">
 
 
 
@@ -134,16 +134,18 @@
 
 
 
-<meta name="description" content="学会给自己找事，不要总闲下来；学会总结和反思，过一段时间，停下来总结得失；执行力比你的目标更重要，贯彻执行力，不要三天打鱼两天晒网">
-<meta property="og:type" content="website">
-<meta property="og:title" content="Depeng&#39;s Blog for Algorithms">
-<meta property="og:url" content="https://rhsphere.github.io/leetcode/tags/ArrayList/index.html">
+<meta name="description" content="数组在一定程度上是排序的，很容易分析出：可以采用二分法来寻找最小数字。">
+<meta name="keywords" content="BinarySearch">
+<meta property="og:type" content="article">
+<meta property="og:title" content="剑指Offer(11) 旋转数组中的最小数字">
+<meta property="og:url" content="https://rhsphere.github.io/leetcode/2019/04/16/min-number-in-rotate-array.html">
 <meta property="og:site_name" content="Depeng&#39;s Blog for Algorithms">
-<meta property="og:description" content="学会给自己找事，不要总闲下来；学会总结和反思，过一段时间，停下来总结得失；执行力比你的目标更重要，贯彻执行力，不要三天打鱼两天晒网">
+<meta property="og:description" content="数组在一定程度上是排序的，很容易分析出：可以采用二分法来寻找最小数字。">
 <meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2019-04-19T01:18:07.832Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Depeng&#39;s Blog for Algorithms">
-<meta name="twitter:description" content="学会给自己找事，不要总闲下来；学会总结和反思，过一段时间，停下来总结得失；执行力比你的目标更重要，贯彻执行力，不要三天打鱼两天晒网">
+<meta name="twitter:title" content="剑指Offer(11) 旋转数组中的最小数字">
+<meta name="twitter:description" content="数组在一定程度上是排序的，很容易分析出：可以采用二分法来寻找最小数字。">
 
 
 
@@ -176,13 +178,13 @@
 
 
 
-  <link rel="canonical" href="https://rhsphere.github.io/leetcode/tags/ArrayList/">
+  <link rel="canonical" href="https://rhsphere.github.io/leetcode/2019/04/16/min-number-in-rotate-array.html">
 
 
 
 
 
-  <title>标签: ArrayList | Depeng's Blog for Algorithms</title>
+  <title>剑指Offer(11) 旋转数组中的最小数字 | Depeng's Blog for Algorithms</title>
   
 
 
@@ -201,7 +203,7 @@
     
   
 
-  <div class="container sidebar-position-left ">
+  <div class="container sidebar-position-left page-post-detail">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -327,64 +329,215 @@
           <div id="content" class="content">
             
 
+  <div id="posts" class="posts-expand">
+    
+
+  
+
   
   
   
-  <div class="post-block tag">
-
-    <div id="posts" class="posts-collapse">
-      <div class="collection-title">
-        <h1>ArrayList<small>标签</small>
-        </h1>
-      </div>
-
-      
-        
-        
-        
-
-        
-          
-          <div class="collection-title">
-            <h1 class="archive-year" id="archive-year-2019">2019</h1>
-          </div>
-        
-        
-
-        
 
   <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://rhsphere.github.io/leetcode/leetcode/2019/04/16/min-number-in-rotate-array.html">
 
-      <h2 class="post-title">
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Depeng Lu">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/leetcode/uploads/avatar.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Depeng's Blog for Algorithms">
+    </span>
+
+    
+      <header class="post-header">
+
         
-            <a class="post-title-link" href="/leetcode/2019/03/04/ArrayList.html" itemprop="url">
-              
-                <span itemprop="name">数组线性表</span>
-              
-            </a>
         
-      </h2>
+          <h1 class="post-title" itemprop="name headline">剑指Offer(11) 旋转数组中的最小数字</h1>
+        
 
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated" datetime="2019-03-04T13:46:03+08:00" content="2019-03-04">
-          03-04
-        </time>
-      </div>
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-04-16T22:15:13+08:00">
+                2019-04-16
+              </time>
+            
 
-    </header>
-  </article>
+            
 
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/leetcode/categories/剑指Offer/" itemprop="url" rel="index">
+                    <span itemprop="name">剑指Offer</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+             <span id="/leetcode/2019/04/16/min-number-in-rotate-array.html" class="leancloud_visitors" data-flag-title="剑指Offer(11) 旋转数组中的最小数字">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数&#58;</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
 
       
-    </div>
+      
 
+      
+        <p class="description">数组在一定程度上是排序的，很容易分析出：可以采用二分法来寻找最小数字。</p>
+
+
+<a id="more"></a>
+<h2 id="查找和排序"><a href="#查找和排序" class="headerlink" title="查找和排序"></a>查找和排序</h2><p>在面试时，如果面试官要求实现一个排序算法，那么一定要问清楚这个排序应用的环境是什么、有哪些约束条件。</p>
+<h3 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h3><p>把一个数组最开始的若干个元素搬到数组的末尾，我们称之为数组的旋转。输入一个递增排序的数组的一个旋转，输出旋转数组的最小元素。例如数组 {3, 4, 5, 1, 2} 为 {1, 2, 3, 4, 5} 的一个旋转，该数组的最小值为1。</p>
+<h3 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h3><p>数组在一定程度上是排序的，很容易分析出：可以采用二分法来寻找最小数字。</p>
+<p>但是这里面有一些陷阱：</p>
+<p>1.递增排序数组的本身是自己的旋转，则最小数字是第一个数字</p>
+<p>2.中间数字与首尾数字大小相等，如 {1, 0, 1, 1, 1, 1} 和 {1, 1, 1, 1, 0, 1}，无法采用二分法，只能顺序查找。</p>
+<h3 id="测试用例"><a href="#测试用例" class="headerlink" title="测试用例"></a>测试用例</h3><p>1.功能测试（正常旋转数组，中间有或者无重复数字）</p>
+<p>2.边界值测试（升序数组，1个数字的数组）</p>
+<p>3.特殊输入测试（null，空数组）</p>
+<h2 id="完整java代码"><a href="#完整java代码" class="headerlink" title="完整java代码"></a>完整java代码</h2><figure class="highlight java"><figcaption><span>旋转数组中的最小数字</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">MinNumberInRotateArray</span> </span>&#123;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">minNumberInRotateArray</span><span class="params">(<span class="keyword">int</span>[] arr)</span> </span>&#123;</span><br><span class="line">		<span class="keyword">if</span> (arr == <span class="keyword">null</span> || arr.length &lt;= <span class="number">0</span>)</span><br><span class="line">			<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">		<span class="keyword">int</span> low = <span class="number">0</span>;</span><br><span class="line">		<span class="keyword">int</span> high = arr.length - <span class="number">1</span>;</span><br><span class="line">		<span class="keyword">int</span> mid = low + (high - low) &gt;&gt; <span class="number">1</span>;</span><br><span class="line"></span><br><span class="line">		<span class="comment">// 升序数组</span></span><br><span class="line">		<span class="keyword">if</span> (arr[low] &lt; arr[high])</span><br><span class="line">			<span class="keyword">return</span> arr[low];</span><br><span class="line">		<span class="comment">// 中间数字与首尾数字相等</span></span><br><span class="line">		<span class="keyword">if</span> (arr[mid] == arr[high] &amp;&amp; arr[mid] == arr[low]) &#123;</span><br><span class="line">			<span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= high; i++) &#123;</span><br><span class="line">				<span class="keyword">if</span> (arr[i] &lt; arr[i - <span class="number">1</span>])</span><br><span class="line">					<span class="keyword">return</span> arr[i];</span><br><span class="line">			&#125;</span><br><span class="line">			<span class="keyword">return</span> arr[low];</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="comment">// 正常情况</span></span><br><span class="line">		<span class="keyword">while</span> (low &lt; high) &#123;</span><br><span class="line">			<span class="keyword">if</span> (high - low == <span class="number">1</span>)</span><br><span class="line">				<span class="keyword">break</span>;</span><br><span class="line">			mid = (low + high) / <span class="number">2</span>;</span><br><span class="line">			<span class="keyword">if</span> (arr[mid] &lt;= arr[high]) &#123;</span><br><span class="line">				high = mid;</span><br><span class="line">			&#125; <span class="keyword">else</span> &#123;</span><br><span class="line">				low = mid;</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="keyword">return</span> arr[high];</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">test1</span><span class="params">()</span> </span>&#123;</span><br><span class="line">		<span class="keyword">int</span>[] array = <span class="keyword">null</span>;</span><br><span class="line">		System.out.println(<span class="string">"test1:"</span> + minNumberInRotateArray(array));</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">test2</span><span class="params">()</span> </span>&#123;</span><br><span class="line">		<span class="keyword">int</span>[] array = &#123;&#125;;</span><br><span class="line">		System.out.println(<span class="string">"test2:"</span> + minNumberInRotateArray(array));</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">test3</span><span class="params">()</span> </span>&#123;</span><br><span class="line">		<span class="keyword">int</span>[] array = &#123; <span class="number">1</span> &#125;;</span><br><span class="line">		System.out.println(<span class="string">"test3:"</span> + minNumberInRotateArray(array));</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">test4</span><span class="params">()</span> </span>&#123;</span><br><span class="line">		<span class="keyword">int</span>[] array = &#123; <span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>, <span class="number">6</span> &#125;;</span><br><span class="line">		System.out.println(<span class="string">"test4:"</span> + minNumberInRotateArray(array));</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">test5</span><span class="params">()</span> </span>&#123;</span><br><span class="line">		<span class="keyword">int</span>[] array = &#123; <span class="number">2</span>, <span class="number">2</span>, <span class="number">2</span>, <span class="number">2</span>, <span class="number">1</span>, <span class="number">2</span> &#125;;</span><br><span class="line">		System.out.println(<span class="string">"test5:"</span> + minNumberInRotateArray(array));</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">test6</span><span class="params">()</span> </span>&#123;</span><br><span class="line">		<span class="keyword">int</span>[] array = &#123; <span class="number">2</span>, <span class="number">1</span>, <span class="number">2</span>, <span class="number">2</span>, <span class="number">2</span>, <span class="number">2</span> &#125;;</span><br><span class="line">		System.out.println(<span class="string">"test6:"</span> + minNumberInRotateArray(array));</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">test7</span><span class="params">()</span> </span>&#123;</span><br><span class="line">		<span class="keyword">int</span>[] array = &#123; <span class="number">6</span>, <span class="number">6</span>, <span class="number">8</span>, <span class="number">9</span>, <span class="number">10</span>, <span class="number">1</span>, <span class="number">2</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>, <span class="number">6</span> &#125;;</span><br><span class="line">		System.out.println(<span class="string">"test7:"</span> + minNumberInRotateArray(array));</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">		MinNumberInRotateArray demo = <span class="keyword">new</span> MinNumberInRotateArray();</span><br><span class="line">		demo.test1();</span><br><span class="line">		demo.test2();</span><br><span class="line">		demo.test3();</span><br><span class="line">		demo.test4();</span><br><span class="line">		demo.test5();</span><br><span class="line">		demo.test6();</span><br><span class="line">		demo.test7();</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="牛客网优秀代码"><a href="#牛客网优秀代码" class="headerlink" title="牛客网优秀代码"></a>牛客网优秀代码</h2><figure class="highlight java"><figcaption><span>牛客网中的FINACK写的代码</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Solution</span></span>&#123;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">minNuberInRotateArray</span><span class="params">(<span class="keyword">int</span>[] arr)</span> </span>&#123;</span><br><span class="line">		<span class="keyword">int</span> low = <span class="number">0</span>;</span><br><span class="line">		<span class="keyword">int</span> high = arr.length - <span class="number">1</span>;</span><br><span class="line">		<span class="keyword">while</span> (low &lt; high) &#123;</span><br><span class="line">			<span class="keyword">int</span> mid = low + (high - low) &gt;&gt; <span class="number">1</span>;</span><br><span class="line">			<span class="keyword">if</span> (arr[mid] &gt; arr[high]) &#123;</span><br><span class="line">				low = mid + <span class="number">1</span>;</span><br><span class="line">			&#125; <span class="keyword">else</span> <span class="keyword">if</span> (arr[mid] == arr[high]) &#123;</span><br><span class="line">				high = high - <span class="number">1</span>;</span><br><span class="line">			&#125; <span class="keyword">else</span> &#123;</span><br><span class="line">				high = mid;</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="keyword">return</span> arr[low];</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>这段代码的细节：<br>1.使用low = mid + 1，而不是low = mid，最终会使得low = high（左右指针重合）而跳出循环。<br>2.使用high = mid，而不是high = mid - 1，因为mid有可能就是最小值点，不能减1。<br>3.升序数组的情况可以直接在循环中一起搞定，不用单独列出来判断。</p>
+<p>不好的地方：<br>1.1.该程序在array[mid] = array[high]时直接顺序查找。但其实这还有可能可以用二分法的，除非还满足array[mid] = array[low]，才只能使用顺序查找。所以可以先排除掉必须顺序查找的情况（类似自己上面的程序，提前判断掉），之后就可以直接删除else if(array[mid] == array[high]){high = high - 1;这两行了。</p>
+<p>2.缺少null的判断。</p>
+<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>1.题目中给定的特殊条件一定要去关注，往往就是解法的题眼，尤其是接触到一个新的概念时，要能快速理解并考虑全面。<br>2.要注意一些特例，如递增数组的本身是自己的旋转、相同数字数组。<br>3.如果数组一定程度上是排序的，可以考虑使用二分法来解题。对于数组的方法（如二分法等），可以用low、high、mid或者left、right、mid来表示左右指针，也即数组下标。</p>
+<hr>
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/leetcode/tags/BinarySearch/" rel="tag"><i class="fa fa-tags"></i> BinarySearch</a>
+          
+        </div>
+      
+
+      
+      
+        <div class="post-widgets">
+        
+          <div class="wp_rating">
+              <div style="color: rgba(0, 0, 0, 0.75); font-size:13px; letter-spacing:3px">(&gt;看完记得五星好评哦亲&lt;)</div>
+            <div id="wpac-rating"></div>
+          </div>
+        
+
+        
+
+        
+        </div>
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/leetcode/2019/04/18/string-path-in-matrix.html" rel="prev" title="剑指Offer(12) 矩阵中的路径">
+                <i class="fa fa-chevron-left"></i> 剑指Offer(12) 矩阵中的路径
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/leetcode/2019/04/16/fibonacci.html" rel="next" title="剑指Offer(10) 斐波那契数列及青蛙跳台阶问题">
+                剑指Offer(10) 斐波那契数列及青蛙跳台阶问题 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
   </div>
   
   
   
+  </article>
 
-  
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
 
 
           </div>
@@ -392,6 +545,10 @@
 
 
           
+
+  
+
+
 
         </div>
         
@@ -414,8 +571,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -571,6 +737,22 @@ show_date_time();
         </div>
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#查找和排序"><span class="nav-number">1.</span> <span class="nav-text">查找和排序</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#题目"><span class="nav-number">1.1.</span> <span class="nav-text">题目</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#思路"><span class="nav-number">1.2.</span> <span class="nav-text">思路</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#测试用例"><span class="nav-number">1.3.</span> <span class="nav-text">测试用例</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#完整java代码"><span class="nav-number">2.</span> <span class="nav-text">完整java代码</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#牛客网优秀代码"><span class="nav-number">3.</span> <span class="nav-text">牛客网优秀代码</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#总结"><span class="nav-number">4.</span> <span class="nav-text">总结</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
@@ -737,7 +919,9 @@ show_date_time();
   
 
   
-  
+  <script type="text/javascript" src="/leetcode/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/leetcode/js/src/post-details.js?v=5.1.4"></script>
+
 
 
   
@@ -1218,6 +1402,23 @@ show_date_time();
 
   
   
+  <script type="text/javascript">
+  wpac_init = window.wpac_init || [];
+  wpac_init.push({widget: 'Rating', id: 16073,
+    el: 'wpac-rating',
+    color: 'f79533'
+  });
+  (function() {
+    if ('WIDGETPACK_LOADED' in window) return;
+    WIDGETPACK_LOADED = true;
+    var mc = document.createElement('script');
+    mc.type = 'text/javascript';
+    mc.async = true;
+    mc.src = '//embed.widgetpack.com/widget.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(mc, s.nextSibling);
+  })();
+  </script>
+
 
   
 
