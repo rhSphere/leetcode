@@ -142,7 +142,7 @@
 <meta property="og:site_name" content="Depeng&#39;s Blog for Algorithms">
 <meta property="og:description" content="饿汉模式不会出现产生多个实例的情况，见单例模式的通用代码。懒汉模式在volatile关键字修饰后，使用双重锁机制，可以解决多个实例被构建的情况，以及由于指令重排而导致的返回一个没有初始化完成的singleton对象。 实现单例模式的手段非常多，还有通过静态内部类实现的方法。 但是上述方法存在共同的问题： 无法防止利用反射来重复构建对象。 阻止反射的构建方式是使用枚举类型，有了enum语法糖，JVM">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-04-19T01:18:07.832Z">
+<meta property="og:updated_time" content="2019-04-23T11:48:01.376Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="剑指Offer(2) 实现Singleton模式">
 <meta name="twitter:description" content="饿汉模式不会出现产生多个实例的情况，见单例模式的通用代码。懒汉模式在volatile关键字修饰后，使用双重锁机制，可以解决多个实例被构建的情况，以及由于指令重排而导致的返回一个没有初始化完成的singleton对象。 实现单例模式的手段非常多，还有通过静态内部类实现的方法。 但是上述方法存在共同的问题： 无法防止利用反射来重复构建对象。 阻止反射的构建方式是使用枚举类型，有了enum语法糖，JVM">
@@ -532,7 +532,7 @@
 <p>java在1.5 加入枚举。</p>
 <ul>
 <li>枚举是类，枚举常量是类的对象，在枚举类外无法创建枚举对象，可以保证枚举的类型安全性</li>
-<li>所有的枚举类都继承自java.lang.Enum，并且所有的枚举类都生命为final，每个枚举常量都声明为public static final，我们不能显示地继承Enum类</li>
+<li>所有的枚举类都继承自java.lang.Enum，并且所有的枚举类都声明为final，每个枚举常量都声明为public static final，我们不能显示地继承Enum类</li>
 <li>枚举类实例初始化中不能访问静态变量（枚举类特殊初始化方式：构造器先于静态初始化）</li>
 </ul>
 <h2 id="volatile关键字"><a href="#volatile关键字" class="headerlink" title="volatile关键字"></a>volatile关键字</h2><h3 id="Java内存模型"><a href="#Java内存模型" class="headerlink" title="Java内存模型"></a>Java内存模型</h3><p>Java内存模型简称JMM（Java Memory Model），是Java虚拟机所定义的一种抽象规范，用来屏蔽不同硬件和操作系统的内存访问差异，让java程序在各种平台下都能达到一致的内存访问效果。</p>
@@ -716,7 +716,7 @@
               
                 <a href="/leetcode/archives/">
               
-                  <span class="site-state-item-count">39</span>
+                  <span class="site-state-item-count">41</span>
                   <span class="site-state-item-name">文章</span>
                 </a>
               </div>
@@ -738,7 +738,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/leetcode/tags/index.html">
-                  <span class="site-state-item-count">42</span>
+                  <span class="site-state-item-count">46</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
@@ -897,7 +897,7 @@ show_date_time();
     
       <span class="post-meta-item-text">Site words total count&#58;</span>
     
-    <span title="Site words total count">68.2k</span>
+    <span title="Site words total count">72.8k</span>
   
 </div>
 
