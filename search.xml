@@ -1,6 +1,31 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[412. Fizz Buzz]]></title>
+    <url>%2Fleetcode%2F2019%2F05%2F25%2F412.html</url>
+    <content type="text"><![CDATA[3和5的倍数题目写一个程序，输出从 1 到 n 数字的字符串表示。 如果 n 是3的倍数，输出“Fizz”； 如果 n 是5的倍数，输出“Buzz”； 3.如果 n 同时是3和5的倍数，输出 “FizzBuzz”。 示例： n = 15, 返回:[ “1”, “2”, “Fizz”, “4”, “Buzz”, “Fizz”, “7”, “8”, “Fizz”, “Buzz”, “11”, “Fizz”, “13”, “14”, “FizzBuzz”] java实现1234567891011121314151617181920212223242526272829303132333435363738394041424344454647484950515253/** * @description: 比较简单，分别判断3和5的倍数标志 * @author: rhsphere * @since: 2019-05-25 20:51 by jdk 1.8 */public class FizzBuzz &#123; /* public List&lt;String&gt; fizzBuzz(int n) &#123; List&lt;String&gt; list = new ArrayList&lt;&gt;(); if (n &lt;= 0) return list; int i = 0; while (i &lt;= n) &#123; String out = ""; boolean t = false, f = false; if (i % 3 == 0) t = true; if (i % 5 == 0) f = true; if (t &amp; f) &#123; out = "FizzBuzz"; &#125; else if (t) &#123; out = "Fizz"; &#125; else if (f) &#123; out = "Buzz"; &#125; else &#123; out = Integer.toString(i); &#125; list.add(out); i++; &#125; return list; &#125; */ public List&lt;String&gt; fizzBuzz(int n) &#123; List&lt;String&gt; list = new ArrayList&lt;&gt;(); for (int i = 1; i &lt;= n; i++) &#123; list.add(isMultiple(i)); &#125; return ans; &#125; private String isMultiple(int n) &#123; if (n % 3 == 0 &amp;&amp; n % 5 != 0) &#123; return "Fizz"; &#125; else if (n % 3 != 0 &amp;&amp; n % 5 == 0) &#123; return "Buzz"; &#125; else if (n % 15 == 0) &#123; return "FizzBuzz"; &#125; else &#123; return String.valueOf(n); &#125; &#125;&#125; 总结 几个方法 String.valueOf(int n)、 Integer.toString(int n)、 list.add() 注释的方法也有可取之处，比如 t &amp; f]]></content>
+      <categories>
+        <category>Easy</category>
+      </categories>
+      <tags>
+        <tag>Array</tag>
+        <tag>String</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[169. Majority Element]]></title>
+    <url>%2Fleetcode%2F2019%2F05%2F25%2F169.html</url>
+    <content type="text"><![CDATA[求众数题目给定一个大小为 n 的数组，找到其中的众数。众数是指在数组中出现次数大于 ⌊ n/2 ⌋ 的元素。 你可以假设数组是非空的，并且给定的数组总是存在众数。 示例 1: 输入: [3,2,3]输出: 3示例 2: 输入: [2,2,1,1,1,2,2]输出: 2 java代码1234567891011121314151617181920212223242526272829303132333435363738394041424344454647484950** * @description: leetcode上说明, 一定是具有众数存在的，则可以计算出一个初始值 count,从数组的下标1开始， * 如果与下一个数组下标的数字不相等，则count-- 当count 为0 就切换为下一个比较的数字 * @author: rhsphere * @since: 2019-05-25 20:19 by jdk 1.8 */public class MajorityElement &#123; public static int majorityElement(int[] nums) &#123; int maj = nums[0]; int count = 1; int i = 1; while (i &lt; nums.length) &#123; if (nums[i] == maj) count++; else &#123; count--; if (count == 0) &#123; maj = nums[i]; count = 1; &#125; &#125; i++; &#125; return maj; &#125; /*另一种写法 public static int majorityElement(int[] nums) &#123; int maj = nums[0]; int count = 1; for (int i = 1; i &lt; nums.length; i++) &#123; if (nums[i] == maj) &#123; count++; &#125; else &#123; count--; &#125; if (count == 0) &#123; maj = nums[i + 1]; &#125; &#125; return maj; &#125; */ public static void main(Sting[] args) &#123; int[] test1 = &#123;2, 2, 1, 1, 1, 2, 2&#125;; int a = majorityElement(test1); System.out.println(a); &#125;&#125; 总结 O(n) time and O(n) space O(n) time and O(1) space 使用 major 变量记录众数，count 记录遇到 major +1，非 major -1，最终 count 会大于0，major 即代表众数。]]></content>
+      <categories>
+        <category>Easy</category>
+      </categories>
+      <tags>
+        <tag>Array</tag>
+        <tag>Divide and Conquer</tag>
+        <tag>Bit Manipulation</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[15. Three Sum]]></title>
     <url>%2Fleetcode%2F2019%2F05%2F25%2F15.html</url>
     <content type="text"><![CDATA[三数之和题目给定一个包含 n 个整数的数组 nums，判断 nums 中是否存在三个元素 a，b，c ，使得 a + b + c = 0？找出所有满足条件且不重复的三元组。 注意：答案中不可以包含重复的三元组。 例如, 给定数组 nums = [-1, 0, 1, 2, -1, -4]， 满足要求的三元组集合为： [ [-1, 0, 1], [-1, -1, 2] ] java代码12345678910111213141516171819202122232425262728293031323334353637383940414243444546474849505152import java.util.ArrayList;import java.util.Arrays;import java.util.List;/** * @description: 先排序，然后有两个指针 head 和 tail。 要计算的第一个数一定是负数,所以只要后两个数相加等于0-第一个数即可。 * @author: rhsphere * @since: 2019-05-25 18:57 by jdk 1.8 */public class ThreeSum&#123; public static List&lt;List&lt;Integer&gt;&gt; threeSum(int[] nums) &#123; List&lt;Integer&gt; res = new ArrayList&lt;&gt;(); Arrays.sort(nums); for (int i = 0; i &lt; nums.length; i++) &#123; if (nums[i] &gt; 0) return res; //如果上一次匹配成功了在nums[i-1]，相同的nums[i]显然会重复 if (i &gt; 0 &amp;&amp; nums[i] = nums[i - 1]) continue; //双指针的做法谨记 int head = i + 1, tail = nums.length - 1; int val = 0 - nums[i]; while (head &lt; tail) &#123; if (nums[head] + nums[tail] == val) &#123; List&lt;Integer&gt; list = Arrays.asList(nums[i], nums[head], nums[tail]); res.add(list); while (head &lt; tail &amp;&amp; nums[tail] = nums[tail - 1]) tail--; while (head &lt; tail &amp;&amp; nums[head] = nums[head + 1]) head++; tail--; head++; &#125; else if (nums[head] + nums[tail] &gt; val) &#123; tail--; &#125; else &#123; head++; &#125; &#125; &#125; return res; &#125; public static void main(String[] args) &#123; int nums = &#123;-1, 0, 1, 2, -1, -4&#125;; List&lt;List&lt;Integer&gt;&gt; list = threeSum(nums); System.out.println(list); &#125;&#125; 总结 排序后再进行规约成两数之和 记住几个函数 Arrays.asList()、 Arrays.sort()、 list.add()、 List res = new ArrayList() (接口和抽象类不能实例化) 去重的考虑，有三处做了去重 双指针的方法]]></content>
