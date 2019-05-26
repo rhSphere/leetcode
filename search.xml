@@ -1,6 +1,29 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[41. First Missing Positive]]></title>
+    <url>%2Fleetcode%2F2019%2F05%2F25%2F41.html</url>
+    <content type="text"><![CDATA[缺失的第一个正数题目给定一个未排序的整数数组，找出其中没有出现的最小的正整数。 示例 1: 输入: [3,4,-1,1]输出: 2示例 3: 输入: [7,8,9,11,12]输出: 1说明: 你的算法的时间复杂度应为O(n)，并且只能使用常数级别的空间。 思路整个的思路就是把nums[i]存储的数放到，下标为nums[i]的位置，处理小于等于0和大于数组长度的nums[i]，交换nums[i]到下标nums[i]是做一下取负值处理，离开的位置i不做处理，把整个数组处理一遍后，遍历数组找到第一个正数所对应的位置，就是第一个缺失的正数。 和剑指offer中3. 数组中重复中的数字差不多，数组存储的数（长度范围内）放在对应下标的位置，离开的位置保持不变，如果没有人填回来说明这个位置空缺，这是只要遍历一次数组，找到第一个空缺的位置就是第一个缺失的正数。 缺失的位置巧妙的用数组的0、1来辅助，先判断是否有1，如果有1那这个位置就可以拿出来放 数组中存储的不在长度范围内的数，把这些数置为1， 如果说这个数离开现在的位置，到nums[i]的位置（比如数组长度6， i = 3, nums[i] = 4, nums[i]去填到i = 4的位置），把这个数变成负数，所以这种方法，最后统计有多少正数，还能统计在数组范围内缺失多少正数。 java代码12345678910111213141516171819202122232425262728293031323334353637383940414243444546474849505152535455public class FindMissingPositive &#123; public static int findMissingPositive(int[] nums) &#123; //1. 判断1是否存在 int n = nums.length; boolean isOneExists = false; for (int i : nums) &#123; // foreach语句出错，错成nums[i] == 1 if (i == 1) isOneExists = true; &#125; if (!isOneExists) return 1; // n == 2判断出错 if (n == 1) return 2; //2. 因为上面判断出1存在的（否则程序结束了），所以可以借用数组下标为1的位置， // 存放不在数组长度范围内的数（小于0和大于数组长度的），将值设置为1，等下在搬移时 //会一直搬移到下标为1的位置进行覆盖 for (int i = 0; i &lt; n; i++) &#123; if (nums[i] &lt;= 0 || nums[i] &gt; n) nums[i] = 1; &#125; //3. 把数组长度内的数都给置为负值， for (int i = 0; i &lt; n; i++) &#123; int v = Math.abs(nums[i]); if (v == n) &#123; //避免越界，而且0位置不是正数 nums[0] = -1 * Math.abs(nums[0]); &#125; else &#123; nums[v] = -1 * Math.abs(nums[v]); &#125; &#125; //4. 从下标为1的位置遍历 for (int i = 1; i &lt; n; i++) &#123; if (nums[i] &gt; 0) return i; &#125; //若执行到此步，上面的for循环，说明n-1的位置都是在的， if (nums[0] &gt; 0) return n; return n + 1; &#125; public static void main(String[] args) &#123; int[] nums = &#123;3,4,-1,1&#125;; int a = firstMissingPositive(nums); System.out.println(a); &#125; &#125; 总结 O(2n)的意思是遍历两遍！！！ 本题思路借鉴了剑指Offer3. 重复的数字，请复习 犯了两个错误1. // foreach语句出错，错成nums[i] == 1 2. // n == 2判断出错 可以看本题的思路]]></content>
+      <categories>
+        <category>Hard</category>
+      </categories>
+      <tags>
+        <tag>Array</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[88. Merge Sorted Array]]></title>
+    <url>%2Fleetcode%2F2019%2F05%2F25%2F88.html</url>
+    <content type="text"><![CDATA[合并两个有序数组题目给定两个有序整数数组 nums1 和 nums2，将 nums2 合并到 nums1 中，使得 num1 成为一个有序数组。 说明: 初始化 nums1 和 nums2 的元素数量分别为 m 和 n。你可以假设 nums1 有足够的空间（空间大小大于或等于 m + n）来保存 nums2 中的元素。示例: 输入:nums1 = [1,2,3,0,0,0], m = 3nums2 = [2,5,6], n = 3 输出: [1,2,2,3,5,6] java实现123456789101112131415161718192021222324252627282930313233/** * @description: 合并两个有序数组，考虑在归并排序中的merge函数，需要额外的空间， *本题目中，限制了数组的长度 * @author: rhsphere * @since: 2019-05-25 21:30 by jdk 1.8 */public class MergeSorted &#123; public static void merge(int[] nums1, int m, int[] nums2, int n) &#123; int index = n + m - 1; m--; n--; while (m &gt;= 0 || n &gt;= 0) &#123; if (n == -1) &#123; return; &#125; else if (m &lt; 0) &#123; nums1[index--] = nums2[n--]; &#125; else if (nums1[m] &gt; nums1[n]) &#123; nums1[index--] = nums1[m--]; &#125; else &#123; nums1[index--] = nums2[n--]; &#125; &#125; &#125; public static void main(String[] args) &#123; int[] nums1 = &#123;1,2,7,0,0,0&#125;; int[] nums2 = &#123;4,5,6&#125;; int m = 3, n = 3; merge(nums1, m, nums2, n); System.out.println(Arrays.toString(nums1)); &#125;&#125; 总结 善用断点调试，看清流程怎么走的 合并两个有序数组，虽然没有额外的控件，但是nums1数组的长度题目中是大于等于 m+n的，和归并排序中的merge函数是完全不一样的，归并排序中用了O(n)的空间，来存储合并后的数组 对于 i– 的合理利用]]></content>
+      <categories>
+        <category>Easy</category>
+      </categories>
+      <tags>
+        <tag>Array</tag>
+        <tag>Two Pointers</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[412. Fizz Buzz]]></title>
     <url>%2Fleetcode%2F2019%2F05%2F25%2F412.html</url>
     <content type="text"><![CDATA[3和5的倍数题目写一个程序，输出从 1 到 n 数字的字符串表示。 如果 n 是3的倍数，输出“Fizz”； 如果 n 是5的倍数，输出“Buzz”； 3.如果 n 同时是3和5的倍数，输出 “FizzBuzz”。 示例： n = 15, 返回:[ “1”, “2”, “Fizz”, “4”, “Buzz”, “Fizz”, “7”, “8”, “Fizz”, “Buzz”, “11”, “Fizz”, “13”, “14”, “FizzBuzz”] java实现1234567891011121314151617181920212223242526272829303132333435363738394041424344454647484950515253/** * @description: 比较简单，分别判断3和5的倍数标志 * @author: rhsphere * @since: 2019-05-25 20:51 by jdk 1.8 */public class FizzBuzz &#123; /* public List&lt;String&gt; fizzBuzz(int n) &#123; List&lt;String&gt; list = new ArrayList&lt;&gt;(); if (n &lt;= 0) return list; int i = 0; while (i &lt;= n) &#123; String out = ""; boolean t = false, f = false; if (i % 3 == 0) t = true; if (i % 5 == 0) f = true; if (t &amp; f) &#123; out = "FizzBuzz"; &#125; else if (t) &#123; out = "Fizz"; &#125; else if (f) &#123; out = "Buzz"; &#125; else &#123; out = Integer.toString(i); &#125; list.add(out); i++; &#125; return list; &#125; */ public List&lt;String&gt; fizzBuzz(int n) &#123; List&lt;String&gt; list = new ArrayList&lt;&gt;(); for (int i = 1; i &lt;= n; i++) &#123; list.add(isMultiple(i)); &#125; return ans; &#125; private String isMultiple(int n) &#123; if (n % 3 == 0 &amp;&amp; n % 5 != 0) &#123; return "Fizz"; &#125; else if (n % 3 != 0 &amp;&amp; n % 5 == 0) &#123; return "Buzz"; &#125; else if (n % 15 == 0) &#123; return "FizzBuzz"; &#125; else &#123; return String.valueOf(n); &#125; &#125;&#125; 总结 几个方法 String.valueOf(int n)、 Integer.toString(int n)、 list.add() 注释的方法也有可取之处，比如 t &amp; f]]></content>
