@@ -12,7 +12,7 @@ description:
 <!-- more -->
 
 ## Array(数组)
-Last Modified: 2019/5/27 10:04 by dp
+Last Modified: 2019/5/27 11:09 by dp
 
 [01. Two Sum（两数之和）](https://blogs.rhsphere.com/leetcode/2019/05/25/1.html)
 
@@ -32,6 +32,7 @@ Last Modified: 2019/5/27 10:04 by dp
 
 [09. Find All Duplicates in an Array（数组中重复的数字）](https://blogs.rhsphere.com/leetcode/2019/05/27/442.html)
 
+[10. 实现动态数组（泛型）](https://blogs.rhsphere.com/leetcode/2019/05/27/array-and-genericarray.html)
 
 
 
