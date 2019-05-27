@@ -29,7 +29,7 @@ description:
 
 ### 思路
 1. 元素的值在不超过数组的长度，我们遍历数组，将元素值映射的下标改为负数，当遇到负数时，说明该元素下标映射的值已经出现过了。
-2. 和![41. First Missing Positive](https://blogs.rhsphere.com/leetcode/2019/05/25/41.html)中取负值的思路差不多，但是方法略有不同，**所以不要死记硬背！**
+2. 和[41. First Missing Positive](https://blogs.rhsphere.com/leetcode/2019/05/25/41.html)中取负值的思路差不多，但是方法略有不同，**所以不要死记硬背！**
 
 ### java代码
 

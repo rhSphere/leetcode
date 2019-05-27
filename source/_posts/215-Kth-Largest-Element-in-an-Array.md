@@ -84,7 +84,7 @@ public class KthLarget {
 
 ### 总结
 
-1. 应用了快排中partition的函数，参看![partition函数的单边循环法](https://blogs.rhsphere.com/leetcode/2019/04/01/quick-sort.html)
+1. 应用了快排中partition的函数，参看[partition函数的单边循环法](https://blogs.rhsphere.com/leetcode/2019/04/01/quick-sort.html)
 2. 这种方法在提交时，运行时间效果不是很好，不知道有什么可以改进的地方吗?
 3. partition单边循环时，可以用一个数组（4 7 6 5 3 2 8 1）演示一下就知道怎么写了
 
