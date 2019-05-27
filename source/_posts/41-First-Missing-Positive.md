@@ -69,11 +69,10 @@ public class FindMissingPositive {
 		for (int i = 0; i < n; i++) {
 			int v = Math.abs(nums[i]);
 			if (v == n) {
-
 			//避免越界，而且0位置不是正数
-
 				nums[0] = -1 * Math.abs(nums[0]);
 			} else {
+				//由于这个位置v可能会反复访问，所以要加绝对值再取负值
 				nums[v] = -1 * Math.abs(nums[v]);
 			}
 		}
