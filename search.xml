@@ -1,9 +1,45 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[442. Find All Duplicates in an Array]]></title>
+    <url>%2Fleetcode%2F2019%2F05%2F27%2F442.html</url>
+    <content type="text"><![CDATA[数组中重复的数据题目给定一个整数数组 a，其中1 ≤ a[i] ≤ n （n为数组长度）, 其中有些元素出现两次而其他元素出现一次。 找到所有出现两次的元素。 你可以不用到任何额外空间并在O(n)时间复杂度内解决这个问题吗？ 示例： 输入:[4,3,2,7,8,2,3,1] 输出:[2,3] 思路 元素的值在不超过数组的长度，我们遍历数组，将元素值映射的下标改为负数，当遇到负数时，说明该元素下标映射的值已经出现过了。 和中取负值的思路差不多，但是方法略有不同，所以不要死记硬背！ java代码1234567891011121314151617181920212223242526272829/** * @description: 元素的值在不超过数组的长度，遍历数组将元素映射的下标改成负数，当遇到负数时，说明该元素下标映射的值已经出现过了 * @author: rhsphere * @since: 2019-05-27 09:30 by jdk 1.8 */public class FindAllDuplicates &#123; public static List&lt;Integer&gt; findDuplicates(int[] nums) &#123; List&lt;Integer&gt; list = new ArrayList&lt;&gt;(); if (nums.length &lt;= 0) return list; for (int i = 0; i &lt; nums.length; i++) &#123; int v = Math.abs(nums[i]); if (nums[v - 1] &gt; 0) &#123; nums[v - 1] *= -1; &#125; else &#123; list.add(Math.nums[i]); &#125; &#125; return list; &#125; public static void main(String[] args) &#123; int[] arr = &#123;4,3,2,7,8,2,3,1&#125;; List&lt;Integer&gt; list = findDuplicates(arr); System.out.println(list); &#125;&#125;]]></content>
+      <categories>
+        <category>Medium</category>
+      </categories>
+      <tags>
+        <tag>Array</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[136. Single Number]]></title>
+    <url>%2Fleetcode%2F2019%2F05%2F27%2F136.html</url>
+    <content type="text"><![CDATA[数组中只出现一次的数题目给定一个非空整数数组，除了某个元素只出现一次以外，其余每个元素均出现两次。找出那个只出现了一次的元素。 说明： 你的算法应该具有线性时间复杂度。 你可以不使用额外空间来实现吗？ 示例 1: 输入: [2,2,1]输出: 1示例 2: 输入: [4,1,2,1,2]输出: 4 java代码1234567891011121314151617181920212223/** * @description: 异或操作最秀的用法了 * @author: rhsphere * @since: 2019-05-27 09:06 by jdk 1.8 */public class SingleNumber &#123; public static int singleNumber(int[] nums) &#123; int ans = 0; /* for (int i : nums) ans ^= i; */ for (int i = 0; i &lt; nums.length; i++) ans ^= nusm[i]; return ans; &#125; public static void main(String[] args) &#123; int[] arr = &#123;4,1,2,1,2&#125;; int a = singleNumber(arr); System.out.println(a); &#125;&#125; 总结 由于题目原因，用异或太简单了，但是foreach比正常for循环执行速度要慢很多]]></content>
+      <categories>
+        <category>Easy</category>
+      </categories>
+      <tags>
+        <tag>Hash Table</tag>
+        <tag>Bit Manipulation</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[215. Kth Largest Element in an Array]]></title>
+    <url>%2Fleetcode%2F2019%2F05%2F27%2F215.html</url>
+    <content type="text"><![CDATA[数组中的第K个最大元素题目在未排序的数组中找到第 k 个最大的元素。请注意，你需要找的是数组排序后的第 k 个最大的元素，而不是第 k 个不同的元素。 示例 1: 输入: [3,2,1,5,6,4] 和 k = 2输出: 5示例 2: 输入: [3,2,3,1,2,4,5,5,6] 和 k = 4输出: 4说明: 你可以假设 k 总是有效的，且 1 ≤ k ≤ 数组的长度。 java代码123456789101112131415161718192021222324252627282930313233343536373839404142434445464748/** * @description: 用快排的思想，partition函数 * @author: rhsphere * @since: 2019-05-26 10:49 by jdk 1.8 */public class KthLarget &#123; public static int findKthLargest(int[] nums, int k) &#123; int start = 0; int end = nums.length - 1; int index = nums.length - 1; while (start &lt; end) &#123; int pivotIndex = partition(nums, start, end); if (pivotIndex &lt; index) &#123; start = pivotIndex + 1; &#125; else if (pivotIndex &gt; index) &#123; end = startIndex - 1; &#125; else &#123; return nums[pivotIndex]; &#125; &#125; return nums[start]; &#125; private static int partition(int[] nums, int start, int end) &#123; int pivot = nums[start]; int mark = start; for (int i = start + 1; i &lt;= end; i++) &#123; if (nums[i] &lt; pivot) &#123; mark++; int tmp = nums[i]; nums[i] = nums[mark]; nums[mark] = tmp; &#125; &#125; nums[start] = nums[mark]; nums[mark] = pivot; return mark; &#125; public static void main(String[] args) &#123; int[] arr = &#123;3,2,1,5,6,4&#125;; int a = findKthLargest(arr, 2); System.out.println(a); &#125;&#125; 总结 应用了快排中partition的函数，参看 这种方法在提交时，运行时间效果不是很好，不知道有什么可以改进的地方吗? partition单边循环时，可以用一个数组（4 7 6 5 3 2 8 1）演示一下就知道怎么写了]]></content>
+      <categories>
+        <category>Medium</category>
+      </categories>
+      <tags>
+        <tag>Divide and Conquer</tag>
+        <tag>Heap</tag>
+        <tag>Quick Sort</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[41. First Missing Positive]]></title>
     <url>%2Fleetcode%2F2019%2F05%2F25%2F41.html</url>
-    <content type="text"><![CDATA[缺失的第一个正数题目给定一个未排序的整数数组，找出其中没有出现的最小的正整数。 示例 1: 输入: [3,4,-1,1]输出: 2示例 3: 输入: [7,8,9,11,12]输出: 1说明: 你的算法的时间复杂度应为O(n)，并且只能使用常数级别的空间。 思路整个的思路就是把nums[i]存储的数放到，下标为nums[i]的位置，处理小于等于0和大于数组长度的nums[i]，交换nums[i]到下标nums[i]是做一下取负值处理，离开的位置i不做处理，把整个数组处理一遍后，遍历数组找到第一个正数所对应的位置，就是第一个缺失的正数。 和剑指offer中3. 数组中重复中的数字差不多，数组存储的数（长度范围内）放在对应下标的位置，离开的位置保持不变，如果没有人填回来说明这个位置空缺，这是只要遍历一次数组，找到第一个空缺的位置就是第一个缺失的正数。 缺失的位置巧妙的用数组的0、1来辅助，先判断是否有1，如果有1那这个位置就可以拿出来放 数组中存储的不在长度范围内的数，把这些数置为1， 如果说这个数离开现在的位置，到nums[i]的位置（比如数组长度6， i = 3, nums[i] = 4, nums[i]去填到i = 4的位置），把这个数变成负数，所以这种方法，最后统计有多少正数，还能统计在数组范围内缺失多少正数。 java代码12345678910111213141516171819202122232425262728293031323334353637383940414243444546474849505152535455public class FindMissingPositive &#123; public static int findMissingPositive(int[] nums) &#123; //1. 判断1是否存在 int n = nums.length; boolean isOneExists = false; for (int i : nums) &#123; // foreach语句出错，错成nums[i] == 1 if (i == 1) isOneExists = true; &#125; if (!isOneExists) return 1; // n == 2判断出错 if (n == 1) return 2; //2. 因为上面判断出1存在的（否则程序结束了），所以可以借用数组下标为1的位置， // 存放不在数组长度范围内的数（小于0和大于数组长度的），将值设置为1，等下在搬移时 //会一直搬移到下标为1的位置进行覆盖 for (int i = 0; i &lt; n; i++) &#123; if (nums[i] &lt;= 0 || nums[i] &gt; n) nums[i] = 1; &#125; //3. 把数组长度内的数都给置为负值， for (int i = 0; i &lt; n; i++) &#123; int v = Math.abs(nums[i]); if (v == n) &#123; //避免越界，而且0位置不是正数 nums[0] = -1 * Math.abs(nums[0]); &#125; else &#123; nums[v] = -1 * Math.abs(nums[v]); &#125; &#125; //4. 从下标为1的位置遍历 for (int i = 1; i &lt; n; i++) &#123; if (nums[i] &gt; 0) return i; &#125; //若执行到此步，上面的for循环，说明n-1的位置都是在的， if (nums[0] &gt; 0) return n; return n + 1; &#125; public static void main(String[] args) &#123; int[] nums = &#123;3,4,-1,1&#125;; int a = firstMissingPositive(nums); System.out.println(a); &#125; &#125; 总结 O(2n)的意思是遍历两遍！！！ 本题思路借鉴了剑指Offer3. 重复的数字，请复习 犯了两个错误1. // foreach语句出错，错成nums[i] == 1 2. // n == 2判断出错 可以看本题的思路]]></content>
+    <content type="text"><![CDATA[缺失的第一个正数题目给定一个未排序的整数数组，找出其中没有出现的最小的正整数。 示例 1: 输入: [3,4,-1,1]输出: 2示例 3: 输入: [7,8,9,11,12]输出: 1说明: 你的算法的时间复杂度应为O(n)，并且只能使用常数级别的空间。 思路整个的思路就是把nums[i]存储的数放到，下标为nums[i]的位置，处理小于等于0和大于数组长度的nums[i]，交换nums[i]到下标nums[i]是做一下取负值处理，离开的位置i不做处理，把整个数组处理一遍后，遍历数组找到第一个正数所对应的位置，就是第一个缺失的正数。 和剑指offer中3. 数组中重复中的数字差不多，数组存储的数（长度范围内）放在对应下标的位置，离开的位置保持不变，如果没有人填回来说明这个位置空缺，这是只要遍历一次数组，找到第一个空缺的位置就是第一个缺失的正数。 缺失的位置巧妙的用数组的0、1来辅助，先判断是否有1，如果有1那这个位置就可以拿出来放 数组中存储的不在长度范围内的数，把这些数置为1， 如果说这个数离开现在的位置，到nums[i]的位置（比如数组长度6， i = 3, nums[i] = 4, nums[i]去填到i = 4的位置），把这个数变成负数，所以这种方法，最后统计有多少正数，还能统计在数组范围内缺失多少正数。 java代码123456789101112131415161718192021222324252627282930313233343536373839404142434445464748495051525354public class FindMissingPositive &#123; public static int findMissingPositive(int[] nums) &#123; //1. 判断1是否存在 int n = nums.length; boolean isOneExists = false; for (int i : nums) &#123; // foreach语句出错，错成nums[i] == 1 if (i == 1) isOneExists = true; &#125; if (!isOneExists) return 1; // n == 2判断出错 if (n == 1) return 2; //2. 因为上面判断出1存在的（否则程序结束了），所以可以借用数组下标为1的位置， // 存放不在数组长度范围内的数（小于0和大于数组长度的），将值设置为1，等下在搬移时 //会一直搬移到下标为1的位置进行覆盖 for (int i = 0; i &lt; n; i++) &#123; if (nums[i] &lt;= 0 || nums[i] &gt; n) nums[i] = 1; &#125; //3. 把数组长度内的数都给置为负值， for (int i = 0; i &lt; n; i++) &#123; int v = Math.abs(nums[i]); if (v == n) &#123; //避免越界，而且0位置不是正数 nums[0] = -1 * Math.abs(nums[0]); &#125; else &#123; //由于这个位置v可能会反复访问，所以要加绝对值再取负值 nums[v] = -1 * Math.abs(nums[v]); &#125; &#125; //4. 从下标为1的位置遍历 for (int i = 1; i &lt; n; i++) &#123; if (nums[i] &gt; 0) return i; &#125; //若执行到此步，上面的for循环，说明n-1的位置都是在的， if (nums[0] &gt; 0) return n; return n + 1; &#125; public static void main(String[] args) &#123; int[] nums = &#123;3,4,-1,1&#125;; int a = firstMissingPositive(nums); System.out.println(a); &#125; &#125; 总结 O(2n)的意思是遍历两遍！！！ 本题思路借鉴了剑指Offer3. 重复的数字，请复习 犯了两个错误1. // foreach语句出错，错成nums[i] == 1 2. // n == 2判断出错 可以看本题的思路]]></content>
       <categories>
         <category>Hard</category>
       </categories>
@@ -44,8 +80,8 @@
       </categories>
       <tags>
         <tag>Array</tag>
-        <tag>Divide and Conquer</tag>
         <tag>Bit Manipulation</tag>
+        <tag>Divide and Conquer</tag>
       </tags>
   </entry>
   <entry>
@@ -432,8 +468,8 @@
       </categories>
       <tags>
         <tag>Hash Table</tag>
-        <tag>Design</tag>
         <tag>Heap</tag>
+        <tag>Design</tag>
       </tags>
   </entry>
   <entry>
