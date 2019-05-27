@@ -140,11 +140,9 @@
 <meta property="og:url" content="https://rhsphere.github.io/leetcode/2019/05/27/442.html">
 <meta property="og:site_name" content="Depeng&#39;s Blog for Algorithms">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:image" content="https://blogs.rhsphere.com/leetcode/2019/05/25/41.html">
-<meta property="og:updated_time" content="2019-05-27T01:55:33.953Z">
+<meta property="og:updated_time" content="2019-05-27T02:06:39.588Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="442. Find All Duplicates in an Array">
-<meta name="twitter:image" content="https://blogs.rhsphere.com/leetcode/2019/05/25/41.html">
 
 
 
@@ -454,7 +452,7 @@
 <p>输出:<br>[2,3]</p>
 <h3 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h3><ol>
 <li>元素的值在不超过数组的长度，我们遍历数组，将元素值映射的下标改为负数，当遇到负数时，说明该元素下标映射的值已经出现过了。</li>
-<li>和<img src="https://blogs.rhsphere.com/leetcode/2019/05/25/41.html" alt="41. First Missing Positive">中取负值的思路差不多，但是方法略有不同，<strong>所以不要死记硬背！</strong></li>
+<li>和<a href="https://blogs.rhsphere.com/leetcode/2019/05/25/41.html" target="_blank" rel="noopener">41. First Missing Positive</a>中取负值的思路差不多，但是方法略有不同，<strong>所以不要死记硬背！</strong></li>
 </ol>
 <h3 id="java代码"><a href="#java代码" class="headerlink" title="java代码"></a>java代码</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@description</span>: 元素的值在不超过数组的长度，遍历数组将元素映射的下标改成负数，当遇到负数时，说明该元素下标映射的值已经出现过了</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@author</span>: rhsphere</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@since</span>: 2019-05-27 09:30 by jdk 1.8</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">FindAllDuplicates</span> </span>&#123; </span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> List&lt;Integer&gt; <span class="title">findDuplicates</span><span class="params">(<span class="keyword">int</span>[] nums)</span> </span>&#123;</span><br><span class="line">		List&lt;Integer&gt; list = <span class="keyword">new</span> ArrayList&lt;&gt;();</span><br><span class="line"></span><br><span class="line">		<span class="keyword">if</span> (nums.length &lt;= <span class="number">0</span>)</span><br><span class="line">			<span class="keyword">return</span> list;</span><br><span class="line"></span><br><span class="line">		<span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; nums.length; i++) &#123;</span><br><span class="line">			<span class="keyword">int</span> v = Math.abs(nums[i]);</span><br><span class="line">			<span class="keyword">if</span> (nums[v - <span class="number">1</span>] &gt; <span class="number">0</span>) &#123;</span><br><span class="line">				nums[v - <span class="number">1</span>] *= -<span class="number">1</span>;</span><br><span class="line">			&#125; <span class="keyword">else</span> &#123;</span><br><span class="line">				list.add(Math.nums[i]);</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="keyword">return</span> list;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span>[] arr = &#123;<span class="number">4</span>,<span class="number">3</span>,<span class="number">2</span>,<span class="number">7</span>,<span class="number">8</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">1</span>&#125;;</span><br><span class="line">        List&lt;Integer&gt; list = findDuplicates(arr);</span><br><span class="line">        System.out.println(list);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <hr>
@@ -499,6 +497,10 @@
       
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
+            
+              <a href="/leetcode/2019/05/27/arrays-in-leetcode.html" rel="prev" title="Array(数组)">
+                <i class="fa fa-chevron-left"></i> Array(数组)
+              </a>
             
           </div>
 
@@ -591,7 +593,7 @@
               
                 <a href="/leetcode/archives/">
               
-                  <span class="site-state-item-count">50</span>
+                  <span class="site-state-item-count">51</span>
                   <span class="site-state-item-name">文章</span>
                 </a>
               </div>
@@ -602,7 +604,7 @@
               
               <div class="site-state-item site-state-categories">
                 <a href="/leetcode/categories/index.html">
-                  <span class="site-state-item-count">11</span>
+                  <span class="site-state-item-count">12</span>
                   <span class="site-state-item-name">分类</span>
                 </a>
               </div>
@@ -613,7 +615,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/leetcode/tags/index.html">
-                  <span class="site-state-item-count">50</span>
+                  <span class="site-state-item-count">51</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
@@ -772,7 +774,7 @@ show_date_time();
     
       <span class="post-meta-item-text">Site words total count&#58;</span>
     
-    <span title="Site words total count">76.5k</span>
+    <span title="Site words total count">76.6k</span>
   
 </div>
 

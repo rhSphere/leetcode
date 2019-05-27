@@ -140,11 +140,9 @@
 <meta property="og:url" content="https://rhsphere.github.io/leetcode/2019/05/27/215.html">
 <meta property="og:site_name" content="Depeng&#39;s Blog for Algorithms">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:image" content="https://blogs.rhsphere.com/leetcode/2019/04/01/quick-sort.html">
-<meta property="og:updated_time" content="2019-05-27T01:55:33.953Z">
+<meta property="og:updated_time" content="2019-05-27T02:06:39.588Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="215. Kth Largest Element in an Array">
-<meta name="twitter:image" content="https://blogs.rhsphere.com/leetcode/2019/04/01/quick-sort.html">
 
 
 
@@ -453,7 +451,7 @@
 <p>你可以假设 k 总是有效的，且 1 ≤ k ≤ 数组的长度。</p>
 <h3 id="java代码"><a href="#java代码" class="headerlink" title="java代码"></a>java代码</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@description</span>: 用快排的思想，partition函数</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@author</span>: rhsphere</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@since</span>: 2019-05-26 10:49 by jdk 1.8</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">KthLarget</span> </span>&#123;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">int</span> <span class="title">findKthLargest</span><span class="params">(<span class="keyword">int</span>[] nums, <span class="keyword">int</span> k)</span> </span>&#123;</span><br><span class="line">		<span class="keyword">int</span> start = <span class="number">0</span>;</span><br><span class="line">		<span class="keyword">int</span> end = nums.length - <span class="number">1</span>;</span><br><span class="line">		<span class="keyword">int</span> index = nums.length - <span class="number">1</span>;</span><br><span class="line"></span><br><span class="line">		<span class="keyword">while</span> (start &lt; end) &#123;</span><br><span class="line">			<span class="keyword">int</span> pivotIndex = partition(nums, start, end);</span><br><span class="line"></span><br><span class="line">			<span class="keyword">if</span> (pivotIndex &lt; index) &#123;</span><br><span class="line">				start = pivotIndex + <span class="number">1</span>;</span><br><span class="line">			&#125; <span class="keyword">else</span> <span class="keyword">if</span> (pivotIndex &gt; index) &#123;</span><br><span class="line">				end = startIndex - <span class="number">1</span>;</span><br><span class="line">			&#125; <span class="keyword">else</span> &#123;</span><br><span class="line">				<span class="keyword">return</span> nums[pivotIndex];</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="keyword">return</span> nums[start];</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="function"><span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">int</span> <span class="title">partition</span><span class="params">(<span class="keyword">int</span>[] nums, <span class="keyword">int</span> start, <span class="keyword">int</span> end)</span> </span>&#123;</span><br><span class="line">		<span class="keyword">int</span> pivot = nums[start];</span><br><span class="line">		<span class="keyword">int</span> mark = start;</span><br><span class="line"></span><br><span class="line">		<span class="keyword">for</span> (<span class="keyword">int</span> i = start + <span class="number">1</span>; i &lt;= end; i++) &#123;</span><br><span class="line">			<span class="keyword">if</span> (nums[i] &lt; pivot) &#123;</span><br><span class="line">				mark++;</span><br><span class="line">				<span class="keyword">int</span> tmp = nums[i];</span><br><span class="line">				nums[i] = nums[mark];</span><br><span class="line">				nums[mark] = tmp;</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line">		nums[start] = nums[mark];</span><br><span class="line">		nums[mark] = pivot;</span><br><span class="line">		<span class="keyword">return</span> mark;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span>[] arr = &#123;<span class="number">3</span>,<span class="number">2</span>,<span class="number">1</span>,<span class="number">5</span>,<span class="number">6</span>,<span class="number">4</span>&#125;;</span><br><span class="line">        <span class="keyword">int</span> a = findKthLargest(arr, <span class="number">2</span>);</span><br><span class="line">        System.out.println(a);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <h3 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h3><ol>
-<li>应用了快排中partition的函数，参看<img src="https://blogs.rhsphere.com/leetcode/2019/04/01/quick-sort.html" alt="partition函数的单边循环法"></li>
+<li>应用了快排中partition的函数，参看<a href="https://blogs.rhsphere.com/leetcode/2019/04/01/quick-sort.html" target="_blank" rel="noopener">partition函数的单边循环法</a></li>
 <li>这种方法在提交时，运行时间效果不是很好，不知道有什么可以改进的地方吗?</li>
 <li>partition单边循环时，可以用一个数组（4 7 6 5 3 2 8 1）演示一下就知道怎么写了</li>
 </ol>
@@ -599,7 +597,7 @@
               
                 <a href="/leetcode/archives/">
               
-                  <span class="site-state-item-count">50</span>
+                  <span class="site-state-item-count">51</span>
                   <span class="site-state-item-name">文章</span>
                 </a>
               </div>
@@ -610,7 +608,7 @@
               
               <div class="site-state-item site-state-categories">
                 <a href="/leetcode/categories/index.html">
-                  <span class="site-state-item-count">11</span>
+                  <span class="site-state-item-count">12</span>
                   <span class="site-state-item-name">分类</span>
                 </a>
               </div>
@@ -621,7 +619,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/leetcode/tags/index.html">
-                  <span class="site-state-item-count">50</span>
+                  <span class="site-state-item-count">51</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
@@ -780,7 +778,7 @@ show_date_time();
     
       <span class="post-meta-item-text">Site words total count&#58;</span>
     
-    <span title="Site words total count">76.5k</span>
+    <span title="Site words total count">76.6k</span>
   
 </div>
 

@@ -1,9 +1,21 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[Array(数组)]]></title>
+    <url>%2Fleetcode%2F2019%2F05%2F27%2Farrays-in-leetcode.html</url>
+    <content type="text"><![CDATA[Array(数组)Last Modified: 2019/5/27 10:04 by dp 01. Two Sum（两数之和） 02. Three Sum（三数之和） 03. Majority Element（在数组中出现次数超过一半的数） 04. FizzBuzz（3 和 5 的倍数） 05. Merge Sorted Array（合并两个有序数组） 06. First Missing Positive（寻找缺失的最小正数） 07. Kth Largest Element in an Array（查找第K大的数） 08. Single Number（数组中只出现一次的数） 09. Find All Duplicates in an Array（数组中重复的数字）]]></content>
+      <categories>
+        <category>Sum-up</category>
+      </categories>
+      <tags>
+        <tag>Array</tag>
+        <tag>Sum-up</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[442. Find All Duplicates in an Array]]></title>
     <url>%2Fleetcode%2F2019%2F05%2F27%2F442.html</url>
-    <content type="text"><![CDATA[数组中重复的数据题目给定一个整数数组 a，其中1 ≤ a[i] ≤ n （n为数组长度）, 其中有些元素出现两次而其他元素出现一次。 找到所有出现两次的元素。 你可以不用到任何额外空间并在O(n)时间复杂度内解决这个问题吗？ 示例： 输入:[4,3,2,7,8,2,3,1] 输出:[2,3] 思路 元素的值在不超过数组的长度，我们遍历数组，将元素值映射的下标改为负数，当遇到负数时，说明该元素下标映射的值已经出现过了。 和中取负值的思路差不多，但是方法略有不同，所以不要死记硬背！ java代码1234567891011121314151617181920212223242526272829/** * @description: 元素的值在不超过数组的长度，遍历数组将元素映射的下标改成负数，当遇到负数时，说明该元素下标映射的值已经出现过了 * @author: rhsphere * @since: 2019-05-27 09:30 by jdk 1.8 */public class FindAllDuplicates &#123; public static List&lt;Integer&gt; findDuplicates(int[] nums) &#123; List&lt;Integer&gt; list = new ArrayList&lt;&gt;(); if (nums.length &lt;= 0) return list; for (int i = 0; i &lt; nums.length; i++) &#123; int v = Math.abs(nums[i]); if (nums[v - 1] &gt; 0) &#123; nums[v - 1] *= -1; &#125; else &#123; list.add(Math.nums[i]); &#125; &#125; return list; &#125; public static void main(String[] args) &#123; int[] arr = &#123;4,3,2,7,8,2,3,1&#125;; List&lt;Integer&gt; list = findDuplicates(arr); System.out.println(list); &#125;&#125;]]></content>
+    <content type="text"><![CDATA[数组中重复的数据题目给定一个整数数组 a，其中1 ≤ a[i] ≤ n （n为数组长度）, 其中有些元素出现两次而其他元素出现一次。 找到所有出现两次的元素。 你可以不用到任何额外空间并在O(n)时间复杂度内解决这个问题吗？ 示例： 输入:[4,3,2,7,8,2,3,1] 输出:[2,3] 思路 元素的值在不超过数组的长度，我们遍历数组，将元素值映射的下标改为负数，当遇到负数时，说明该元素下标映射的值已经出现过了。 和41. First Missing Positive中取负值的思路差不多，但是方法略有不同，所以不要死记硬背！ java代码1234567891011121314151617181920212223242526272829/** * @description: 元素的值在不超过数组的长度，遍历数组将元素映射的下标改成负数，当遇到负数时，说明该元素下标映射的值已经出现过了 * @author: rhsphere * @since: 2019-05-27 09:30 by jdk 1.8 */public class FindAllDuplicates &#123; public static List&lt;Integer&gt; findDuplicates(int[] nums) &#123; List&lt;Integer&gt; list = new ArrayList&lt;&gt;(); if (nums.length &lt;= 0) return list; for (int i = 0; i &lt; nums.length; i++) &#123; int v = Math.abs(nums[i]); if (nums[v - 1] &gt; 0) &#123; nums[v - 1] *= -1; &#125; else &#123; list.add(Math.nums[i]); &#125; &#125; return list; &#125; public static void main(String[] args) &#123; int[] arr = &#123;4,3,2,7,8,2,3,1&#125;; List&lt;Integer&gt; list = findDuplicates(arr); System.out.println(list); &#125;&#125;]]></content>
       <categories>
         <category>Medium</category>
       </categories>
@@ -26,7 +38,7 @@
   <entry>
     <title><![CDATA[215. Kth Largest Element in an Array]]></title>
     <url>%2Fleetcode%2F2019%2F05%2F27%2F215.html</url>
-    <content type="text"><![CDATA[数组中的第K个最大元素题目在未排序的数组中找到第 k 个最大的元素。请注意，你需要找的是数组排序后的第 k 个最大的元素，而不是第 k 个不同的元素。 示例 1: 输入: [3,2,1,5,6,4] 和 k = 2输出: 5示例 2: 输入: [3,2,3,1,2,4,5,5,6] 和 k = 4输出: 4说明: 你可以假设 k 总是有效的，且 1 ≤ k ≤ 数组的长度。 java代码123456789101112131415161718192021222324252627282930313233343536373839404142434445464748/** * @description: 用快排的思想，partition函数 * @author: rhsphere * @since: 2019-05-26 10:49 by jdk 1.8 */public class KthLarget &#123; public static int findKthLargest(int[] nums, int k) &#123; int start = 0; int end = nums.length - 1; int index = nums.length - 1; while (start &lt; end) &#123; int pivotIndex = partition(nums, start, end); if (pivotIndex &lt; index) &#123; start = pivotIndex + 1; &#125; else if (pivotIndex &gt; index) &#123; end = startIndex - 1; &#125; else &#123; return nums[pivotIndex]; &#125; &#125; return nums[start]; &#125; private static int partition(int[] nums, int start, int end) &#123; int pivot = nums[start]; int mark = start; for (int i = start + 1; i &lt;= end; i++) &#123; if (nums[i] &lt; pivot) &#123; mark++; int tmp = nums[i]; nums[i] = nums[mark]; nums[mark] = tmp; &#125; &#125; nums[start] = nums[mark]; nums[mark] = pivot; return mark; &#125; public static void main(String[] args) &#123; int[] arr = &#123;3,2,1,5,6,4&#125;; int a = findKthLargest(arr, 2); System.out.println(a); &#125;&#125; 总结 应用了快排中partition的函数，参看 这种方法在提交时，运行时间效果不是很好，不知道有什么可以改进的地方吗? partition单边循环时，可以用一个数组（4 7 6 5 3 2 8 1）演示一下就知道怎么写了]]></content>
+    <content type="text"><![CDATA[数组中的第K个最大元素题目在未排序的数组中找到第 k 个最大的元素。请注意，你需要找的是数组排序后的第 k 个最大的元素，而不是第 k 个不同的元素。 示例 1: 输入: [3,2,1,5,6,4] 和 k = 2输出: 5示例 2: 输入: [3,2,3,1,2,4,5,5,6] 和 k = 4输出: 4说明: 你可以假设 k 总是有效的，且 1 ≤ k ≤ 数组的长度。 java代码123456789101112131415161718192021222324252627282930313233343536373839404142434445464748/** * @description: 用快排的思想，partition函数 * @author: rhsphere * @since: 2019-05-26 10:49 by jdk 1.8 */public class KthLarget &#123; public static int findKthLargest(int[] nums, int k) &#123; int start = 0; int end = nums.length - 1; int index = nums.length - 1; while (start &lt; end) &#123; int pivotIndex = partition(nums, start, end); if (pivotIndex &lt; index) &#123; start = pivotIndex + 1; &#125; else if (pivotIndex &gt; index) &#123; end = startIndex - 1; &#125; else &#123; return nums[pivotIndex]; &#125; &#125; return nums[start]; &#125; private static int partition(int[] nums, int start, int end) &#123; int pivot = nums[start]; int mark = start; for (int i = start + 1; i &lt;= end; i++) &#123; if (nums[i] &lt; pivot) &#123; mark++; int tmp = nums[i]; nums[i] = nums[mark]; nums[mark] = tmp; &#125; &#125; nums[start] = nums[mark]; nums[mark] = pivot; return mark; &#125; public static void main(String[] args) &#123; int[] arr = &#123;3,2,1,5,6,4&#125;; int a = findKthLargest(arr, 2); System.out.println(a); &#125;&#125; 总结 应用了快排中partition的函数，参看partition函数的单边循环法 这种方法在提交时，运行时间效果不是很好，不知道有什么可以改进的地方吗? partition单边循环时，可以用一个数组（4 7 6 5 3 2 8 1）演示一下就知道怎么写了]]></content>
       <categories>
         <category>Medium</category>
       </categories>
