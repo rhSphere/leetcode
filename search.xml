@@ -1,6 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[LinkedList(链表)]]></title>
+    <url>%2Fleetcode%2F2019%2F05%2F28%2Flinkedlist-sum-up.html</url>
+    <content type="text"><![CDATA[LinkedList(链表)Last Modified: 2019/5/28 09:24 by dp 01. Reverse Linked List（反转链表） 02. Linked List Cycley Ⅰ（检测链表是否有环Ⅰ） 03. Linked List Cycley Ⅱ（检测链表是否有环Ⅱ） 04. Merge Two Sorted Lists（合并两个有序链表） 05. Reverse Nodes in k-Group（以 k 为一组反转链表） 06. Remove Nth Node From End of List（删除链表的倒数第N个节点） 07. Middle of the Linked List（链表的中间节点） 08. Merge k Sorted Lists（合并 k 个排序链表）]]></content>
+      <categories>
+        <category>Sum-up</category>
+      </categories>
+      <tags>
+        <tag>Linked List</tag>
+        <tag>Sum-up</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[23. Merge k Sorted Lists]]></title>
     <url>%2Fleetcode%2F2019%2F05%2F28%2F23.html</url>
     <content type="text"><![CDATA[合并 k 个排序链表题目合并 k 个排序链表，返回合并后的排序链表。请分析和描述算法的复杂度。 示例: 输入:[ 1-&gt;4-&gt;5, 1-&gt;3-&gt;4, 2-&gt;6]输出: 1-&gt;1-&gt;2-&gt;3-&gt;4-&gt;4-&gt;5-&gt;6 java代码123456789101112131415161718192021222324252627282930313233343536373839404142434445464748495051/** * @description: 采用merge算法，一次合并两个 * @author: rhsphere * @since: 2019-05-28 08:32 by jdk 1.8 */public class MergeKLists &#123; public ListNode mergeKLists(ListNode[] lists) &#123; return mergeKLists(lists, 0, list.length - 1); &#125; private ListNode mergeKLists(ListNode[] listNodes, int start, int end) &#123; if (start &gt; end) return null; if (start == end) return listNodes[start]; mid = start + ((end - start) &gt;&gt; 1); ListNode p = mergeKLists(listNodes, start, mid); ListNode q = mergeKLists(listNodes, mid + 1, end); ListNode res = merge(p, q); return res; &#125; public ListNode merge(ListNode p, ListNode q) &#123; ListNode head = new ListNode(0); ListNode r = head; while (true) &#123; if (p == null &amp;&amp; q == null) &#123; break; &#125; else if(p != null &amp;&amp; (q == null || p.val &lt;= q.val)) &#123; r.next = p; p = p.next; &#125; else if (p == null || q.val &lt; p.val) &#123; r.next = q; q = q.next; &#125; r = r.next; &#125; return head.next; &#125; public class ListNode &#123; int val; ListNode next; ListNode(int val) &#123; this.val = val; &#125; &#125;&#125; 总结失误的地方 else if(p != null &amp;&amp; (q == null || p.val &lt;= q.val)) 条件中少了判等， 写成了p.val &lt; q.val。 mergeKLists(ListNode[] listNodes, int start, int end) start和end的形参类型写成了ListNode 这题就是归并排序的衍生，理解归并排序，就能理解这里面的递归调用。]]></content>
