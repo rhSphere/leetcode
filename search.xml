@@ -351,8 +351,8 @@
         <category>Sorting</category>
       </categories>
       <tags>
-        <tag>sort</tag>
         <tag>HeapSort</tag>
+        <tag>sort</tag>
       </tags>
   </entry>
   <entry>
@@ -586,8 +586,8 @@
         <category>Sorting</category>
       </categories>
       <tags>
-        <tag>heap</tag>
         <tag>sort</tag>
+        <tag>heap</tag>
       </tags>
   </entry>
   <entry>
