@@ -1,6 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[LinkedStack && ArrayStack]]></title>
+    <url>%2Fleetcode%2F2019%2F05%2F28%2Flinked-and-array-stack.html</url>
+    <content type="text"><![CDATA[链表实现链式栈思路 用链表结点存储栈顶top节点，存储链表长度 实现isEmpty()方法、size()方法 push()用增加的节点作为头节点 链表实现栈的代码123456789101112131415161718192021222324252627282930313233343536373839404142434445464748495051525354555657585960616263646566676869707172737475767778798081828384858687888990919293949596979899100101102103104package Stack;import java.util.*;/** * @description: 实现链表栈，使用泛型的单链表 * @author: rhsphere * @since: 2019-05-28 15:57 by jdk 1.8 */public class LinkedStack&lt;E&gt; implements Iterable&lt;E&gt; &#123; //栈顶节点top和栈的大小 private Node&lt;E&gt; top; private int n; //内部静态类，因为不用接触类的任何实例对象和方法 //外部类可以访问内部类的private/protected变量，就像访问自己的private/protected变量一样. private static class Node&lt;E&gt; &#123; private E e; private Node&lt;E&gt; next; &#125; //构造一个空的stack public LinkedStack() &#123; top = null; n = 0; &#125; //判断栈顶结点是不是null public boolean isEmpty() &#123; return top == null; &#125; public int size() &#123; return n; &#125; /** * 添加一个元素 * @param e 待添加的元素 */ public void push(E e) &#123; Node&lt;E&gt; oldTop = top; top = new Node&lt;E&gt;(); top.e = e; top.next = oldTop; n++; &#125; /** * 删除并返回最近添加的元素 * @return 最近添加的元素 * @throws NoSuchElementException 如果栈为空 */ public E pop() &#123; if (isEmpty()) throw new NoSuchElementException("LinkedStack underflow"); E e = top.e; top = top.next; n--; return e; &#125; /** * 返回但不移除最近添加的栈顶元素 * @return 最近添加的元素 * @throws NoSuchElementException 如果栈为空 */ public E peek() &#123; if (isEmpty()) throw new NoSuchElementException("LinkedStack underflow"); return top.e; &#125; //foreach的写法是因为LinkedStack的对象实现了Iterable接口 public String toString() &#123; StringBuilder sb = new StringBuilder(); for (E e : this) &#123; sb.append(e); sb.append(' '); &#125; return sb.toString(); &#125; /** * 返回一个以LIFO顺序遍历栈元素的迭代器 * @return 一个以LIFO顺序遍历栈元素的迭代器 */ public Iterator&lt;E&gt; iterator() &#123; return new ListIterator&lt;E&gt;(top); &#125; private class ListIterator&lt;E&gt; implements Iterator&lt;E&gt; &#123; private Node&lt;E&gt; cur; public ListIterator(Node&lt;E&gt; top) &#123; cur = top; &#125; public boolean hasNext() &#123; return cur != null; &#125; public void remove() &#123; throw new UnsupportedOperationException(); &#125; public E next() &#123; if (!hasNext()) throw new NoSuchElementException("LinkedStack underflow"); E e = cur.e; cur = cur.next; return e; &#125; &#125;&#125; 数组实现顺序栈数组实现栈的代码12345678910111213141516171819202122232425262728293031323334353637383940414243444546474849505152535455565758596061626364656667686970717273747576package Stack;import java.util.*;/** * @description: 数组实现栈，使用支持动态调整数组大小的泛型数组 * @author: rhsphere * @since: 2019-05-28 16:43 by jdk 1.8 */public class ArrayStack&lt;E&gt; implements Iterable&lt;E&gt; &#123; private E[] arr; private int n; public ArrayStack()&#123; arr = (E[]) new Object[2]; n = 0; &#125; public boolean isEmpty() &#123; return n == 0; &#125; public int size() &#123; return n; &#125; private void resize(int capacity) &#123; assert capacity &gt;= 0; E[] tmp = (E[]) new Object[capacity]; for (int i = 0; i &lt; n; i++) &#123; tmp[i] = arr[i]; &#125; arr = tmp; &#125; public void push(E e) &#123; if (n == arr.length) resize(2 * arr.length); arr[n++] = e; &#125; public E pop() &#123; if (isEmpty()) throw new NoSuchElementException("Stack underflow"); E e = arr[n - 1]; arr[n - 1] = null; n--; if (n &gt; 0 &amp;&amp; n == arr.length / 4) resize(arr.length / 2); return e; &#125; public E peek() &#123; if (isEmpty()) throw new NoSuchElementException("Stack underflow"); return arr[n - 1]; &#125; public Iterator&lt;E&gt; iterator() &#123; return new ArrayIterator(); &#125; private class ArrayIterator implements Iterator&lt;E&gt; &#123; private int i; public ArrayIterator() &#123; i = n - 1; &#125; public boolean hasNext() &#123; return i &gt;= 0; &#125; public void remove() &#123; throw new UnsupportedOperationException(); &#125; public E next() &#123; if (!hasNext()) throw new NoSuchElementException(); return arr[i--]; &#125; &#125;&#125; 链式和顺序栈测试代码12345678910111213141516171819202122232425262728293031323334353637383940414243444546474849505152package Stack;/** * @description: * @author: rhsphere * @since: 2019-05-28 16:28 by jdk 1.8 */public class TestStack &#123; public static void main(String[] args) &#123; System.out.println("==========测试ArrayStack=========="); LinkedStack&lt;String&gt; stack = new LinkedStack&lt;String&gt;(); stack.push("! "); stack.push("world"); stack.push(", "); stack.push("Hello"); stack.push("Hi. "); System.out.println("栈顶元素是：" + stack.peek()); // 使用foreach遍历栈元素 for(String s : stack) System.out.print(s); System.out.println(); while (!stack.isEmpty()) &#123; System.out.print(stack.pop()); &#125; System.out.println("\n(now " + stack.size() + " left on linked stack)"); System.out.println("==========测试ArrayStack=========="); ArrayStack&lt;String&gt; arrStack = new ArrayStack&lt;String&gt;(); arrStack.push("! "); arrStack.push("world"); arrStack.push(", "); arrStack.push("Goodbye"); arrStack.push("woo. "); System.out.println("栈顶元素是：" + arrStack.peek()); // 使用foreach遍历栈元素 for(String s : arrStack) System.out.print(s); System.out.println(); while (!arrStack.isEmpty()) &#123; System.out.print(arrStack.pop()); &#125; System.out.println("\n(now " + arrStack.size() + " left on array stack)"); &#125;&#125;]]></content>
+      <categories>
+        <category>Sum-up</category>
+      </categories>
+      <tags>
+        <tag>Stack</tag>
+        <tag>LinkedStack</tag>
+        <tag>ArrayStack</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[LinkedList(链表)]]></title>
     <url>%2Fleetcode%2F2019%2F05%2F28%2Flinkedlist-sum-up.html</url>
     <content type="text"><![CDATA[LinkedList(链表)Last Modified: 2019/5/28 09:24 by dp 01. Reverse Linked List（反转链表） 02. Linked List Cycley Ⅰ（检测链表是否有环Ⅰ） 03. Linked List Cycley Ⅱ（检测链表是否有环Ⅱ） 04. Merge Two Sorted Lists（合并两个有序链表） 05. Reverse Nodes in k-Group（以 k 为一组反转链表） 06. Remove Nth Node From End of List（删除链表的倒数第N个节点） 07. Middle of the Linked List（链表的中间节点） 08. Merge k Sorted Lists（合并 k 个排序链表）]]></content>
@@ -351,8 +364,8 @@
         <category>Sorting</category>
       </categories>
       <tags>
-        <tag>HeapSort</tag>
         <tag>sort</tag>
+        <tag>HeapSort</tag>
       </tags>
   </entry>
   <entry>
@@ -586,8 +599,8 @@
         <category>Sorting</category>
       </categories>
       <tags>
-        <tag>sort</tag>
         <tag>heap</tag>
+        <tag>sort</tag>
       </tags>
   </entry>
   <entry>
@@ -691,8 +704,8 @@
         <category>List</category>
       </categories>
       <tags>
-        <tag>Queue</tag>
         <tag>Stack</tag>
+        <tag>Queue</tag>
         <tag>PriorityQueue</tag>
       </tags>
   </entry>
