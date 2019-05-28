@@ -1896,7 +1896,7 @@ pre .javascript .function {
   width: 4px;
   height: 4px;
   border-radius: 50%;
-  background: #7341fc;
+  background: #9ebb49;
 }
 .links-of-blogroll {
   font-size: 13px;
@@ -3500,12 +3500,6 @@ code.description {
 }
 .icon-rooster:before {
   content: '\e82f';
-}
-h2.post-title {
-  margin: 0 100px 0 20px;
-  font-size: 16px;
-  font-weight: 400;
-  line-height: inherit;
 }
 @-moz-keyframes heartAnimate {
   0%, 100% {
