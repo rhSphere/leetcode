@@ -13,9 +13,10 @@ description:
 
 ## leetcode刷过的题
 
-|  #   |                  Title                   |        Difficulty         |
+
+|  #   |                  Title(跳转到网站)        |        Difficulty(刷过的)      |
 | :--: | :--------------------------------------: | :-----------------------: |
-| 0001 | [Two Sum](https://leetcode.com/problems/two-sum/) | [Easy] |
+| 0001 | [Two Sum](https://leetcode.com/problems/two-sum/) | [Easy](https://blogs.rhsphere.com/leetcode/2019/05/25/1.html) |
 | 0002 | [Add Two Numbers](https://leetcode.com/problems/add-two-numbers/) |          Medium           |
 | 0003 | [Longest Substring Without Repeating Characters](https://leetcode.com/problems/longest-substring-without-repeating-characters/) |          Medium           |
 | 0004 | [Median of Two Sorted Arrays](https://leetcode.com/problems/median-of-two-sorted-arrays/) |           Hard            |
@@ -34,7 +35,7 @@ description:
 | 0017 | [Letter Combinations of a Phone Number](https://leetcode.com/problems/letter-combinations-of-a-phone-number/) |          Medium           |
 | 0018 | [4Sum](https://leetcode.com/problems/4sum/) |          Medium           |
 | 0019 | [Remove Nth Node From End of List](https://leetcode.com/problems/remove-nth-node-from-end-of-list/) |          Medium           |
-| 0020 | [Valid Parentheses](https://leetcode.com/problems/valid-parentheses/) |           Easy            |
+| 0020 | [Valid Parentheses](https://leetcode.com/problems/valid-parentheses/) |           [Easy](https://blogs.rhsphere.com/leetcode/2019/05/29/20.html)            |
 | 0021 | [Merge Two Sorted Lists](https://leetcode.com/problems/merge-two-sorted-lists/) |           Easy            |
 | 0022 | [Generate Parentheses](https://leetcode.com/problems/generate-parentheses/) |          Medium           |
 | 0023 | [Merge k Sorted Lists](https://leetcode.com/problems/merge-k-sorted-lists/) |           Hard            |
