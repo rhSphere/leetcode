@@ -1,9 +1,28 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[Sort(排序)]]></title>
+    <url>%2Fleetcode%2F2019%2F06%2F01%2Fsort-sum-up.html</url>
+    <content type="text"><![CDATA[Sort(排序)01. Selection Sort（选择排序实现） 02. Insertion Sort（插入排序实现） 03. Shell Sort（希尔排序实现） 04. Bubble Sort（冒泡排序实现） 05. Cocktail Sort（鸡尾酒排序） 06. Merge Sort（归并排序实现） 07. Quick Sort（快速排序实现） 08. Count Sort（计数排序） 09. Bucket Sort（桶排序） 10. Heap Sort （堆排序(非泛型)） 11. Sort Large File （外部排序） 12. Heap Sort （堆排序(泛型)） Summary of Sorting Algos（排序总结）]]></content>
+      <categories>
+        <category>Sum-up</category>
+      </categories>
+      <tags>
+        <tag>Sum-up</tag>
+        <tag>Sort</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[Queue(队列)]]></title>
-    <url>%2Fleetcode%2F2019%2F06%2F01%2FQueue-%E9%98%9F%E5%88%97.html</url>
-    <content type="text"><![CDATA[23]]></content>
+    <url>%2Fleetcode%2F2019%2F06%2F01%2Fqueue-sum-up.html</url>
+    <content type="text"><![CDATA[Queue(队列)Last Modified: 2019/5/30 20:36 by dp 01. Implement Queue by Array（用数组实现队列） 02. Implement Queue by LinkedList（用链表实现队列） 03. Implement Queue using Stacks（用栈实现队列） 04. Implement Circular Queue using Array（用数组实现循环队列） 05. Design Circular Deque（设计一个双端队列）]]></content>
+      <categories>
+        <category>Sum-up</category>
+      </categories>
+      <tags>
+        <tag>Queue</tag>
+        <tag>Sum-up</tag>
+      </tags>
   </entry>
   <entry>
     <title><![CDATA[641. Design Circular Deque]]></title>
