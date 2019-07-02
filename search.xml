@@ -1,6 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[剑指Offer(26) 树的子结构]]></title>
+    <url>%2Fleetcode%2F2019%2F07%2F02%2Fsubstructure-in-tree.html</url>
+    <content type="text"><![CDATA[树的子结构题目输入两棵二叉树A和B，判断B是不是A的子结构。 思路 先对A树进行遍历，找到与B树的根节点值相同的节点R； 判断A树中以R为根节点的子树是否包含B树一样的结构。 测试用例 功能测试（A和B为普通二叉树；B是或者不是A的子结构） 特殊测试（任意一个或者两个数的根节点为null；左斜、右斜树） java代码1234567891011121314151617181920212223242526272829303132333435363738394041424344** * @description: 剑指Offer26 树的子结构 * @author: rhsphere * @since: 2019-07-02 12:19 by jdk 1.8 */public class SubstructureInTree &#123; public class TreeNode &#123; int val; TreeNode left; TreeNode right; public TreeNode(int val) &#123; this.val = val; &#125; &#125; //主程序 public boolean hasSubTree(TreeNode root1, TreeNode root2) &#123; if (root1 == null || root2 == null) return false;// boolean result=false;// if(equal(root1.val, root2.val)) &#123;// result = doesTree1HasTree2(root1, root2);// if(!result)// result=hasSubtree(root1.left, root2)// ||hasSubtree(root1.right, root2);// &#125;// return result; //上面几行可以直接写成： return doesTree1HasTree2(root1, root2) || hasSubtree(root1.left, root2) || hasSubtree(root1.right, root2); &#125; //判断root节点开始的子树中各个节点是否相同 private boolean doesTree1HasTree2(TreeNode root1, TreeNode root2) &#123; if (root2 == null) return true; if (root1 == null) return true; return equal(root1.val, root2.val) &amp;&amp; doesTree1HasTree2(root1.left, root2.left) &amp;&amp; doesTree1HasTree2(root1.right, root2.right); &#125; //判断两个浮点数是否相同 private boolean equal(double num1, double num2) &#123; if (Math.abs(num1 - num2) &lt; 0.00000001) return true; return false; &#125;&#125; 总结 本题是对二叉树遍历的扩展，利用递归比较简洁方便； 浮点数判等方法，不能直接用 “==” 判断。]]></content>
+      <categories>
+        <category>剑指Offer</category>
+      </categories>
+      <tags>
+        <tag>Tree</tag>
+        <tag>Recursive</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[剑指Offer(25) 合并两个有序链表]]></title>
     <url>%2Fleetcode%2F2019%2F06%2F30%2Fmerge-sorted-linkedlist.html</url>
     <content type="text"><![CDATA[合并两个有序链表题目输入两个递增排序的链表，合并这两个链表并使新链表中的结点仍然是按照递增排序的。 思路递归实现： 合并过程中，每次都是从两个链表中找出较小的一个来链接，因此可以采用递归来实现：当任意一个链表为null时，直接连接另一个链表即可；其余情况只需要在两个链表中找出一个较小的节点进行连接，该节点的next值继续通过递归函数来链接。 非递归实现： 参考leetcode 21. Merge Two Sorted Lists 进行分类讨论即可。 测试用例 功能测试（两个链表有多个或一个节点；节点值相同、不同） 特殊测试（任意一个或者两个链表的头结点为null） java代码12345678910111213141516171819202122232425262728293031323334353637383940414243444546474849505152535455565758/** * @description: 剑指offer25 * @author: rhsphere * @since: 2019-07-02 10:25 by jdk 1.8 */public class MergeSortedLists &#123; public class ListNode &#123; int val; ListNode next; public ListNode(int val) &#123; this.val = val; &#125; &#125; //递归 public ListNode merge(ListNode la, ListNode lb) &#123; if (la == null) return lb; if (lb == null) return la; if (la.val &lt; lb.val) &#123; la.next = merge(la.next, lb); return la; &#125; else &#123; lb.next = merge(la, lb.next); return lb; &#125; &#125; //非递归 public ListNode mergeSortedList(ListNode la, ListNode lb) &#123; if (la == null) return lb; if (lb == null) return la; ListNode p = la, q = lb, head; if (p.val &lt; q.val) &#123; head = p; p = p.next; &#125; else &#123; head = q; q = q.next; &#125; ListNode r = head; while (p != null &amp;&amp; q != null) &#123; if (p.val &lt; q.val) &#123; r.next = p; p = p.next; &#125; else &#123; r.next = q; q = q.next; &#125; r = r.next; &#125; if (p != null) &#123; r.next = p; &#125; else &#123; r.next = q; &#125; return head; &#125;&#125; 总结 对于递归实现方法，得到链表中值叫次奥的头结点并把它连接到已经合并的链表之后，两个链表剩余的节点依然是排序的，因此合并的步骤和之前的步骤是一样的。这就是典型的递归过程，我们可以定义递归函数完成这一合并过程。]]></content>
