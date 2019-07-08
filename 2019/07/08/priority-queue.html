@@ -121,7 +121,7 @@
 
 
 
-  <meta name="keywords" content="sort,BucketSort,">
+  <meta name="keywords" content="PriorityQueue,">
 
 
 
@@ -134,18 +134,15 @@
 
 
 
-<meta name="description" content="假设有一组长度为N的待排关键字序列K[1….n]。首先将这个序列划分成M个的子区间(桶) 。然后基于某种映射函数，将待排序列的关键字k映射到第i个桶中(即桶数组B的下标i)，那么该关键字k就作为B[i]中的元素(每个桶B[i]都是一组大小为N/M的序列)。接着对每个桶B[i]中的所有元素进行比较排序(可以使用快排)。 然后依次枚举输出B[0]….B[M]中的全部内容即是一个有序序列。">
-<meta name="keywords" content="sort,BucketSort">
+<meta name="keywords" content="PriorityQueue">
 <meta property="og:type" content="article">
-<meta property="og:title" content="排序(9) 桶排序">
-<meta property="og:url" content="https://rhsphere.github.io/leetcode/2019/04/01/bucket-sort.html">
+<meta property="og:title" content="优先队列">
+<meta property="og:url" content="https://rhsphere.github.io/leetcode/2019/07/08/priority-queue.html">
 <meta property="og:site_name" content="Depeng&#39;s Blog for Algorithms">
-<meta property="og:description" content="假设有一组长度为N的待排关键字序列K[1….n]。首先将这个序列划分成M个的子区间(桶) 。然后基于某种映射函数，将待排序列的关键字k映射到第i个桶中(即桶数组B的下标i)，那么该关键字k就作为B[i]中的元素(每个桶B[i]都是一组大小为N/M的序列)。接着对每个桶B[i]中的所有元素进行比较排序(可以使用快排)。 然后依次枚举输出B[0]….B[M]中的全部内容即是一个有序序列。">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-07-08T14:16:13.039Z">
+<meta property="og:updated_time" content="2019-07-08T14:16:13.035Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="排序(9) 桶排序">
-<meta name="twitter:description" content="假设有一组长度为N的待排关键字序列K[1….n]。首先将这个序列划分成M个的子区间(桶) 。然后基于某种映射函数，将待排序列的关键字k映射到第i个桶中(即桶数组B的下标i)，那么该关键字k就作为B[i]中的元素(每个桶B[i]都是一组大小为N/M的序列)。接着对每个桶B[i]中的所有元素进行比较排序(可以使用快排)。 然后依次枚举输出B[0]….B[M]中的全部内容即是一个有序序列。">
+<meta name="twitter:title" content="优先队列">
 
 
 
@@ -178,13 +175,13 @@
 
 
 
-  <link rel="canonical" href="https://rhsphere.github.io/leetcode/2019/04/01/bucket-sort.html">
+  <link rel="canonical" href="https://rhsphere.github.io/leetcode/2019/07/08/priority-queue.html">
 
 
 
 
 
-  <title>排序(9) 桶排序 | Depeng's Blog for Algorithms</title>
+  <title>优先队列 | Depeng's Blog for Algorithms</title>
   
 
 
@@ -343,7 +340,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://rhsphere.github.io/leetcode/leetcode/2019/04/01/bucket-sort.html">
+    <link itemprop="mainEntityOfPage" href="https://rhsphere.github.io/leetcode/leetcode/2019/07/08/priority-queue.html">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Depeng Lu">
@@ -360,7 +357,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">排序(9) 桶排序</h1>
+          <h1 class="post-title" itemprop="name headline">优先队列</h1>
         
 
         <div class="post-meta">
@@ -372,8 +369,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-04-01T16:14:41+08:00">
-                2019-04-01
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-07-08T16:56:49+08:00">
+                2019-07-08
               </time>
             
 
@@ -395,8 +392,8 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/leetcode/categories/Sorting/" itemprop="url" rel="index">
-                    <span itemprop="name">Sorting</span>
+                  <a href="/leetcode/categories/Heap/" itemprop="url" rel="index">
+                    <span itemprop="name">Heap</span>
                   </a>
                 </span>
 
@@ -412,7 +409,7 @@
 
           
           
-             <span id="/leetcode/2019/04/01/bucket-sort.html" class="leancloud_visitors" data-flag-title="排序(9) 桶排序">
+             <span id="/leetcode/2019/07/08/priority-queue.html" class="leancloud_visitors" data-flag-title="优先队列">
                <span class="post-meta-divider">|</span>
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -443,43 +440,29 @@
       
 
       
-        <p class="description">假设有一组长度为N的待排关键字序列K[1….n]。首先将这个序列划分成M个的子区间(桶) 。然后基于某种映射函数，将待排序列的关键字k映射到第i个桶中(即桶数组B的下标i)，那么该关键字k就作为B[i]中的元素(每个桶B[i]都是一组大小为N/M的序列)。接着对每个桶B[i]中的所有元素进行比较排序(可以使用快排)。 然后依次枚举输出B[0]….B[M]中的全部内容即是一个有序序列。</p>
+        <p class="description"></p>
 
 
 <a id="more"></a>
-<h2 id="桶排序"><a href="#桶排序" class="headerlink" title="桶排序"></a>桶排序</h2><h3 id="思想"><a href="#思想" class="headerlink" title="思想"></a>思想</h3><p>一个长度为20的doule类型数组，取值范围从0到10，要求用最快的速度把这20个double类型元素从小到大进行排序。<br>当数列取值范围过大，或者不是整数时，不能适用计数排序。到那时可以使用桶排序来解决问题。</p>
-<p>桶排序同样是一种线性时间的排序算法，类似于计数排序所创建的统计数组，桶排序需要创若干个 <strong>桶</strong>来协助排序。</p>
-<p>计数排序：<br>计数排序需要根据原始数列的取值范围，创建一个统计数组，用来统计原始数列中每一个可能的整数值所出现的次数。<br>原始数列中的整数值，和统计数组的下标是一一对应的，以数列的最小值作为偏移量，比如原始数列的最小值是90，那么整数对应的统计数组下标就是95-90=5。</p>
-<p>桶排序当中的桶的概念：<br>每一个桶(bucket)代表一个区间范围，里面可以承载一个或多个元素。</p>
-<p>桶排序的第一步，就是创建这些桶，确定每一个桶的区间范围。</p>
-<p>4.5    0.84    3.25    2.18    0.5<br>[0.5, 1.5) [1.5, 2.5) [2.5, 3.5) [3.5, 4.5) [4.5, 4.5]</p>
-<p>具体建立多少个桶，如何确定桶的区间范围，有很多不同的方式。<br>这里创建的桶数量等于原始数列的元素数量，除了最后一个桶只包含数列最大值，前面各个桶的区间按照比例确定。<br>区间跨度 = （最大值-最小值）/ （桶的数量 - 1）</p>
-<p>第二步，遍历原始数列，把元素对号入座放入各个桶中：<br> 0.84    0.5    2.18    3.25     4.5<br>[0.5, 1.5) [1.5, 2.5) [2.5, 3.5) [3.5, 4.5) [4.5, 4.5]</p>
-<p>第三步，每个桶内部的元素分别排序（显然，只有第一个桶需要排序）：</p>
-<p>第四步，遍历所有的桶，输出所有元素：<br>0.5， 0.84， 2.18， 3.25， 4.5</p>
-<p>到此为止，排序结束。</p>
-<h2 id="桶排序代码实现"><a href="#桶排序代码实现" class="headerlink" title="桶排序代码实现"></a>桶排序代码实现</h2><figure class="highlight java"><figcaption><span>桶排序</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">BucketSort</span> </span>&#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">double</span>[] bucketSort(<span class="keyword">double</span>[] arr) &#123;</span><br><span class="line">        <span class="comment">// 1. 得到数列的最大值和最小值，并计算出差值d</span></span><br><span class="line">        <span class="keyword">double</span> max = arr[<span class="number">0</span>];</span><br><span class="line">        <span class="keyword">double</span> min = arr[<span class="number">0</span>];</span><br><span class="line"></span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt; arr.length; i++) &#123;</span><br><span class="line">            <span class="keyword">if</span> (arr[i] &gt; max) &#123;</span><br><span class="line">                max = arr[i];</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">if</span> (arr[i] &lt; min) &#123;</span><br><span class="line">                min = arr[i];</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">double</span> d = max - min;</span><br><span class="line"></span><br><span class="line">        <span class="comment">// 2. 初始化桶</span></span><br><span class="line">        <span class="keyword">int</span> bucketNum = arr.length;</span><br><span class="line"></span><br><span class="line">        ArrayList&lt;LinkedList&lt;Double&gt;&gt; bucketList = <span class="keyword">new</span> ArrayList&lt;&gt;(bucketNum);</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; bucketNum; i++) &#123;</span><br><span class="line">            bucketList.add(<span class="keyword">new</span> LinkedList&lt;Double&gt;());</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="comment">// 3. 遍历原始数组，将每个元素放入桶中</span></span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; arr.length; i++) &#123;</span><br><span class="line">            <span class="keyword">int</span> num = (<span class="keyword">int</span>) ((arr[i] - min) * (bucketNum - <span class="number">1</span>) / d);</span><br><span class="line">            bucketList.get(num).add(arr[i]);</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="comment">// 4. 对每个桶内部进行排序</span></span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; bucketList.size(); i++) &#123;</span><br><span class="line">            <span class="comment">// JDK低层采用了归并排序或归并的优化版本</span></span><br><span class="line">            Collections.sort(bucketList.get(i));</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="comment">// 5. 输出全部元素</span></span><br><span class="line">        <span class="keyword">double</span>[] sortedArray = <span class="keyword">new</span> <span class="keyword">double</span>[arr.length];</span><br><span class="line">        <span class="keyword">int</span> index = <span class="number">0</span>;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">for</span> (LinkedList&lt;Double&gt; list : bucketList) &#123;</span><br><span class="line">            <span class="keyword">for</span> (<span class="keyword">double</span> element : list) &#123;</span><br><span class="line">                sortedArray[index] = element;</span><br><span class="line">                index++;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> sortedArray;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">double</span>[] arr = &#123; <span class="number">4.12</span>, <span class="number">6.421</span>, <span class="number">0.0023</span>, <span class="number">3.0</span>, <span class="number">2.123</span>, <span class="number">8.122</span>, <span class="number">4.12</span>, <span class="number">10.09</span> &#125;;</span><br><span class="line">        <span class="keyword">double</span>[] sortedArr = bucketSort(arr);</span><br><span class="line"></span><br><span class="line">        System.out.println(Arrays.toString(sortedArr));</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>代码中，所有的桶保存在ArrayList集合当中，每一个桶被定义成一个链表（LinkedList<double>），这样便于在尾部插入元素。</double></p>
-<p>定位元素属于第几个桶，是按照比例来定位：<br>(array[i] - min)  * (bucketNum-1) / d</p>
-<p>同时，代码使用了JDK的集合工具类Collections.sort来为桶内部的元素进行排序。Collections.sort底层采用的是归并排序或Timsort，小伙伴们可以简单地把它们当做是一种时间复杂度 O（nlogn）的排序。</p>
-<h2 id="基数排序"><a href="#基数排序" class="headerlink" title="基数排序"></a>基数排序</h2><p>基数排序</p>
-<p>基数排序也可以看作一种桶排序，不断的使用不同的标准对数据划分到桶中，最终实现有序。基数排序的思想是对数据选择多种基数，对每一种基数依次使用桶排序。</p>
-<p>基数排序的步骤：以整数为例，将整数按十进制位划分，从低位到高位执行以下过程。</p>
-<ol>
-<li><p>从个位开始，根据0~9的值将数据分到10个桶桶，例如12会划分到2号桶中。</p>
-</li>
-<li><p>将0~9的10个桶中的数据顺序放回到数组中。</p>
-</li>
-</ol>
-<p>重复上述过程，一直到最高位。</p>
-<p>上述方法称为LSD（Least significant digital），还可以从高位到低位，称为MSD。</p>
-<h2 id="复杂度及稳定性"><a href="#复杂度及稳定性" class="headerlink" title="复杂度及稳定性"></a>复杂度及稳定性</h2><p>算法复杂度：<br>时间复杂度（平均）： O(n+m+n(logn-logm))<br>时间复杂度（最坏）： O(nlogn)<br>时间复杂度（最好）： O(n)</p>
-<p>空间复杂度：  O(m+n)<br>桶排序也是稳定的排序算法。</p>
-<p>假设原始数列有n个元素，分成m个桶（我们采用分桶方式m=n），平均每个桶的元素个数为 n/m</p>
-<p>下面逐步分析算法复杂度</p>
-<p>第一步，求数列最大最小值，运算量为n。<br>第二步，创建空桶，运算量为m。<br>第三步，遍历原始数列，运算量为n。<br>第四步在每个桶内部做排序，由于使用了O(nlogn)的排序算法，所以运算量为 n/m · log(n/m ) · m。<br>第五步，输出排序数列，运算量为n。</p>
-<p>加起来，总的运算量为3n+m+ n/m · log(n/m ) · m = 3n+m+n(logn-logm)<br>去掉系数，时间复杂度为：<br>O(n+m+n(logn-logm))<br>至于空间复杂度就很明显了：<br>空桶占用的空间 + 数列在桶中占用的空间 = O(m+n)</p>
-<p>桶排序在性能上并非绝对稳定。理想情况下，桶中的元素均匀分布，当n=m时，时间复杂度可以达到O(n)；但是，如果桶内元素的分布极不均匀，极端情况下第一个桶中有n-1个元素，，最后一个桶中有1个元素。此时的时间复杂度将退化成为O(nlogn)，还白白创建了许多空桶。</p>
+<h1 id="优先级队列"><a href="#优先级队列" class="headerlink" title="优先级队列"></a>优先级队列</h1><p>优先级队列还是一个队列，队列的最大特性仍是先进先出，不过在优先级队列中，数据的出对顺序不是按照先进先出，而是按照优先级来，优先级最高的最先出队。<br>最大优先级队列，无论入队顺序如何，都是当前最大的元素优先出队。<br>最小优先级队列，无论入队顺序如何，都是当前最小的元素优先出队。</p>
+<h2 id="如何实现优先队列"><a href="#如何实现优先队列" class="headerlink" title="如何实现优先队列"></a>如何实现优先队列</h2><p>如何实现一个优先级队列？方法有很对，但是用堆来实现是最直接、最高效的。这是因为，堆和优先级队列非常相似，一个堆就可以看作一个优先级队列。很多时候，它们只是概念上的区分而已。<br>往优先级队列中插入一个元素，就相当于往堆中插入一个元素；从优先级队列中去除优先级最高的元素，就相当于取出堆顶元素。</p>
+<p>优先级队应用场景非常多，比如，哈夫曼编码、图的最短路径、最小生成树算法等等。</p>
+<p>下面是两个应用优先级队列的例子。（选自极客时间-王争-数据结构与算法之美）</p>
+<h3 id="合并有序小文件"><a href="#合并有序小文件" class="headerlink" title="合并有序小文件"></a>合并有序小文件</h3><p>假设我们有100个小文件，每个文件的大小时100MB，每个文件中存储的都是有序的字符串。我们希望将这些100个小文件合并成一个有序的大文件。这里就会用到 <strong>优先级队列</strong>。</p>
+<p>整体思路有点像归并排序中的合并函数。我们从这100个文件中，各取第一个字符，放入数组中，然后比较大小，把最小的那个字符串放入合并后的大文件中，并从数组中删除。</p>
+<p>假设，最小的字符串来自于13.txt这个小文件，我们就再从这个小文件取下一个字符串，放到数组中，重新比较大小，并且选择最小的放入合并后的大文件，将它从数组中删除。以此类推，知道所有的文件中的数据都放大文件为止。</p>
+<p>这里我们用到数组这种数据结构，来存储从小文件中取出来的字符串。每次从数组中取最小字符串，都需要循环遍历整个数组，这种做法是低效的。</p>
+<p>这里就可一个用到优先级队列，也就是说堆。我们将小文件中取出来的字符串放入到小顶堆中，把堆顶的元素，也就是优先级队列队首的元素，就是最小的字符串。讲这个字符串放入到大文件中，并将其从堆中删除，然后再从小文件中去除下一个字符串，放入到堆中。循环这个过程就可以把100个小文件中的数据依次入到大文件中。</p>
+<p>删除堆顶数据和往堆中插入数据的时间复杂度都是O(logn)，n表示堆中的数据个数，这里就是100，比原来的数组存储的方式高效多了。</p>
+<h3 id="高性能定时器"><a href="#高性能定时器" class="headerlink" title="高性能定时器"></a>高性能定时器</h3><p>假设有一个定时器，定时器中维护了很多定时任务，每个任务都设定了一个要触发指向的时间点。定时器美国一个很小的单位时间（比如1秒），就扫描一边任务，看是否有任务到达设定的执行时间，如果到达就拿出来执行。</p>
+<p>但是这样每过1秒就扫描一遍任务列表的做法比较低效，主要原因有两点：第一，任务的约定执行时间离当前时间可能还有很久，这样前面很多次扫描其实都是徒劳的；第二，每次都要扫描整个任务列表，如果任务列表很大的话，势必会比较耗时。</p>
+<p>针对这些问题，就可以用优先级队列来解决。我们按照任务设定的执行时间，将这些任务存储在优先级队列中，队列首部(也就是小顶堆的堆顶)存储的是最先执行的任务。</p>
+<p>这样，定时器就不需要每隔1秒就扫描一遍任务列表了。拿队首任务的执行时间点，与当前时间点相减，得到一个时间间隔T。</p>
+<p>这个时间间隔T就是，从当前时间开始，需要等待多久，才会有第一个任务需要被执行。这样，定时器就可以设定在T秒之后，再来执行任务。从当前时间点到(T-1)秒时间里，定时器都不需要做任何事情。</p>
+<p>当T秒时间过后，定时器取优先级队列中投队首的任务执行。然后再计算新的队首任务的执行时间点与当前时间点的差值，把这个值设置为定时器执行I行啊一个任务需要等待的时间。</p>
+<p>这样，定时器既不用间隔1秒就轮询一次，也不用遍历整个任务列表，性能就提高了。</p>
+<h2 id="优先级队列的实现"><a href="#优先级队列的实现" class="headerlink" title="优先级队列的实现"></a>优先级队列的实现</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@description</span>: 最大优先队列，无论入队的顺序如何，都是当前最大的元素优先出队；最小队列，无论入队的顺序如何，都是当前最小的元素优先出队。</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@author</span>: rhsphere</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@since</span>: 2019-07-08 09:34 by jdk 1.8</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">PriorityQueue</span> </span>&#123;</span><br><span class="line">	<span class="comment">//使用最大堆来实现最大优先队列，入队就是堆的插入，出队就是堆的删除</span></span><br><span class="line">	<span class="keyword">private</span> <span class="keyword">int</span>[] arr;</span><br><span class="line">	<span class="keyword">private</span> <span class="keyword">int</span> size;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="title">PriorityQueue</span><span class="params">()</span> </span>&#123;</span><br><span class="line">		arr = <span class="keyword">new</span> <span class="keyword">int</span>[<span class="number">8</span>];</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="comment">//入队</span></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">enQueue</span><span class="params">(<span class="keyword">int</span> key)</span> </span>&#123;</span><br><span class="line">		<span class="comment">//队列长度超出范围，扩容</span></span><br><span class="line">		<span class="keyword">if</span>(size &gt;= arr.length) &#123;</span><br><span class="line">			resize();</span><br><span class="line">		&#125;</span><br><span class="line">		arr[size++] = key;</span><br><span class="line">		upAdjust();</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="comment">//出队</span></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">deQueue</span><span class="params">()</span> <span class="keyword">throws</span> Exception </span>&#123;</span><br><span class="line">		<span class="keyword">if</span> (size &lt;= <span class="number">0</span>)</span><br><span class="line">			<span class="keyword">throw</span> <span class="keyword">new</span> Exception(<span class="string">"the queue is empty"</span>);</span><br><span class="line">		<span class="comment">//获取堆顶元素</span></span><br><span class="line">		<span class="keyword">int</span> head = arr[<span class="number">0</span>];</span><br><span class="line">		<span class="comment">//让最后一个元素移到堆顶</span></span><br><span class="line">		arr[<span class="number">0</span>] = arr[--size];</span><br><span class="line">		downAdjust();</span><br><span class="line">		<span class="keyword">return</span> head;</span><br><span class="line"></span><br><span class="line">	&#125;</span><br><span class="line">	<span class="comment">//上浮操作，用于插入的叶子节点，将其移到正确的位置</span></span><br><span class="line">	<span class="function"><span class="keyword">private</span> <span class="keyword">void</span>  <span class="title">upAdjust</span><span class="params">()</span> </span>&#123;</span><br><span class="line">		<span class="keyword">int</span> childIndex = size - <span class="number">1</span>;</span><br><span class="line">		<span class="keyword">int</span> parentIndex = childIndex / <span class="number">2</span>;</span><br><span class="line">		<span class="keyword">int</span> tmp = arr[childIndex];</span><br><span class="line">		<span class="keyword">while</span> (childIndex &gt; <span class="number">0</span> &amp;&amp; tmp &gt; arr[parentIndex]) &#123;</span><br><span class="line">			arr[childIndex] = arr[parentIndex];</span><br><span class="line">			childIndex = parentIndex;</span><br><span class="line">			parentIndex = (parentIndex - <span class="number">1</span>) / <span class="number">2</span>;</span><br><span class="line">		&#125;</span><br><span class="line">		arr[childIndex] = tmp;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="comment">//下沉操作，用于删除队头元素，并且将最后一个元素放到队头并调整堆的形状</span></span><br><span class="line">	<span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">downAdjust</span><span class="params">()</span> </span>&#123;</span><br><span class="line">		<span class="keyword">int</span> parentIndex = <span class="number">0</span>;</span><br><span class="line">		<span class="comment">//tmp用于保存父节点的值，用于最后的赋值</span></span><br><span class="line">		<span class="keyword">int</span> tmp = arr[parentIndex];</span><br><span class="line">		<span class="keyword">int</span> childIndex = <span class="number">1</span>;</span><br><span class="line">		<span class="keyword">while</span> (childIndex &lt; size) &#123;</span><br><span class="line">			<span class="comment">//如果有有孩子且右孩子大于左孩子的值，则定位到右孩子</span></span><br><span class="line">			<span class="keyword">if</span> (childIndex + <span class="number">1</span> &lt; size &amp;&amp; arr[childIndex + <span class="number">1</span>] &gt; arr[childIndex])</span><br><span class="line">				childIndex++;</span><br><span class="line">			<span class="comment">//如果父节点大于左右孩子最大的值，直接跳出</span></span><br><span class="line">			<span class="keyword">if</span> (tmp &gt;= arr[childIndex])</span><br><span class="line">				<span class="keyword">break</span>;</span><br><span class="line">			<span class="comment">//较大子节点单向赋值给父节点即可</span></span><br><span class="line">			arr[parentIndex] = arr[childIndex];</span><br><span class="line">			parentIndex = childIndex;</span><br><span class="line">			childIndex = <span class="number">2</span> * childIndex + <span class="number">1</span>;</span><br><span class="line">		&#125;</span><br><span class="line">		arr[parentIndex] = tmp;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="comment">//扩容</span></span><br><span class="line">	<span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">resize</span><span class="params">()</span> </span>&#123;</span><br><span class="line">		<span class="keyword">int</span> newSize = <span class="keyword">this</span>.size * <span class="number">2</span>;</span><br><span class="line">		<span class="keyword">this</span>.arr = Arrays.copyOf(<span class="keyword">this</span>.arr, newSize);</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> <span class="keyword">throws</span> Exception </span>&#123;</span><br><span class="line">        PriorityQueue pq = <span class="keyword">new</span> PriorityQueue();</span><br><span class="line">        pq.enQueue(<span class="number">1</span>);</span><br><span class="line">        pq.enQueue(<span class="number">3</span>);</span><br><span class="line">        pq.enQueue(<span class="number">5</span>);</span><br><span class="line">        pq.enQueue(<span class="number">10</span>);</span><br><span class="line">        pq.enQueue(<span class="number">2</span>);</span><br><span class="line">        pq.enQueue(<span class="number">7</span>);</span><br><span class="line">        System.out.println(<span class="string">"出队元素："</span> + pq.deQueue());</span><br><span class="line">        System.out.println(<span class="string">"出队元素："</span> + pq.deQueue());</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>优先队列是一种特殊的队列，优先级高的数据先出队，而不再像普通的队列那样，先进先出。<br>实际上，堆就可以看作优先级队列，只是称谓不一样。</p>
 <hr>
       
     </div>
@@ -497,9 +480,7 @@
       
         <div class="post-tags">
           
-            <a href="/leetcode/tags/sort/" rel="tag"><i class="fa fa-tags"></i> sort</a>
-          
-            <a href="/leetcode/tags/BucketSort/" rel="tag"><i class="fa fa-tags"></i> BucketSort</a>
+            <a href="/leetcode/tags/PriorityQueue/" rel="tag"><i class="fa fa-tags"></i> PriorityQueue</a>
           
         </div>
       
@@ -525,8 +506,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/leetcode/2019/04/01/heapsort-easy.html" rel="prev" title="排序(10) 堆排序(非泛型)">
-                <i class="fa fa-chevron-left"></i> 排序(10) 堆排序(非泛型)
+              <a href="/leetcode/2019/07/08/heap.html" rel="prev" title="堆">
+                <i class="fa fa-chevron-left"></i> 堆
               </a>
             
           </div>
@@ -535,8 +516,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/leetcode/2019/04/01/count-sort.html" rel="next" title="排序(8) 计数排序">
-                排序(8) 计数排序 <i class="fa fa-chevron-right"></i>
+              <a href="/leetcode/2019/07/04/traversal-treenode.html" rel="next" title="树的遍历">
+                树的遍历 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -767,7 +748,7 @@ show_date_time();
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#桶排序"><span class="nav-number">1.</span> <span class="nav-text">桶排序</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#思想"><span class="nav-number">1.1.</span> <span class="nav-text">思想</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#桶排序代码实现"><span class="nav-number">2.</span> <span class="nav-text">桶排序代码实现</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#基数排序"><span class="nav-number">3.</span> <span class="nav-text">基数排序</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#复杂度及稳定性"><span class="nav-number">4.</span> <span class="nav-text">复杂度及稳定性</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#优先级队列"><span class="nav-number">1.</span> <span class="nav-text">优先级队列</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#如何实现优先队列"><span class="nav-number">1.1.</span> <span class="nav-text">如何实现优先队列</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#合并有序小文件"><span class="nav-number">1.1.1.</span> <span class="nav-text">合并有序小文件</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#高性能定时器"><span class="nav-number">1.1.2.</span> <span class="nav-text">高性能定时器</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#优先级队列的实现"><span class="nav-number">1.2.</span> <span class="nav-text">优先级队列的实现</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#总结"><span class="nav-number">1.3.</span> <span class="nav-text">总结</span></a></li></ol></li></ol></div>
             
 
           </div>
