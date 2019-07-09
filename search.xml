@@ -1,6 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[堆、堆排序、优先队列总结]]></title>
+    <url>%2Fleetcode%2F2019%2F07%2F09%2Fheap-heapsort-priorityqueue.html</url>
+    <content type="text"><![CDATA[1. Heap（堆） 2. HeapSort（堆排序） 3. PriorityQueue（优先队列） 4. PriorityQueue with Generic Type （优先队列-泛型）]]></content>
+      <categories>
+        <category>Sum-up</category>
+      </categories>
+      <tags>
+        <tag>Heap</tag>
+        <tag>PriorityQueue</tag>
+        <tag>HeapSort</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[堆]]></title>
     <url>%2Fleetcode%2F2019%2F07%2F08%2Fheap.html</url>
     <content type="text"><![CDATA[## 利用堆求 Top K“求top K 问题”抽象成两类。一类是针对静态数据集合，也就是说数据集合事先确定，不会再变。另一类是针对静态数据集合，也就是说数据集合事先并不确定，有数据动态地加入到集合中。 针对静态数据，如何在一个包含n个数据的数组中，查找前K大数据呢？ 可以维护一个大小为K的大顶堆，顺序遍历数组，从数组中去除数据与堆顶元素比较。如果比堆顶元素大，就把堆顶元素删除，并且将这个元素插入到堆中；如果比堆顶元素小，则不做处理，继续遍历数组。这样等数组中的数据都遍历完之后，堆中的数据就是前K大数据了。 遍历数组需要O(n)的时间复杂度，一次堆化操作需要O(logK)的时间复杂度，所以最坏情况下，n个元素都入堆一次，时间复杂度就是O(nlogK)。 针对动态数据求得Top K就是实时Top K。一个数据集合中有两个操作，一个是添加数据，另一个询问当前的前K大数据。 如果每次询问前K大数据，我们都给予当前的数据重新计算的话，那时间复杂度就是O(nlogK)，n表示当前的数据的大小。实际上，可以一直都维护一个K大小的小顶堆，当有数据被添加到集合中是，就拿它与堆顶的元素对比。如果比堆顶元素大，我们就把堆顶元素删除，并且将这个元素插入到堆中；如果比堆顶元素小，则不做处理。这样，无论任何时候需要查询当前的前K大数据，都可以立刻发那会给他。 利用堆求中位数动态的求数据集合的中位数。 这一小节只记录一些概念性的知识，对于具体内容查看极客时间专栏。 如果数据的个数是奇数，把数据从小到大排列，那第 n/2 + 1个数据就是中位数；如果数据是偶数的话，那么处于中间未知的数据有两个，第n/2个和第n/2 + 1个数据，这是随意取一个作为中位数。 99百分位响应时间。如果有n个数据，将数据从小到大排列之后，99百分位数大约就是第n * 99%个数据。 堆的实现123456789101112131415161718192021222324252627282930313233343536373839/** * @description: 二叉堆 * @author: rhsphere * @since: 2019-07-04 16:30 by jdk 1.8 */public class Heap &#123; public static void upAdjust(int[] arr) &#123; int childIndex = arr.length - 1; int parentIndex = (childIndex - 1) / 2; int tmp = arr[childIndex]; while (childIndex &gt; 0 &amp;&amp; tmp &gt; arr[parentIndex]) &#123; arr[childIndex] = arr[parentIndex]; childIndex = parentIndex; parentIndex = (parentIndex - 1) / 2; &#125; arr[childIndex] = tmp; &#125; public static void downAdjust(int[] arr, int parentIndex, int length) &#123; int tmp = arr[parentIndex]; int childIndex = 2 * parentIndex + 1; while (childIndex &lt; length) &#123; if (childIndex + 1 &lt; length &amp;&amp; arr[childIndex + 1] &lt; arr[childIndex]) &#123; childIndex++; &#125; if (tmp &gt;= arr[childIndex]) break; arr[parentIndex] = arr[childIndex]; parentIndex = childIndex; childIndex = 2 * parentIndex + 1; &#125; arr[parentIndex] = tmp; &#125; public staitc void buildIndex(int[] arr) &#123; for (int i = (arr.length - 2) / 2; i &gt;= 0; i--) downAdjust(arr, i, arr.length); &#125;&#125;]]></content>
@@ -644,8 +657,8 @@
         <category>Sorting</category>
       </categories>
       <tags>
-        <tag>sort</tag>
         <tag>HeapSort</tag>
+        <tag>sort</tag>
       </tags>
   </entry>
   <entry>
