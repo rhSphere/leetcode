@@ -1,6 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[剑指Offer(36) 二叉搜索树与双向链表]]></title>
+    <url>%2Fleetcode%2F2019%2F07%2F14%2Fconvert-binary-search-tree.html</url>
+    <content type="text"><![CDATA[二叉搜索树与双向链表题目 输入一棵二叉搜索树，将该二叉搜索树转换成一个排序的双向链表，要求不能创建任何新的节点，只能调整树中节点指针。 思路二叉搜索树、排序链表，想到使用中序遍历。 要实现双向链表，必须知道当前节点的前一个节点。根据中序遍历，可以知道，当遍历到根节点的时候，左子树已经转化成了一个排序的链表了，根节点的前一节点就是该链表的最后一个节点（这个节点必须记录下来，将遍历函数的返回值设置为该节点即可），连接根节点和前一个节点，此时链表最后一个节点就是根节点了。再处理右子树，遍历右子树，将右子树的最小节点和根节点连接起来即可。左右子树的转化采用递归即可。 首先想象一下中序遍历的大概代码结构（先处理左子树，再处理根节点，之后处理右子树），假设左子树处理完了，就要处理根节点，而根节点必须知道左子树的最大节点，所以要用函数返回值记录下来；之后处理右子树，右子树的最小节点（也是用中序遍历得到）要和根节点链接。 测试用例 功能测试(一个节点；左、右斜树；完全二叉树；普通二叉树) 特殊测试(根节点为null) java代码12]]></content>
+      <categories>
+        <category>剑指Offer</category>
+      </categories>
+      <tags>
+        <tag>Tree</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[剑指Offer(35) 复杂链表的复制]]></title>
     <url>%2Fleetcode%2F2019%2F07%2F12%2Fcpoy-complex-list.html</url>
     <content type="text"><![CDATA[复杂链表的复制题目 请实现函数ComplexListNode Clone(ComplexListNode pHead)，复制一个复杂链表。在复杂链表中，每个结点除了有一个m_pNext指针指向下一个点外，还有一个m_pSibling 指向链表中的任意结点或者nullptr。 思路思路1：先复制结点，用next链接，最后根据原始结点的sibling指针确定该sibling结点距离头结点的位置，从而对复制结点设置sibling指针。但是该思路对于n个结点的链表，每个结点的sibling都需要O(n)个时间步才能找到，所以时间复杂度为O(n^2) 思路2：复制原始结点N创建N’，用next链接。将&lt;N,N’&gt;的配对信息存放入一个哈希表中；在设置sibling时，通过哈希表，只需要用O(1)的时间即可找到复制结点的sibling。该方法的时间复杂度为O(n)，但空间复杂度为O(n)。 思路3：复制原始结点N创建N’，将N’链接到N的后面；根据原始结点N的sibling可以快速设置N’结点的sibling，最后将这个长链表拆分成原始链表和复制链表（根据奇偶位置） 测试用例 功能测试（sibling指向自己；链表只有一个节点；sibling指向null或者指向节点） 特殊测试（头结点为null） java代码12345678910111213141516171819202122232425262728293031323334353637383940414243444546474849505152535455565758596061/** * @description: 剑指offer35题 * @author: rhsphere * @since: 2019-07-12 15:15 by jdk 1.8 */public class CopyComplexList &#123; public class ComplexListNode &#123; int val; ComplexListNode next, sibling; ComplexListNode(int val) &#123; this.val = val; &#125; &#125; //主程序 public ComplexListNode cloneList(ComplexListNode head) &#123; cloneNodes(head); connectSiblingNodes(head); return reconnectNodes(head); &#125; //1.第一步，复制每个节点，并插入到原节点后面 private void cloneNodes(ComplexListNode head) &#123; ComplexListNode pNode = head; while (pNode != null) &#123; ComplexListNode clonedNode = new ComplexListNode(pNode.val); clonedNode.next = pNode.next; pNode.next = clonedNode; pNode = clonedNode.next; &#125; &#125; //2.第二步，根据原节点的位置，设置sibling的指针 private ComplexListNode connectSiblingNodes(ComplexListNode head) &#123; ComplexListNode pHead = head; while (pNode != null) &#123; if (pNode.sibling != null) pNode.next.sibling = pNode.sibling.next; pNode = pNode.next.next; &#125; &#125; //3.第三步，将长链表拆分成原始链表和复制链表（按照奇偶位置） public ComplexListNode reconnectNodes(ComplexListNode head) &#123; ComplexListNode clonedHead = null; ComplexListNode clonedNode = null; ComplexListNode pNode = head; if (head != null) &#123; clonedHead = head.next; clonedNode = pNode.next; pNode.next = clonedNode.next; pNode = pNode.next; //提前将pNode指向下一个结点，方便判断是否为null &#125; while (pNode != null) &#123; clonedNode.next = pNode.next; clonedNode = clonedNode.next; pNode.next = clonedNode.next; pNode = pNode.next; &#125; return clonedHead; &#125;&#125; 总结 有关于拆分函数，需要画图分析，才能厘清思路； 复制链表时，在演示节点后面直接插入复制节点，这种方法很方便，有较高的效率。]]></content>
