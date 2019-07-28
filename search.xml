@@ -1,6 +1,44 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[剑指Offer(40) 最小的k个数]]></title>
+    <url>%2Fleetcode%2F2019%2F07%2F28%2F%E5%89%91%E6%8C%87Offer-40-%E6%9C%80%E5%B0%8F%E7%9A%84k%E4%B8%AA%E6%95%B0.html</url>
+    <content type="text"><![CDATA[23]]></content>
+  </entry>
+  <entry>
+    <title><![CDATA[剑指Offer(39) 数组中出现次数超过一半的数字]]></title>
+    <url>%2Fleetcode%2F2019%2F07%2F28%2Fmore-than-hanlf-number.html</url>
+    <content type="text"><![CDATA[数组中出现次数超过一半的数字题目 数组中有一个数字出现的次数超过数组长度的一半，请找出这个数字。例如输入一个长度为9的数组{1, 2, 3, 2, 2, 2, 5, 4, 2}。由于数字2在数组中出现了5次，超过数组长度的一半，因此输出2。 思路思路一：数字次数超过一半，则说明：排序之后数组中间的数字一定就是所求的数字。 利用partition()函数获得某一随机数字，其余数字按大小排在该数字的左右。若该数字下标刚好为n/2，则该数字即为所求数字；若小于n/2，则在右边部分继续查找；反之，左边部分查找。 思路二：数字次数超过一半，则说明：该数字出现的次数比其他数字之和还多 遍历数组过程中保存两个值：一个是数组中某一数字，另一个是次数。遍历到下一个数字时，若与保存数字相同，则次数加1，反之减1。若次数=0，则保存下一个数字，次数重新设置为1。由于要找的数字出现的次数比其他数字之和还多，那么要找的数字肯定是最后一次把次数设置为1的数字。 也可以这样理解（来源：牛客网 cm问前程）： 采用阵地攻守的思想： 第一个数字作为第一个士兵，守阵地；count = 1； 遇到相同元素，count++; 遇到不相同元素，即为敌人，同归于尽,count–；当遇到count为0的情况，又以新的i值作为守阵地的士兵，继续下去，到最后还留在阵地上的士兵，有可能是主元素。 再加一次循环，记录这个士兵的个数看是否大于数组一般即可。 测试用例 功能测试（存在或者不存在超过数组长度一半的数字） 特殊测试（null、1个数字） java代码123456789101112131415161718192021222324252627282930313233343536373839404142434445464748495051525354555657585960616263646566676869707172737475767778798081828384858687888990/** * @description: 剑指offer39 * @author: rhsphere * @since: 2019-07-28 20:21 by jdk 1.8 */public class MoreThanHalfNumber &#123; boolean isInputInvalid = true; //方法一：partition方法 public int moreThanHalfNum(int[] arr) &#123; if (arr == null || arr.length &lt;= 0) return 0; int low = 0; int high = arr.length - 1; int index = partition(arr, low, high); while (index != arr.length &gt;&gt; 1) &#123; if (index &lt; arr.length &gt;&gt; 1) &#123; low = index + 1; index = partition(arr, low, high); &#125; else &#123; high = index - 1; index = partition(arr, low, high); &#125; &#125; //判断次数是否超过一半 int num = arr[index]; int times = 0; for (int i = 0; i &lt; arr.length; i++) &#123; if (arr[i] == num) &#123; times++; &#125; &#125; if (times * 2 &gt; arr.length) &#123; isInputInvalid = false; return num; &#125; return 0; &#125; //这个partition写的不好，需要重写 private int partition(int[] arr, int low, int high) &#123; int pivot = arr[low]; while (low &lt; high) &#123; while (low &lt; high &amp;&amp; arr[high] &gt;= pivot) high--; int tmp = arr[low]; arr[low] = arr[high]; arr[high] = tmp; while (low &lt; high &amp;&amp; arr[low] &lt;= pivot) low++; tmp = arr[low]; arr[low] = arr[high]; arr[high] = tmp; &#125; return low; &#125; //方法二 public int moreThanHalfNum(int[] arr) &#123; if (arr == null || arr.length &lt;= 0) return 0; int num = arr[0]; int count = 1; for (int i = 1; i &lt; arr.length - 1; i++) &#123; if (count == 0) &#123; num = arr[i]; count++; &#125; else if (arr[i] == num) &#123; count++; &#125; else &#123; count--; &#125; &#125; if (count &gt; 0) &#123; int times = 0; for (int i = 0; i &lt; arr.length; i++) &#123; if (arr[i] == num) &#123; times++; &#125; &#125; if (times * 2 &gt; arr.length) &#123; isInputInvalid = false; return num; &#125; &#125; return 0; &#125;&#125; 总结 length/2 用 length&gt;&gt;1 来代替，具有更高的效率 本题中，找到了所求数字，别忘记判断该数字的次数是否超过一半，感觉很容易忘记进行判断。 题目所要求的返回值为int，所以如果数组不满足要求时，无法通过返回值来告知是否出错，所以这道题设置了一个全局变量来进行判断。调用该方法时，需要记得对全局变量进行检查。 方法一中，采用了partition()函数，该函数会改变修改的数组，因此在面试的时候，需要和面试官讨论是否可以修改数组。 两种方法的时间复杂度均为O(n)。]]></content>
+      <categories>
+        <category>剑指Offer</category>
+      </categories>
+      <tags>
+        <tag>Array</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[剑指Offer(38) 字符串的排列]]></title>
+    <url>%2Fleetcode%2F2019%2F07%2F26%2Fstring-permutation.html</url>
+    <content type="text"><![CDATA[字符串的排列题目 输入一个字符串，打印出该字符串中字符的所有排列。例如输入字符串abc，则打印出由字符a、b、c所能排列出来的所有字符串abc、acb、bac、bca、cab和cba。（本文代码采用ArrayList接收返回的字符串，并要求不出现重复字符串） 思路将字符串看成两部分，一部分是第一个字符，另一部分是后面的所有字符。 首先确定第一个字符，该字符可以是字符串中的任意一个；固定第一个字符后，求出后面所有字符的排列（相同步骤，采用递归）。 实现第一个字符的改变，只需要将第一个字符和后面所有字符交换即可。要记得字符串输出后，要将字符交换回来，变成原始的字符串。 使用递归每次处理一个位置，第一个位置有n种选择，第二个位置有n-1种选择 假设当前位置是index，需要把其他位置的元素放到index上，则可以将该元素和index位置上的元素交换，这样原来index位置上的元素可以作为下一轮递归函数的index候选之一 再一次循环中，交换完元素，调用递归函数，最后还需要再交换刚才的两个元素，相当于复原了当前递归函数中的str，在下一轮循环中考虑该index位置上的其他可能的选项。 测试用例 功能测试（有多个重复字母的字符串、所有字符相同的字符串、一个字符或者多个字符的普通字符串） 特殊测试（字符串为null、“”） java代码1234567891011121314151617181920212223242526272829303132333435/** * @description: 剑指offer38 字符串的排列 * @author: rhsphere * @since: 2019-07-26 09:46 by jdk 1.8 */public class StringPermutation &#123; public ArrayList&lt;String&gt; permutation(String str) &#123; ArrayList&lt;String&gt; list = new ArrayList&lt;&gt;(); if (str == null || str.length == 0) return list; permutationCore(str.toCahrArray(), 0, list); Collections.sort(list); return list; &#125; private void permutationCore(char[] arr, int index, ArrayList&lt;String&gt; list) &#123; if (index == arr.length - 1) &#123; if (!list.contains(String.valueOf(arr))) //判断是否有重复字符 list.add(String.valueOf(arr)); &#125; else &#123; for (int i = index; i &lt; arr.length; i++) &#123; swap(arr, index, i); permutationCore(arr, index + 1, list); swap(arr, index, i); &#125; &#125; &#125; private void swap(char[] arr, int index, int i) &#123; char tmp = char[index]; char[inde] = char[i]; char[i] = tmp; &#125;&#125; 总结 要对字符串进行修改，可以将字符串转化为字符数组进行修改，也可以考虑使用StringBuilder类。 list.contains()方法可以直接判断是否有重复字符串；Collections.sort(list)可以将list中的字符串进行排序。 字符串和字符数组间的转化：str.toCharArray() String.valueOf(strArray) 数组在递归过程中进行了交换后，最终要记得交换回来（代码最后几行）]]></content>
+      <categories>
+        <category>剑指Offer</category>
+      </categories>
+      <tags>
+        <tag>String</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[剑指Offer(37) 序列化二叉树]]></title>
+    <url>%2Fleetcode%2F2019%2F07%2F25%2Fserialize-binary-tree.html</url>
+    <content type="text"><![CDATA[序列化二叉树题目请实现两个函数，分别用来序列化和反序列化二叉树。 思路一般情况下，需要采用前/后序遍历和中序遍历才能确定一个二叉树，但是其实可以只采用前序遍历（从根节点开始），将空节点（null)输出为一个特殊符号（如“$”），就可以确定一个二叉树了。 将二叉树序列化为字符串，就是前序遍历的过程，遇见空结点时，序列化为“$”，每个结点间使用逗号分隔开。 将字符串反序列化为二叉树，也使用前序遍历，遇见一个新数字(或者$)就建立一个新结点，不过需要注意的是，数字可能不只是个位数字，因此创建了一个全局Int变量index（在字符串上的移动的指针），以便于截取字符串中当前的结点值。（详见代码） 测试用例 功能测试（一个节点；左右斜树；完全二叉树；普通二叉树） 特殊测试（根节点为null） java代码12345678910111213141516171819202122232425262728293031323334353637383940414243444546/** * @description: 请实现两个函数，分别用来序列化和反序列化二叉树 * @author: rhsphere * @since: 2019-07-25 22:05 by jdk 1.8 */public class SerializeBinaryTrees &#123; public class TreeNode &#123; int val; TreeNode left, right; public TreeNode(int val) &#123; this.val = val; &#125; &#125; public String serialize(TreeNode node) &#123; StringBuilder sb = new StringBuilder(); if (node == null) &#123; sb.append("$,"); &#125; else &#123; sb.append(node.val + ","); sb.append(serialize(node.left)); sb.append(serialize(node.right)); &#125; return sb.toString(); &#125; int index = 0; public TreeNode deserialize(String str) &#123; TreeNode node = null; if (str == null || str.length &lt;= 0) return node; int start = index; while (str.charAt(index) != ',') index++; if (!str.substring(start, index).equals("$")) &#123; node = new TreeNode(Integer.parseInt(str.substring(start, index))); index++; node.left = deserialize(str); node.right = deserialize(str); &#125; else &#123; index++; &#125; return node; &#125;&#125; 总结 记住这种序列化的方式，用于表示二叉树时非常方便。 字符串中有分割符号时，可以对字符串采用split()方法，变为字符串数组，但是自己觉得数组的保存会消耗一定的空间，因此自己定义了全局变量index，通过substring()方法来截取每一部分的字符串。 字符串的比较以后尽量用equal来比较。在对某字符串采用substring()方法得到的字符串用==判断会返回false。substring的==与equal()使用 String 转int 类型采用 int i = Integer.parseInt( s ); 不能用Integer.valueOf(s)，这返回的是Integer对象。 index++的位置一定不能放错]]></content>
+      <categories>
+        <category>剑指Offer</category>
+      </categories>
+      <tags>
+        <tag>Tree</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[剑指Offer(36) 二叉搜索树与双向链表]]></title>
     <url>%2Fleetcode%2F2019%2F07%2F14%2Fconvert-binary-search-tree.html</url>
     <content type="text"><![CDATA[二叉搜索树与双向链表题目 输入一棵二叉搜索树，将该二叉搜索树转换成一个排序的双向链表，要求不能创建任何新的节点，只能调整树中节点指针。 思路二叉搜索树、排序链表，想到使用中序遍历。 要实现双向链表，必须知道当前节点的前一个节点。根据中序遍历，可以知道，当遍历到根节点的时候，左子树已经转化成了一个排序的链表了，根节点的前一节点就是该链表的最后一个节点（这个节点必须记录下来，将遍历函数的返回值设置为该节点即可），连接根节点和前一个节点，此时链表最后一个节点就是根节点了。再处理右子树，遍历右子树，将右子树的最小节点和根节点连接起来即可。左右子树的转化采用递归即可。 首先想象一下中序遍历的大概代码结构（先处理左子树，再处理根节点，之后处理右子树），假设左子树处理完了，就要处理根节点，而根节点必须知道左子树的最大节点，所以要用函数返回值记录下来；之后处理右子树，右子树的最小节点（也是用中序遍历得到）要和根节点链接。 测试用例 功能测试(一个节点；左、右斜树；完全二叉树；普通二叉树) 特殊测试(根节点为null) java代码12]]></content>
