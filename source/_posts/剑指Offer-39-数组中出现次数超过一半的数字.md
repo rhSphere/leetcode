@@ -83,22 +83,21 @@ public class MoreThanHalfNumber {
         return 0;
     }
 
-    //这个partition写的不好，需要重写
+    //partition简洁的的单边循环法
     private int partition(int[] arr, int low, int high) {
         int pivot = arr[low];
-        while (low < high) {
-            while (low < high && arr[high] >= pivot)
-                high--;
-            int tmp = arr[low];
-            arr[low] = arr[high];
-            arr[high] = tmp;
-            while (low < high && arr[low] <= pivot)
-                low++;
-            tmp = arr[low];
-            arr[low] = arr[high];
-            arr[high] = tmp;
+        int mark = low;
+        for (int i = low + 1; i <= high; i++) {
+            if (arr[i] < pivot) {
+                mark++;
+                int tmp = arr[mark];
+                arr[mark] = arr[i];
+                arr[i] = tmp;
+            }
         }
-        return low;
+        arr[low] = arr[mark];
+        arr[mark] = pivot;
+        return mark;
     }
 
     //方法二
