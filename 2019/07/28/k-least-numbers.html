@@ -121,7 +121,7 @@
 
 
 
-  <meta name="keywords" content="LeetCode, 刷题笔记, 答案">
+  <meta name="keywords" content="Heap,">
 
 
 
@@ -134,12 +134,13 @@
 
 
 
+<meta name="keywords" content="Heap">
 <meta property="og:type" content="article">
 <meta property="og:title" content="剑指Offer(40) 最小的k个数">
-<meta property="og:url" content="https://rhsphere.github.io/leetcode/2019/07/28/剑指Offer-40-最小的k个数.html">
+<meta property="og:url" content="https://rhsphere.github.io/leetcode/2019/07/28/k-least-numbers.html">
 <meta property="og:site_name" content="Depeng&#39;s Blog for Algorithms">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-07-28T12:56:55.594Z">
+<meta property="og:updated_time" content="2019-07-29T13:51:05.359Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="剑指Offer(40) 最小的k个数">
 
@@ -174,7 +175,7 @@
 
 
 
-  <link rel="canonical" href="https://rhsphere.github.io/leetcode/2019/07/28/剑指Offer-40-最小的k个数.html">
+  <link rel="canonical" href="https://rhsphere.github.io/leetcode/2019/07/28/k-least-numbers.html">
 
 
 
@@ -339,7 +340,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://rhsphere.github.io/leetcode/leetcode/2019/07/28/剑指Offer-40-最小的k个数.html">
+    <link itemprop="mainEntityOfPage" href="https://rhsphere.github.io/leetcode/leetcode/2019/07/28/k-least-numbers.html">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Depeng Lu">
@@ -379,6 +380,28 @@
           </span>
 
           
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/leetcode/categories/剑指Offer/" itemprop="url" rel="index">
+                    <span itemprop="name">剑指Offer</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
 
           
             
@@ -386,7 +409,7 @@
 
           
           
-             <span id="/leetcode/2019/07/28/剑指Offer-40-最小的k个数.html" class="leancloud_visitors" data-flag-title="剑指Offer(40) 最小的k个数">
+             <span id="/leetcode/2019/07/28/k-least-numbers.html" class="leancloud_visitors" data-flag-title="剑指Offer(40) 最小的k个数">
                <span class="post-meta-divider">|</span>
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -421,7 +444,35 @@
 
 
 <a id="more"></a>
-<h2 id="2"><a href="#2" class="headerlink" title="2"></a>2</h2><h3 id="3"><a href="#3" class="headerlink" title="3"></a>3</h3><hr>
+<h2 id="最小的k个数"><a href="#最小的k个数" class="headerlink" title="最小的k个数"></a>最小的k个数</h2><p>关于堆排序，堆的下沉操作，圆满解决。</p>
+<h3 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h3><p>输入n个整数，找出其中最小的k个数。例如输入4、5、1、6、2、7、3、8这8个数字，则最小的4个数字是1、2、3、4。</p>
+<h3 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h3><p>思路一：同剑指offer(39) 数组中出现次数超过一半的数字中使用partition()方法，基于数组的第k个数字调整，使得更小的k个数字都在数组左边即可。</p>
+<p>思路二：依次遍历n个整数，用一个容器存放最小的k个数字，每遇到比容器中最大的数字还小的数字时，将最大值替换为该数字。容器可以使用最大堆或者红黑树来实现。本文根据堆排序的原理来实现。</p>
+<h3 id="测试用例"><a href="#测试用例" class="headerlink" title="测试用例"></a>测试用例</h3><ol>
+<li><p>功能测试（数组中存在/不存在重复数字）</p>
+</li>
+<li><p>边界值测试（k=1或者等于数组长度）</p>
+</li>
+<li><p>特殊测试（null、k&lt;1、k大于数组长度）</p>
+</li>
+</ol>
+<h2 id="java代码"><a href="#java代码" class="headerlink" title="java代码"></a>java代码</h2><h3 id="用partition函数修改数组"><a href="#用partition函数修改数组" class="headerlink" title="用partition函数修改数组"></a>用partition函数修改数组</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@description</span>: 剑指offer40</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@author</span>: rhsphere</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@since</span>: 2019-07-28 20:47 by jdk 1.8</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">KLeastNum</span> </span>&#123;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> ArrayList&lt;Integer&gt; <span class="title">getLeastNumbers</span><span class="params">(<span class="keyword">int</span>[] input, <span class="keyword">int</span> k)</span> </span>&#123;</span><br><span class="line">		ArrayList&lt;Integer&gt; list = <span class="keyword">new</span> ArrayList&lt;&gt;(k);</span><br><span class="line">		<span class="keyword">if</span> (input == <span class="keyword">null</span> || k &lt;= <span class="number">0</span> || k &gt; input.length) &#123;</span><br><span class="line">			<span class="keyword">return</span> list;</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="keyword">int</span> start = <span class="number">0</span>;</span><br><span class="line">		<span class="keyword">int</span> end = input.length - <span class="number">1</span>;</span><br><span class="line">		<span class="keyword">int</span> index = partition(input, start, end);</span><br><span class="line">		<span class="keyword">while</span> (index != k - <span class="number">1</span>) &#123;</span><br><span class="line">			<span class="keyword">if</span> (index &lt; k - <span class="number">1</span>) &#123;</span><br><span class="line">				start = index + <span class="number">1</span>;</span><br><span class="line">				index = partition(input, start, end);</span><br><span class="line">			&#125; <span class="keyword">else</span> &#123;</span><br><span class="line">				end = index - <span class="number">1</span>;</span><br><span class="line">				index = partition(input, start, end);</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; k; i++) </span><br><span class="line">			list.add(input[i]);</span><br><span class="line">		<span class="keyword">return</span> list;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="function"><span class="keyword">private</span> <span class="keyword">int</span> <span class="title">partition</span><span class="params">(<span class="keyword">int</span>[] arr, <span class="keyword">int</span> startIndex, <span class="keyword">int</span> endIndex)</span> </span>&#123;</span><br><span class="line">		<span class="keyword">int</span> pivot = arr[startIndex];</span><br><span class="line">		<span class="keyword">int</span> low = startIndex;</span><br><span class="line">		<span class="keyword">int</span> high = endIndex;</span><br><span class="line"></span><br><span class="line">		<span class="keyword">while</span> (low != high) &#123;</span><br><span class="line">			<span class="keyword">while</span> (low &lt; high &amp;&amp; arr[high] &gt; pivot)</span><br><span class="line">				high--;</span><br><span class="line">			<span class="keyword">while</span> (low &lt; high &amp;&amp; arr[low] &lt;= pivot) </span><br><span class="line">				low++;</span><br><span class="line">			<span class="keyword">if</span> (low &lt; high) &#123;</span><br><span class="line">				<span class="keyword">int</span> tmp = arr[low];</span><br><span class="line">				arr[low] = arr[high];</span><br><span class="line">				arr[high] = tmp;</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line"></span><br><span class="line">		arr[startIndex] = arr[low];</span><br><span class="line">		arr[low] = pivot;</span><br><span class="line">		<span class="keyword">return</span> low;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="基于堆的容器"><a href="#基于堆的容器" class="headerlink" title="基于堆的容器"></a>基于堆的容器</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@description</span>: 基于堆的容器</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@author</span>: rhsphere</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@since</span>: 2019-07-29 13:25 by jdk 1.8</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">KLeastNum_Heap</span> </span>&#123;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> ArrayList&lt;Integer&gt; <span class="title">getLeastNum</span><span class="params">(<span class="keyword">int</span>[] input, <span class="keyword">int</span> k)</span> </span>&#123;</span><br><span class="line">		ArrayList&lt;Integer&gt; list = <span class="keyword">new</span> ArrayList&lt;&gt;();</span><br><span class="line">		<span class="keyword">if</span> (k &lt;= <span class="number">0</span> || k &gt; input.length || input == <span class="keyword">null</span>) </span><br><span class="line">			<span class="keyword">return</span> list;</span><br><span class="line"></span><br><span class="line">		<span class="keyword">int</span> numbers = <span class="keyword">new</span> <span class="keyword">int</span>[k];</span><br><span class="line"></span><br><span class="line">		<span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; k; i++)</span><br><span class="line">			numbers[i] = input[i];</span><br><span class="line"></span><br><span class="line">		<span class="keyword">for</span> (<span class="keyword">int</span> i = k/<span class="number">2</span> - <span class="number">1</span>; i &gt;= <span class="number">0</span>; i--)</span><br><span class="line">			downAdjust(numbers, i, k);</span><br><span class="line"></span><br><span class="line">		<span class="comment">//这两句可以写成</span></span><br><span class="line">		<span class="comment">//buildHeap(numbers);</span></span><br><span class="line"></span><br><span class="line">		<span class="keyword">for</span> (<span class="keyword">int</span> i = k; i &lt; input.length; i++) &#123;</span><br><span class="line">			<span class="keyword">if</span> (input[i] &lt; numbers[<span class="number">0</span>]) &#123;</span><br><span class="line">				numbers[<span class="number">0</span>] = input[i];</span><br><span class="line">				adjustHeap(numbers, <span class="number">0</span>, k);</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line"></span><br><span class="line">		<span class="keyword">for</span> (<span class="keyword">int</span> i : numbers)</span><br><span class="line">			list.add(i);</span><br><span class="line">		<span class="keyword">return</span> list;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">downAdjust</span><span class="params">(<span class="keyword">int</span>[] arr, <span class="keyword">int</span> parent, <span class="keyword">int</span> length)</span> </span>&#123;</span><br><span class="line">		<span class="keyword">int</span> tmp = arr[parent];</span><br><span class="line">		<span class="keyword">int</span> child = <span class="number">2</span> * parent + <span class="number">1</span>;</span><br><span class="line">		<span class="keyword">while</span> (child &lt; length) &#123;</span><br><span class="line">			<span class="keyword">if</span> (child + <span class="number">1</span> &lt; length &amp;&amp; arr[child + <span class="number">1</span>] &gt; arr[child])</span><br><span class="line">				child++;</span><br><span class="line">			<span class="keyword">if</span> (tmp &gt;= arr[child])</span><br><span class="line">				<span class="keyword">break</span>;</span><br><span class="line">			arr[parent] = arr[child];</span><br><span class="line">			parent = child;</span><br><span class="line">			child = <span class="number">2</span> * child + <span class="number">1</span>;</span><br><span class="line">		&#125;</span><br><span class="line">		arr[parent] = tmp;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">buildHeap</span><span class="params">(<span class="keyword">int</span> arr)</span> </span>&#123;</span><br><span class="line">		<span class="keyword">for</span> (<span class="keyword">int</span> i = arr.length/<span class="number">2</span> - <span class="number">1</span>; i &gt;= <span class="number">0</span>; i--)</span><br><span class="line">			downAdjust(arr, i, arr.length);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><ol>
+<li><p>本题就是对快速排序和堆排序的延伸。</p>
+</li>
+<li><p>k小于等于0的情况别忘记了</p>
+</li>
+<li><p>方法二，只需要在原始数组中进行读入操作，而所有的写操作和判断都是在容器中进行的，不用反复读取原始数组，思想非常好。</p>
+</li>
+<li><p>记得要弄清楚是否可以改变原始输入的数组。</p>
+</li>
+<li><p>partition函数：即是快速排序的基础，也可以用来查找n个数中第k大的数字。</p>
+</li>
+<li><p>当涉及到频繁查找和替换最大最小值时，二叉树是非常合适的数据结构，要能想到堆和二叉树。</p>
+</li>
+</ol>
+<hr>
       
     </div>
     
@@ -435,6 +486,12 @@
     
 
     <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/leetcode/tags/Heap/" rel="tag"><i class="fa fa-tags"></i> Heap</a>
+          
+        </div>
       
 
       
@@ -696,7 +753,7 @@ show_date_time();
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#2"><span class="nav-number">1.</span> <span class="nav-text">2</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#3"><span class="nav-number">1.1.</span> <span class="nav-text">3</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#最小的k个数"><span class="nav-number">1.</span> <span class="nav-text">最小的k个数</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#题目"><span class="nav-number">1.1.</span> <span class="nav-text">题目</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#思路"><span class="nav-number">1.2.</span> <span class="nav-text">思路</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#测试用例"><span class="nav-number">1.3.</span> <span class="nav-text">测试用例</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#java代码"><span class="nav-number">2.</span> <span class="nav-text">java代码</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#用partition函数修改数组"><span class="nav-number">2.1.</span> <span class="nav-text">用partition函数修改数组</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#基于堆的容器"><span class="nav-number">2.2.</span> <span class="nav-text">基于堆的容器</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#总结"><span class="nav-number">3.</span> <span class="nav-text">总结</span></a></li></ol></div>
             
 
           </div>
@@ -730,7 +787,7 @@ show_date_time();
     
       <span class="post-meta-item-text">Site words total count&#58;</span>
     
-    <span title="Site words total count">107.4k</span>
+    <span title="Site words total count">109.1k</span>
   
 </div>
 
