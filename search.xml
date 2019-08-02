@@ -1,6 +1,51 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[剑指Offer(56) 数组中数字出现的次数]]></title>
+    <url>%2Fleetcode%2F2019%2F08%2F02%2Fnumber-appear-once.html</url>
+    <content type="text"><![CDATA[数组中数字出现的次数题目一：数组中只出现一次的两个数字 题目一一个整型数组里除了两个数字之外，其他的数字都出现了两次。请写程序找出这两个只出现一次的数字。要求时间复杂度是O(n)，空间复杂度是O(1)。 思路 记住：两个相同的数字异或等于0. 如果数组中只有一个数字只出现一次，我们从头到尾异或每个数字，那么最终的结果刚好是那个只出现一次的数字。 而本题里数组中有两个数字只出现一次，如果能够将数组分为两部分，两部分中都只有一个数字只出现一次，那么就可以解决该问题了。 求解方法： 我们依旧从头到尾异或每个数字，那么最终的结果就是这两个只出现一次的数字的异或结果，由于两个数不同，因此这个结果数字中一定有一位为1，把结果中第一个1的位置记为第n位。因为是两个只出现一次的数字的异或结果，所以这两个数字在第n位上的数字一定是1和0。 接下来我们根据数组中每个数字的第n位上的数字是否为1来进行分组，恰好能将数组分为两个都只有一个数字只出现一次的数组，对两个数组从头到尾异或，就可以得到这两个数了。 测试用例 功能测试（数组中有多对重复的数字；无重复的数字） java代码12345678910111213141516171819202122232425262728293031/** * @description: * @author: rhsphere * @since: 2019-08-02 20:55 by jdk 1.8 */public class NumbersAppearOnce &#123; public void findNumsAppearOnce(int[] arr, int[] num1, int[] num2) &#123; if (arr == null || arr.length &lt;= 0) return; int res = 0; for (int i = 0; i &lt; arr.length; i++) res ^= arr[i]; int indexOf1 = 0; while (((res &amp; 1) == 0) &amp;&amp; (indexOf1 &lt;= 32)) &#123; res = res &gt;&gt; 1; indexOf1++; &#125; num1[0] = 0; num2[0] = 2; for (int i = 0; i &lt; arr.length; i++) &#123; if (((arr[i] &gt;&gt; indexOf1) &amp; 1) == 1) num1[0] ^= arr[i]; else num2[0] ^= arr[i]; &#125; &#125;&#125; 总结 当一个数字出现两次（或者偶数次）时，用异或^ 可以进行消除。一定要牢记 异或的这个功能！ 将一组数字分为两组，可以根据某位上是否为1来进行分组，即根据和1相与（&amp;1）的结果来进行分组。 判断某个数x的第n位（如第3位）上是否为1， 1）通过 x&amp;00000100 的结果是否为0 来判断。（不能根据是否等于1来判断） 2）通过（x&gt;&gt;3)&amp;1 是否为0 来判断 将某个数x右移m位，一定要写成 x=x&gt;&gt;m；而不能只写成 x&gt;&gt;m；这个语句 数组中唯一只出现一次的数字题目二在一个数组中除了一个数字只出现一次之外，其他数字都出现了三次。请找出那个只出现一次的数字。 思路 这道题中数字出现了三次，无法像56-1) 数组中只出现一次的两个数字一样通过利用异或位运算进行消除相同个数字。但是仍然可以沿用位运算的思路。 将所有数字的二进制表示的对应位都加起来，如果某一位能被三整除，那么只出现一次的数字在该位为0；反之，为1。 测试用例 功能测试（唯一出现的数字是0，正数，负数；重复出现的数字是0，正数，负数） java代码12345678910111213141516171819202122232425262728293031/** * @description: * @author: rhsphere * @since: 2019-08-02 21:51 by jdk 1.8 */public class NumberAppear &#123; public static int findNumsAppearOnce(int[] arr) &#123; if (arr == null || arr.length &lt;= 0) throw new RuntimeException(); int[] bitSum = new int[32]; for (int i = 0; i &lt; 32; i++) bitSum[i] = 0; for (int i = 0; i &lt; arr.length; i++) &#123; int bitMask = 1; for (int j = 31; j &gt;= 0; j--) &#123; int bit = arr[i] &amp; bitMask; for (bit != 0) bitSum[i] += 1; bitMask = bitMask &lt;&lt; 1; &#125; &#125; int res = 0; for (int i = 0; i &lt; 32; i++) &#123; res = res &lt;&lt; 1; res += (bitSum[i] % 3); &#125; return res; &#125;&#125; 总结 判断某个数x的第n位（如第3位）上是否为1， 1）通过 x&amp;00000100 的结果是否为0 来判断。（不能根据是否等于1来判断） 2）通过（x&gt;&gt;3)&amp;1 是否为0 来判断 通过number&amp;bitMask的结果是否为0（不能用1判断），bitMask=1不断左移，可以将一个数的二进制存储到32位的数组中。 12345678int number = 100;int bitMask = 1;for(int j = 31; j &gt;= 0; j--) &#123; int bit = number &amp; bitMask; //注意arr[i]&amp;bitMask不一定等于1或者0，有可能等于00010000 if(bit != 0) bits[j] =1; bitMask = bitMask &lt;&lt; 1;&#125; 通过以下代码实现二进制转化为数字（注意左移语句的位置）： 123456int result = 0;for(int i = 0;i &lt; 32; i++) &#123; result = result &lt;&lt; 1; result += bits[i]; //result=result&lt;&lt;1; //不能放在后面，否则最前面一位就没了&#125;]]></content>
+      <categories>
+        <category>剑指Offer</category>
+      </categories>
+      <tags>
+        <tag>Array</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[剑指Offer(55) 二叉树的深度]]></title>
+    <url>%2Fleetcode%2F2019%2F08%2F02%2Ftree-depth.html</url>
+    <content type="text"><![CDATA[二叉树的深度题目一：二叉树的深度题目二：平衡二叉树 二叉树的深度输入一棵二叉树的根结点，求该树的深度。从根结点到叶结点依次经过的/结点（含根、叶结点）形成树的一条路径，最长路径的长度为树的深度。 思路简洁理解： 树的深度=max(左子树深度，右子树深度)+1，采用递归实现。 测试用例 功能测试（左斜树、右斜树、普通树） 边界值测试（一个结点） 特殊测试（null） java代码123456789101112131415161718192021222324/** * @description: 剑指offer55 * @author: rhsphere * @since: 2019-08-02 19:29 by jdk 1.8 */public class TreeDepth &#123; public class TreeNode &#123; int val = 0; TreeNode left, right; public TreeNode(int val) &#123; this.val = val; &#125; &#125; public int treeDepth(TreeNode root) &#123; if (root == null) return 0; int left = treeDepth(root.left); int right = treeDepth(root.right); return Math.max(left + 1, right + 1); &#125;&#125; 总结 深度从递归的角度理解，很赞，要记住。 平衡二叉树平衡二叉树判定输入一棵二叉树的根结点，判断该树是不是平衡二叉树。如果某二叉树中任意结点的左右子树的深度相差不超过1，那么它就是一棵平衡二叉树。 思路 在(55-1) 二叉树的深度基础上修改：计算树的深度，树的深度=max(左子树深度，右子树深度)+1。在遍历过程中，判断左右子树深度相差是否超过1，如果不平衡，则令树的深度=-1，用来表示树不平衡。最终根据树的深度是否等于-1来确定是否为平衡树。 测试用例 功能测试（左斜树、右斜树、平衡或者不平衡树） 特殊测试（一个结点，null） java代码12345678910111213141516171819202122232425262728293031/** * @description: * @author: rhsphere * @since: 2019-08-02 20:29 by jdk 1.8 */public class BanlancedBST &#123; public class TreeNode &#123; int val = 0; TreeNode left, right; TreeNode (int val) &#123; this.val = val; &#125; &#125; public boolean IntBalanced(TreeNode root) &#123; return getDepth(root) != -1; &#125; private int getDepth(TreeNode root) &#123; if (root == null) return 0; int left = getDepth(root.left); if (left == -1) return -1; int right = getDepth(root.right); if (right == -1) return -1; return Math.abs(left - right) &gt; 1 ? -1 : Math.max(left, right) + 1; &#125;&#125; 总结 在判断出树不平衡后，进行剪枝（即代码中直接返回-1，不再对其他子树进行判断），以提高效率。]]></content>
+      <categories>
+        <category>剑指Offer</category>
+      </categories>
+      <tags>
+        <tag>Tree</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[剑指Offer(54) 二叉搜索树的第k大节点]]></title>
+    <url>%2Fleetcode%2F2019%2F08%2F02%2Fkth-node-in-BST.html</url>
+    <content type="text"><![CDATA[二叉搜索树的第K大节点题目给定一棵二叉搜索树，请找出其中的第k小的结点。 思路设置全局变量index=0，对BST进行中序遍历，每遍历一个结点，index+1，当index=k时，该结点即为所求结点。 测试用例 功能测试（左斜树、右斜树、普通树） 边界值测试（k=1,k=结点数目） 特殊测试（null，k&lt;=0，k&gt;结点数目） java代码12345678910111213141516171819202122232425262728293031323334353637383940414243/** * @description: * @author: rhsphere * @since: 2019-08-02 14:42 by jdk 1.8 */public class KthNodeInBST &#123; public class TreeNode &#123; int val = 0; TreeNode left, right; public TreeNode(int val) &#123; this.val = val; &#125; &#125; int index = 0; public TreeNode kthNode(TreeNode root, int k) &#123; TreeNode p = null; if (root == null || k &lt;= 0) return p; p = getKthNode(root, k); return p; &#125; private TreeNode getKthNode(TreeNode root, int k) &#123; TreeNode kthNode = null; if (root.left != null) kthNode = getKthNode(root.left, k); if(kthNode == null) &#123; index++; if (k == index) kthNode = root; &#125; if (kthNode == null &amp;&amp; root.right != null) kthNode = getKthNode(root.right, k); reurn kthNode; &#125;&#125; 总结 熟练掌握二叉搜索树和中序遍历。 用中序遍历实现功能时，一定要注意返回值是否满足要求。]]></content>
+      <categories>
+        <category>剑指Offer</category>
+      </categories>
+      <tags>
+        <tag>BST</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[剑指Offer(53-3) 数组中数值和下标相等的元素]]></title>
+    <url>%2Fleetcode%2F2019%2F08%2F02%2Fget-number-same-as-index.html</url>
+    <content type="text"><![CDATA[数组中数值和下标相等的元素题目假设一个单调递增的数组里的每个元素都是整数并且是唯一的。请编程实现一个函数找出数组中任意一个数值等于其下标的元素。例如，在数组{-3, -1,1, 3, 5}中，数字3和它的下标相等。 思路 同53-1和53-2一样，不再从头到尾遍历，由于是排序数组，我们继续考虑使用二分查找算法： 1）当中间数字等于其下标时，中间数字即为所求数字； 2）当中间数字大于其下标时，在左半部分区域寻找； 2）当中间数字小于其下标时，在右半部分区域寻找； 测试用例 功能测试（包含/不包含与下标相等的数字） 边界值测试（数字位于数组开头、中间或者结尾；仅一个数字数组） 特殊测试（null） java代码123456789101112131415161718192021222324/** * @description: * @author: rhsphere * @since: 2019-08-02 14:33 by jdk 1.8 */public class IntegerIdenticalToIndex &#123; public int getNumberSameAsIndex(int[] arr) &#123; if (arr == null || arr.length &lt;= 0) return -1; int low = 0; int high = arr.length - 1; while (low &lt;= high) &#123; int mid = (low + high) / 2; if (arr[mid] &gt; mid) &#123; high = mid - 1; &#125; else if (arr[mid] &lt; mid) &#123; low = mid +１; &#125; else &#123; return mid; &#125; &#125; return -1; &#125;&#125;]]></content>
+      <categories>
+        <category>剑指Offer</category>
+      </categories>
+      <tags>
+        <tag>Array</tag>
+        <tag>BinarySearch</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[剑指Offer(53-2) 0到n-1中缺失的数字]]></title>
     <url>%2Fleetcode%2F2019%2F08%2F02%2Fmissing-number.html</url>
     <content type="text"><![CDATA[0 ~ n-1中缺失的数字题目一个长度为n-1的递增排序数组中的所有数字都是唯一的，并且每个数字都在范围0到n-1之内。在范围0到n-1的n个数字中有且只有一个数字不在该数组中，请找出这个数字。 思路 如果从头到尾依次比较值与小标是否相等，时间复杂度为O(n)，效率低。 由于是排序数组，我们继续考虑使用二分查找算法，结合上图可知： 当中间数字等于其下标时，我们在后半部分查找； 当中间数字不等于其下标时， 1）如果中间数字的前一个数字也不等于其下标，则在前半部分查找； 2）如果中间数字的前一个数字等于其下标，则说明中间数字的下标即为我们所要找的数字。 测试用例 功能测试（缺失数字位于数组开头、中间或者结尾） 边界值测试（数字只有0或1） 特殊测试（null） java代码123456789101112131415161718192021222324/** * @description: * @author: rhsphere * @since: 2019-08-02 11:21 by jdk 1.8 */public class MissingNumber &#123; public int getMissingNum(int[] arr) &#123; if (arr.length &lt;= 0 || arr == null) return -1; int low = 0; int high = arr.length - 1; while (low &lt;= high) &#123; int mid = (low + high) &gt;&gt; 1; if (arr[mid] != mid) &#123; if (mid == 0 || arr[mid -1] == mid - 1) return mid; high = mid - 1; &#125; else &#123; low = mid + 1; &#125; &#125; return -1; &#125;&#125;]]></content>
