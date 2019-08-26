@@ -142,7 +142,7 @@
 <meta property="og:site_name" content="Depeng&#39;s Blog for Algorithms">
 <meta property="og:description" content="JDK动态代理涉及java.lang.reflect包中的两个类，Proxy和InvocationHandler。Proxy利用InvocationHandler动态创建一个符合某一接口的实例，生成目标类的代理对象。InvocationHandler可以实现接口定义横切逻辑，并通过反射机制调用目标类的代码，动态地将横切逻辑和业务逻辑编织在一起。">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-08-14T13:17:54.487Z">
+<meta property="og:updated_time" content="2019-08-26T02:04:48.356Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="动态代理">
 <meta name="twitter:description" content="JDK动态代理涉及java.lang.reflect包中的两个类，Proxy和InvocationHandler。Proxy利用InvocationHandler动态创建一个符合某一接口的实例，生成目标类的代理对象。InvocationHandler可以实现接口定义横切逻辑，并通过反射机制调用目标类的代码，动态地将横切逻辑和业务逻辑编织在一起。">
@@ -447,7 +447,8 @@
 
 
 <a id="more"></a>
-<h2 id="JDK动态代理"><a href="#JDK动态代理" class="headerlink" title="JDK动态代理"></a>JDK动态代理</h2><p>下面摘自：《疯狂java讲义 第四版》 p857<br>当程序使用反射方式为指定接口生成系列动态代理对象时，这些动态代理对象的实现类实现了一个或多个接口。动态代理对象就需要实现一个或多个接口里定义的所有方法，但问题是：系统怎么世道如何实现这些方法？ 这个时候就轮到InvocationHandler对象登场了–当执行动态代理对象里的方法时，实际上会替换成调用InvocationHandler对象的invoke方法。</p>
+<h2 id="JDK动态代理"><a href="#JDK动态代理" class="headerlink" title="JDK动态代理"></a>JDK动态代理</h2><p>下面摘自：《疯狂java讲义 第四版》 p857</p>
+<p>当程序使用反射方式为指定接口生成系列动态代理对象时，这些动态代理对象的实现类实现了一个或多个接口。动态代理对象就需要实现一个或多个接口里定义的所有方法，但问题是：系统怎么知道如何实现这些方法？ 这个时候就轮到 InvocationHandler 对象登场了，当执行动态代理对象里的方法时，实际上会替换成调用 InvocationHandler 对象的 invoke 方法。</p>
 <p>程序中可以采用先生成一个动态代理类，然后通过动态代理类来创建代理对象的方式生成一个动态代理对象。代码如下：</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 创建一个InvocationHandler对象</span></span><br><span class="line">InvocationHandler handler = <span class="keyword">new</span>  MyInvocationHandler(...);</span><br><span class="line"><span class="comment">//使用Proxy生成一个动态代理类 proxyClass</span></span><br><span class="line">Class proxyClass = Proxy.getProxyClass(Foo.class.getClassLoader(), <span class="keyword">new</span> Class[] &#123;Foo.class&#125;);</span><br><span class="line"><span class="comment">//获取proxyClass类中带一个InvocationHandler参数的构造器</span></span><br><span class="line">Constructor ctor = proxyClass.getConstructor(<span class="keyword">new</span> Class[] &#123;InvocationHandler.class&#125;);</span><br><span class="line"><span class="comment">//调用ctor的newInstance方法来创建动态实例</span></span><br><span class="line">Foo f = (Foo) ctor.newInstance(<span class="keyword">new</span> Object[] &#123;handler&#125;);</span><br></pre></td></tr></table></figure>
 <p>上面的代码也可以简化成如下代码：</p>
@@ -638,7 +639,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/leetcode/tags/index.html">
-                  <span class="site-state-item-count">71</span>
+                  <span class="site-state-item-count">70</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
@@ -797,7 +798,7 @@ show_date_time();
     
       <span class="post-meta-item-text">Site words total count&#58;</span>
     
-    <span title="Site words total count">128.8k</span>
+    <span title="Site words total count">128.7k</span>
   
 </div>
 
