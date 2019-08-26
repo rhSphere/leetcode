@@ -1,6 +1,6 @@
 ---
 title: 剑指Offer(3) 数组中重复的数字
-tags: [array, binary search]
+tags: [Array, BinarySearch]
 date: 2019-03-21 22:56:44
 permalink: duplication-in-array
 categories: 剑指Offer
@@ -11,21 +11,23 @@ description:
 
 <!-- more -->
 
-## 找出数组中重复数字
-### 题目
+# 找出数组中重复数字
+
+## 题目一
 在一个长度为n的数组里的所有数字都在0到n-1的范围内。数组中某些数字是重复的，但不知道有几个数字重复了，也不知道每个数字重复了几次。请找出数组中任意一个重复的数字。例如，如果输入长度为7的数组{2, 3, 1, 0, 2, 5, 3}，那么对应的输出是重复的数字2或者3。
 
-**思路：**
+### 思路
 从哈希表的思路拓展，重排数组：把扫描的每个数字（如数字m）放到其对应下标（m下标）的位置上，若同一位置有重复，则说明该数字重复。
 
 （在动手写代码前应该先想好测试用例）
-**测试用例：**
+
+### 测试用例：
 1. 数组中带有一个或多个重复数字
 2. 数组中不包含重复数字
 3. 无效输入测试用例（空数组、数组数字越界等）
 
 
-### 完整Java代码及复杂度
+## java代码及复杂度
 
 复杂度：
 时间复杂度： O(n)
@@ -35,7 +37,8 @@ description:
 另外所有操作时在输入数组上进行的，不需要分配内存，空间复杂度是O(1)。
 
 ### 含测试代码
-```java 剑指Offer3 找出数组中重复数字
+
+```java
 public class FindDuplicateNumber1 {
 	public int getDuplicate(int[] arr) {
 		if (arr == null || arr.length <= 0) {
@@ -63,7 +66,13 @@ public class FindDuplicateNumber1 {
 		System.out.println("数组中无重复数字");
 		return -1;
 	}
+}
+```
 
+在同一个类中，与上面的函数拆开的测试代码，为了函数更加简洁。
+
+```java
+public class FindDuplicateNumber1 {
 	 /**
      *数组为null
      */
@@ -116,11 +125,13 @@ public class FindDuplicateNumber1 {
 		f.test4();
 	}
 }
-
 ```
 
+
 ### 不含测试代码（牛客网提交）
-```java 牛客网提交
+这里的代码为牛客网上通过的代码，如下：
+
+```java
 public class Solution {
 	public boolean duplication(int[] numbers, int length, int[] duplication) {
 		if (numbers == null || numbers.length <= 0) 
@@ -146,25 +157,28 @@ public class Solution {
 		return false;
 	}
 }
-
 ```
 
-## 不修改数组找出数组中重复数字
-### 题目
+# 不修改数组找出数组中重复数字
+
+## 题目二
+
 在一个长度为n+1的数组里的所有数字都在1到n的范围内，所以数组中至少有一个数字是重复的。请找出数组中任意一个重复的数字，但不能修改输入的数组。例如，如果输入长度为8的数组{2, 3, 5, 4, 3, 2, 6, 7}，那么对应的输出是重复的数字2或者3。
 
-**思路：**
-数组长度为n+1，而数字只从1到n， ---说明必定有重复数字---。可以由二分查找法拓展：把1~n的数字从中间数字m分成两部分，若前一半1~m的数字数目超过m个，说明重复数字在前一半区间，否则，在后半区间m+1~n。每次在区间中都一分为二，知道找到重复数字。
+### 思路
+数组长度为n+1，而数字只从1到n， ---说明必定有重复数字---。
+
+可以由二分查找法拓展：把1~n的数字从中间数字m分成两部分，若前一半1~m的数字数目超过m个，说明重复数字在前一半区间，否则，在后半区间m+1~n。每次在区间中都一分为二，知道找到重复数字。
 
 更简单的思路：把该数组看作一个链表，下标代表当前结点，值代表next指针。
 
-**测试用例：**
+### 测试用例：
 1. 数组中带有一个或多个重复数字
 2. ~~数组中不包含重复的数字(题目设置必有重复)~~
 3. 无效输入测试用例（空数组、数组数字越界等）
 
 
-### 代码
+## java代码
 
 时间复杂度说明：函数countRange()将被调用O(logn)次，每次需要O(n)的时间。
 
@@ -173,7 +187,7 @@ public class Solution {
 空间复杂度：O(1)
 
 
-```java 剑指Offer4 不修改数组找到重复数字
+```java 
 public class FindDuplicateNumber2 {
     /**
      * 找到数组中一个重复的数字
@@ -228,7 +242,14 @@ public class FindDuplicateNumber2 {
         }
         return count;
     }
-/**
+}
+```
+
+在同一个类中，与上面的函数拆开的测试代码，为了函数更加简洁。
+
+```java    
+public class FindDuplicateNumber2 {
+	/**
      *数组为null
      */
     public void test1() {
