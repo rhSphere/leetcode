@@ -37,7 +37,7 @@ class ListNode {
 
 ## Java代码
  
- ```java
+```java
 import java.util.Stack;
 public class PrintListInReversedOrder {
     class Node {
