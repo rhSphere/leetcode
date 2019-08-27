@@ -27,7 +27,7 @@ description:
 3. 无效输入测试用例（空数组、数组数字越界等）
 
 
-## java代码及复杂度
+## Java代码及复杂度
 
 复杂度：
 时间复杂度： O(n)
@@ -178,7 +178,7 @@ public class Solution {
 3. 无效输入测试用例（空数组、数组数字越界等）
 
 
-## java代码
+## Java代码
 
 时间复杂度说明：函数countRange()将被调用O(logn)次，每次需要O(n)的时间。
 

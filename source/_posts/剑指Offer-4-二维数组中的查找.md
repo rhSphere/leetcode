@@ -29,7 +29,7 @@ description:
 4. 数组不满足大小规则
 5. 数组每行长度不一致
 
-## java代码及复杂度
+## Java代码及复杂度
 
 ```java
 public class FindInPartiallySortedMatrix {

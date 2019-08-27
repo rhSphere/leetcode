@@ -34,7 +34,7 @@ description:
 2. 字符串中含有空格（连续空格，空格在首尾等）
 3. 字符串为空字符串或者为null
 
-## java代码
+## Java代码
 
 根据牛客网的编程练习参考，方法的输入为StringBuffer（String无法改变长度，所以采用StringBuffer），输出为String。
 
@@ -213,7 +213,7 @@ System.out.println(Arrays.toString(arr2));
 使用排序算法在最好的情况下的时间复杂度都在O(nlogn)，不满足题目要求。
 通常字母为26个，当区分大小写后，变成26*2=52个，所以申请长度为52的int型数组，按照aAbB...zZ(小写字母保存在下标为偶数的位置，大写字母保存在下标为奇数的位置)的顺序一次记录各个字母出现的次数，当记录完成后，就可以遍历这个数组按照各个字母出现的次数来重组排序后的数组。
 
-## java代码
+## Java代码
 
 ```java
 public class SortCharacters {

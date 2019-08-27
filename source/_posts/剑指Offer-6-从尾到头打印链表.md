@@ -1,25 +1,21 @@
 ---
 title: 剑指Offer(6) 从尾到头打印链表
-tags: [LikedList]
+tags: [LikedList, Recursive]
 date: 2019-03-26 23:07:55
 permalink: print-list-from-head-to-tail
 categories: 剑指Offer
 description:
 ---
-<p class="description">输入一个链表的头结点，从尾到头反过来打印出每个结点的值。对于“后进先出”问题，要快速想到”栈“，也同时想到递归。</p>
+<p class="description"></p>
 
 
 <!-- more -->
 
 ## 从头到尾打印链表
-### 收获
-1. 对于“后进先出”问题，要快速想到”栈“，也同时想到递归。
-2. 采用递归时，返回的函数值不一定要有赋值操作，只要实现了遍历的作用就可以了，牛客网的代码可以多多学习。
 
 ###  题目
 输入一个链表的头结点，从尾到头反过来打印出每个结点的值。节点定义如下：
-
-```java  节点定义如下：
+  
 class ListNode {
     int val;
     ListNode next;
@@ -27,18 +23,21 @@ class ListNode {
         this.val = val;
     }
 }
-```
 
-**思路:**
+
+### 思路
+输入一个链表的头结点，从尾到头反过来打印出每个结点的值。对于“后进先出”问题，要快速想到”栈“，也同时想到递归。
+
 结点遍历顺序只能从头到尾，但是输出的顺序却为从尾到头，是典型的“后进先出”问题，这就要联想到使用栈，从而也可以联想到使用递归。
 
-**测试用例：**
+###  测试用例
+
 1. 功能测试（单个节点链表，多个节点链表）
 2. 特殊输入测试（链表为空）
 
-### 完整代码
+## Java代码
  
- ```java  完整代码
+ ```java
 import java.util.Stack;
 public class PrintListInReversedOrder {
     class Node {
@@ -70,7 +69,13 @@ public class PrintListInReversedOrder {
             return;
         }
     }
+}
+```
 
+测试代码：
+
+```java
+public class PrintListInReversedOrder {
     /**
      * 链表为空
      */
@@ -121,11 +126,13 @@ public class PrintListInReversedOrder {
         demo.test3();
     }
 }
- ```
+```
+
 
 ### 递归的其他写法
-递归部分代码也可以像下面这样写，注意体会不同的递归写法：
-```java   递归的其他写法
+递归部分代码也可以像下面这样写，注意体会不同的递归写法
+
+```java
 public void printListReversingly_Recursively(Node node) {
     if (node != null) {
         if (node.next != null) {
@@ -139,7 +146,7 @@ public void printListReversingly_Recursively(Node node) {
 ### 牛客网提交代码
 采用的递归，非常简洁，很值得学习。
 
-```java  牛客网提交代码
+```java
 /**
 *    public class ListNode {
 *        int val;
@@ -164,5 +171,9 @@ public class Solution {
     }
 }
 ```
+
+## 总结
+1. 对于“后进先出”问题，要快速想到”栈“，也同时想到递归。
+2. 采用递归时，返回的函数值不一定要有赋值操作，只要实现了遍历的作用就可以了，牛客网的代码可以多多学习。
 
 <hr />
