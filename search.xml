@@ -1,6 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[2019年第36周_2019_09_02]]></title>
+    <url>%2Fleetcode%2F2019%2F09%2F06%2Fweek-36.html</url>
+    <content type="text"><![CDATA[2019年第36周计划实施情况 2019.09.02 星期 剑指offer leetcode 阅读 健身 总结 星期一 星期二 星期三 星期四 星期五 ✔ 星期六 星期日 总计 3]]></content>
+      <categories>
+        <category>每周计划</category>
+      </categories>
+      <tags>
+        <tag>plan</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[110. Balanced Binary Tree]]></title>
     <url>%2Fleetcode%2F2019%2F08%2F29%2Fbalanced-binary-tree.html</url>
     <content type="text"><![CDATA[平衡二叉树参考剑指Offer(55) 题目二 平衡二叉树判定的思路。LeetCode 110 英文版LeetCode 110 中文版 题目给定一个二叉树，判断它是否是高度平衡的二叉树。 本题中，一棵高度平衡二叉树定义为： 一个二叉树每个节点 的左右两个子树的高度差的绝对值不超过1。 示例 1: 给定二叉树 [3,9,20,null,null,15,7] 3 / \ 9 20 / \ 15 7返回 true 。 示例 2: 给定二叉树 [1,2,2,3,3,null,null,4,4] 1 / \ 2 2 / \ 3 3 / \ 4 4返回 false 。 Java代码12345678910111213141516171819202122232425262728293031/** * @description: leetcode 110 * @author: rhsphere * @since: 2019-08-29 01:08 by jdk 1.8 */public class BalancedBinaryTree &#123; public class TreeNode &#123; int val; TreeNode left; TreeNode right; TreeNode(int x) &#123; val = x; &#125; &#125; public boolean isBalanced(TreeNode root) &#123; return getDepth(root) != -1; &#125; private int getDepth(TreeNode root) &#123; if (root == null) return 0; int left = getDepth(root.left); if (left == -1) return -1; int right = getDepth(root.right); if (right == -1) return -1; return Math.abs(left - right) &gt; 1 ? -1 : Math.max(left + 1, right + 1); &#125;&#125;]]></content>
