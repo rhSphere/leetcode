@@ -6,23 +6,30 @@ permalink: queue-with-two-stacks
 categories: 剑指Offer
 description:
 ---
-<p class="description">用两个栈实现一个队列。队列的声明如下，请实现它的两个函数appendTail和deleteHead，分别完成在队列尾部插入结点和在队列头部删除结点的功能。</p>
+<p class="description"></p>
 
 
 <!-- more -->
 
-## 实现法一 
-**思路：**
-插入删除的过程（在草稿纸上动手画一下）：插入肯定是往一个栈stack1中一直插入；删除时，直接出栈无法实现队列的先进先出规则，这时需要将元素从stack1出栈，压到另一个栈stack2中，然后再从stack2中出栈就OK了。 需要稍微注意的是：当stack2中还有元素，stack1中的元素不能压进来；当stack2中没元素时，stack1中的所有元素都必须压入stack2中。否则顺序就会被打乱。
+# 题目
+用两个栈实现一个队列。队列的声明如下，请实现它的两个函数appendTail和deleteHead，分别完成在队列尾部插入结点和在队列头部删除结点的功能。
 
-**测试用例：**
+# 方法一
+
+## 思路
+插入删除的过程（在草稿纸上动手画一下）：
+- 插入肯定是往一个栈stack1中一直插入；
+- 删除时，直接出栈无法实现队列的先进先出规则，这时需要将元素从stack1出栈，压到另一个栈stack2中，然后再从stack2中出栈就OK了。 
+- 需要稍微注意的是：当stack2中还有元素，stack1中的元素不能压进来；当stack2中没元素时，stack1中的所有元素都必须压入stack2中。否则顺序就会被打乱。
+
+###  测试用例：
 1. 往空队列添加、删除元素
 2. 往非空队列里添加、删除元素
 3. 连续删除元素至队列为空
 
-### 完整代码
+## Java代码
 
-```java 用两个栈实现队列
+```java 
 import java.util.Stack;
 
 public class QueueWithStacks {
@@ -81,49 +88,55 @@ public class QueueWithStacks {
 ```
 
 
-## 实现法二
-**思路：**
+# 方法二
+
+## 思路
+
 队列和栈的主要区别在于元素进出顺序，因此，需要修改peek()和pop()，以相反的顺序执行。
-利用第二个栈反转元素的次序（弹出s1的元素，压入s2）。在这种实现中，每当执行peek()和pop()操作时，就要将s1的所有元素弹出，压入s2中，然后执行peek()和pop()操作，再将元素压入s1.
+利用第二个栈反转元素的次序（弹出s1的元素，压入s2）。
+
+在这种实现中，每当执行peek()和pop()操作时，就要将s1的所有元素弹出，压入s2中，然后执行peek()和pop()操作，再将元素压入s1.
 
 但是若连续执行两次peek()和pop()操作，那么，所有元素移来移去，重复移动。 可以延迟元素的移动，即让元素一直留在s2中，只有必须反转元素次序是才移动元素。
 
-stackNewest顶端为最新元素，stackOldest顶端为最旧元素。在将一个元素出列是，我们希望先移除最旧元素，因此先将元素从stackOldest将元素出列。若stackOldest为空，在将stackNewest中所有元素以相反的顺序移到stackOldest中。如果要插入元素，就将其压入stackNewest，因为最新元素位于它的顶端。
+stackNew顶端为最新元素，stackOld顶端为最旧元素。在将一个元素出列是，我们希望先移除最旧元素，因此先将元素从stackOld将元素出列。若stackOld为空，在将stackNew中所有元素以相反的顺序移到stackOld中。如果要插入元素，就将其压入stackNew，因为最新元素位于它的顶端。
 
-```java 用两个栈实现一个队列
+## Java代码
+
+```java 
 import java.util.Stack;
 
 public class MyQueue<T> {
-    Stack<T> stackNewest, stackOldest;
+    Stack<T> stackNew, stackOld;
 
     public MyQueue() {
-        stackNewest = new Stack<>();
-        stackOldest = new Stack<>();
+        stackNew = new Stack<>();
+        stackOld = new Stack<>();
     }
     public int size() {
-        return stackNewest.size() + stackOldest.size();
+        return stackNew.size() + stackOld.size();
     }
 
     public void add(T val) {
-        stackNewest.push(val);
+        stackNew.push(val);
     }
 
     private void shiftStacks() {
-        if (stackOldest.isEmpty()) {
-            while (!stackNewest.isEmpty()) {
-                stackOldest.push(stackNewest.pop());
+        if (stackOld.isEmpty()) {
+            while (!stackNew.isEmpty()) {
+                stackOld.push(stackNew.pop());
             }
         }
     }
 
     public T peek() {
         shiftStacks();
-        return stackOldest.peek();
+        return stackOld.peek();
     }
 
     public T remove() {
         shiftStacks();
-        return stackOldest.pop();
+        return stackOld.pop();
     }
 }
 ```
