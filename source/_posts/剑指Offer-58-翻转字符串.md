@@ -32,7 +32,7 @@ description:
 
 ```java
 /**
- * @description:
+ * @description: 翻转字符串，第一步使用左右指针交换，翻转句子中所有的字符。第二步，再翻转每个单词中字符的顺序。
  * @author: rhsphere
  * @since: 2019-08-03 10:53 by jdk 1.8
  */
@@ -50,8 +50,8 @@ public class ReverseWordsInSentence {
 		while (start < chars.length) {
 			while (end < chars.length && chars[end] != ' ')
 				end++;
-			reverseSub(chars, start, end - 1);
-			start = ++end;
+			reverseSub(chars, start, end - 1);   //注意这里不是end 因为end是空格的index
+			start = ++end; 
 		}
 		return String.valueOf(chars);
 	}
@@ -68,6 +68,9 @@ public class ReverseWordsInSentence {
 }
 
 ```
+
+reverseSub(chars, start, end - 1); 
+ **注意这里不是end 因为end是空格的index**
 
 
 # 左旋字符串
