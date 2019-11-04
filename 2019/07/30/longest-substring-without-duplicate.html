@@ -121,7 +121,7 @@
 
 
 
-  <meta name="keywords" content="Dynamic Programming,">
+  <meta name="keywords" content="String,Dynamic Programming,">
 
 
 
@@ -134,15 +134,15 @@
 
 
 
-<meta name="keywords" content="Dynamic Programming">
+<meta name="keywords" content="String,Dynamic Programming">
 <meta property="og:type" content="article">
-<meta property="og:title" content="剑指Offer(48) 最长不含重复自负的子字符串">
+<meta property="og:title" content="剑指Offer(48) 最长不含重字符的子字符串">
 <meta property="og:url" content="https://rhsphere.github.io/leetcode/2019/07/30/longest-substring-without-duplicate.html">
 <meta property="og:site_name" content="Depeng&#39;s Blog for Algorithms">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-10-29T04:28:48.632Z">
+<meta property="og:updated_time" content="2019-11-04T08:43:00.723Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="剑指Offer(48) 最长不含重复自负的子字符串">
+<meta name="twitter:title" content="剑指Offer(48) 最长不含重字符的子字符串">
 
 
 
@@ -181,7 +181,7 @@
 
 
 
-  <title>剑指Offer(48) 最长不含重复自负的子字符串 | Depeng's Blog for Algorithms</title>
+  <title>剑指Offer(48) 最长不含重字符的子字符串 | Depeng's Blog for Algorithms</title>
   
 
 
@@ -357,7 +357,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">剑指Offer(48) 最长不含重复自负的子字符串</h1>
+          <h1 class="post-title" itemprop="name headline">剑指Offer(48) 最长不含重字符的子字符串</h1>
         
 
         <div class="post-meta">
@@ -409,7 +409,7 @@
 
           
           
-             <span id="/leetcode/2019/07/30/longest-substring-without-duplicate.html" class="leancloud_visitors" data-flag-title="剑指Offer(48) 最长不含重复自负的子字符串">
+             <span id="/leetcode/2019/07/30/longest-substring-without-duplicate.html" class="leancloud_visitors" data-flag-title="剑指Offer(48) 最长不含重字符的子字符串">
                <span class="post-meta-divider">|</span>
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -444,26 +444,27 @@
 
 
 <a id="more"></a>
-<h2 id="最长不含重复字符的子字符串"><a href="#最长不含重复字符的子字符串" class="headerlink" title="最长不含重复字符的子字符串"></a>最长不含重复字符的子字符串</h2><h3 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h3><p>请从字符串中找出一个最长的不包含重复字符的子字符串，计算该最长子字符串的长度。假设字符串中只包含从’a’到’z’的字符。</p>
-<h3 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h3><p>动态规划法：定义函数f(i)为：以第i个字符为结尾的不含重复字符的子字符串的最大长度。</p>
+<h1 id="最长不含重复字符的子字符串"><a href="#最长不含重复字符的子字符串" class="headerlink" title="最长不含重复字符的子字符串"></a>最长不含重复字符的子字符串</h1><h2 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h2><p>请从字符串中找出一个最长的不包含重复字符的子字符串，计算该最长子字符串的长度。假设字符串中只包含从’a’到’z’的字符。</p>
+<h2 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h2><p>动态规划法：定义函数f(i)为：以第i个字符为结尾的不含重复字符的子字符串的最大长度。</p>
 <p>　　（1）当第i个字符之前未出现过，则有：f(i)=f(i-1)+1</p>
 <p>　　（2）当第i个字符之前出现过，记该字符与上次出现的位置距离为d</p>
 <p>　　　　1）如果d&lt;=f(i-1)，则有f(i)=d；</p>
 <p>　　　　2）如果d&gt;f(i-1)，则有f(i)=f(i-1)+1；</p>
 <p>　　我们从第一个字符开始遍历，定义两个int变量preLength和curLength来分别代表f(i-1)和f(i)，再创建一个长度为26的pos数组来存放26个字母上次出现的位置，即可根据上述说明进行求解。</p>
 <p>　　注意：每次最大长度和字母出现位置要记得更新。</p>
-<p>　　另一种思路：遍历每个字符，把当前字符看成子字符串的末尾结点，同时更新开头结点，详细代码见Longest Substring Without Repeating Characters</p>
-<h3 id="测试用例"><a href="#测试用例" class="headerlink" title="测试用例"></a>测试用例</h3><ol>
+<p>　　另一种思路：遍历每个字符，把当前字符看成子字符串的末尾结点，同时更新开头结点，代码见leetcode03中。</p>
+<p><strong>这道题有一个很大的限制条件，字符串的取值为 a~z，所以用一个数组当 hash表足够，但是如果有空格就不行了。</strong><br><strong>所以可以采用一个更大的哈希表存储，最后一次出现的字符的位置 new int[256]; </strong></p>
+<h2 id="测试用例"><a href="#测试用例" class="headerlink" title="测试用例"></a>测试用例</h2><ol>
 <li><p>功能测试（一个或者多个字符，全部字符不同/相同）</p>
 </li>
 <li><p>特殊测试（null，空字符串）</p>
 </li>
 </ol>
-<h2 id="java代码"><a href="#java代码" class="headerlink" title="java代码"></a>java代码</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@description</span>:</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@author</span>: rhsphere</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@since</span>: 2019-07-30 18:39 by jdk 1.8</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">LongestSubstringWithoutDup</span> </span>&#123;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">int</span> <span class="title">maxLength</span><span class="params">(String str)</span> </span>&#123;</span><br><span class="line">		<span class="keyword">if</span> (str == <span class="keyword">null</span> || str.length() &lt;= <span class="number">0</span>)</span><br><span class="line">			<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line"></span><br><span class="line">		<span class="keyword">int</span> pre = <span class="number">0</span>;</span><br><span class="line">		<span class="keyword">int</span> cur = <span class="number">0</span>;</span><br><span class="line">		<span class="keyword">int</span> max = <span class="number">0</span>;</span><br><span class="line"></span><br><span class="line">		<span class="keyword">int</span>[] pos = <span class="keyword">new</span> <span class="keyword">int</span>[<span class="number">26</span>];</span><br><span class="line">		<span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; pos.length; i++)</span><br><span class="line">			pos[i] = -<span class="number">1</span>;</span><br><span class="line"></span><br><span class="line">		<span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; str.length(); i++) &#123;</span><br><span class="line">			<span class="keyword">int</span> letterNum = str.charAt(i) - <span class="string">'a'</span>;</span><br><span class="line">			<span class="keyword">if</span> (pos[letterNum] &lt; <span class="number">0</span> || i - pos[letterNum] &gt; pre) &#123;</span><br><span class="line">				cur = pre + <span class="number">1</span>;</span><br><span class="line">			&#125; <span class="keyword">else</span> &#123;</span><br><span class="line">				cur = i - pos[letterNum];</span><br><span class="line">			&#125;</span><br><span class="line">			pos[letterNum] = i;</span><br><span class="line">			<span class="keyword">if</span> (cur &gt; max)</span><br><span class="line">				max = cur;</span><br><span class="line">			pre = cur;</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="keyword">return</span> max;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	 <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        System.out.println(maxLength(<span class="string">"arabcacfr"</span>)==<span class="number">4</span>);</span><br><span class="line">        System.out.println(maxLength(<span class="string">"a"</span>)==<span class="number">1</span>);</span><br><span class="line">        System.out.println(maxLength(<span class="string">"aaa"</span>)==<span class="number">1</span>);</span><br><span class="line">        System.out.println(maxLength(<span class="string">"abcdef"</span>)==<span class="number">6</span>);</span><br><span class="line">        System.out.println(maxLength(<span class="string">""</span>)==<span class="number">0</span>);</span><br><span class="line">        System.out.println(maxLength(<span class="keyword">null</span>)==<span class="number">0</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><ol>
+<h1 id="java代码"><a href="#java代码" class="headerlink" title="java代码"></a>java代码</h1><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@description</span>:</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@author</span>: rhsphere</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@since</span>: 2019-07-30 18:39 by jdk 1.8</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">LongestSubstringWithoutDup</span> </span>&#123;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">int</span> <span class="title">maxLength</span><span class="params">(String str)</span> </span>&#123;</span><br><span class="line">		<span class="keyword">if</span> (str == <span class="keyword">null</span> || str.length() &lt;= <span class="number">0</span>)</span><br><span class="line">			<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line"></span><br><span class="line">		<span class="keyword">int</span> pre = <span class="number">0</span>;</span><br><span class="line">		<span class="keyword">int</span> cur = <span class="number">0</span>;</span><br><span class="line">		<span class="keyword">int</span> max = <span class="number">0</span>;</span><br><span class="line"></span><br><span class="line">		<span class="keyword">int</span>[] pos = <span class="keyword">new</span> <span class="keyword">int</span>[<span class="number">26</span>];</span><br><span class="line">		<span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; pos.length; i++)</span><br><span class="line">			pos[i] = -<span class="number">1</span>;</span><br><span class="line"></span><br><span class="line">		<span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; str.length(); i++) &#123;</span><br><span class="line">			<span class="keyword">int</span> letterNum = str.charAt(i) - <span class="string">'a'</span>;</span><br><span class="line">			<span class="keyword">if</span> (pos[letterNum] &lt; <span class="number">0</span> || i - pos[letterNum] &gt; pre) &#123;</span><br><span class="line">				cur = pre + <span class="number">1</span>;</span><br><span class="line">			&#125; <span class="keyword">else</span> &#123;</span><br><span class="line">				cur = i - pos[letterNum];</span><br><span class="line">			&#125;</span><br><span class="line">			pos[letterNum] = i;</span><br><span class="line">			<span class="keyword">if</span> (cur &gt; max)</span><br><span class="line">				max = cur;</span><br><span class="line">			pre = cur;</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="keyword">return</span> max;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	 <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        System.out.println(maxLength(<span class="string">"arabcacfr"</span>)==<span class="number">4</span>);</span><br><span class="line">        System.out.println(maxLength(<span class="string">"a"</span>)==<span class="number">1</span>);</span><br><span class="line">        System.out.println(maxLength(<span class="string">"aaa"</span>)==<span class="number">1</span>);</span><br><span class="line">        System.out.println(maxLength(<span class="string">"abcdef"</span>)==<span class="number">6</span>);</span><br><span class="line">        System.out.println(maxLength(<span class="string">""</span>)==<span class="number">0</span>);</span><br><span class="line">        System.out.println(maxLength(<span class="keyword">null</span>)==<span class="number">0</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h1 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h1><ol>
 <li><p>函数f(i)为：以第i个字符为结尾的不含重复字符的子字符串的最大长度。而不是以第i个字符作为开头。第i个字符作为结尾可以方便与下一个字符进行联系。</p>
 </li>
-<li><p>学会用长度为26的数组来存放26个字母所在的位置下标。</p>
+<li><p>学会用长度为26的数组来存放26个字母所在的位置下标。 即哈希表。</p>
 </li>
 </ol>
 <hr>
@@ -482,6 +483,8 @@
     <footer class="post-footer">
       
         <div class="post-tags">
+          
+            <a href="/leetcode/tags/String/" rel="tag"><i class="fa fa-tags"></i> String</a>
           
             <a href="/leetcode/tags/Dynamic-Programming/" rel="tag"><i class="fa fa-tags"></i> Dynamic Programming</a>
           
@@ -604,7 +607,7 @@
               
                 <a href="/leetcode/archives/">
               
-                  <span class="site-state-item-count">142</span>
+                  <span class="site-state-item-count">145</span>
                   <span class="site-state-item-name">文章</span>
                 </a>
               </div>
@@ -615,7 +618,7 @@
               
               <div class="site-state-item site-state-categories">
                 <a href="/leetcode/categories/index.html">
-                  <span class="site-state-item-count">20</span>
+                  <span class="site-state-item-count">21</span>
                   <span class="site-state-item-name">分类</span>
                 </a>
               </div>
@@ -751,7 +754,7 @@ show_date_time();
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#最长不含重复字符的子字符串"><span class="nav-number">1.</span> <span class="nav-text">最长不含重复字符的子字符串</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#题目"><span class="nav-number">1.1.</span> <span class="nav-text">题目</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#思路"><span class="nav-number">1.2.</span> <span class="nav-text">思路</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#测试用例"><span class="nav-number">1.3.</span> <span class="nav-text">测试用例</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#java代码"><span class="nav-number">2.</span> <span class="nav-text">java代码</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#总结"><span class="nav-number">3.</span> <span class="nav-text">总结</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#最长不含重复字符的子字符串"><span class="nav-number">1.</span> <span class="nav-text">最长不含重复字符的子字符串</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#题目"><span class="nav-number">1.1.</span> <span class="nav-text">题目</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#思路"><span class="nav-number">1.2.</span> <span class="nav-text">思路</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#测试用例"><span class="nav-number">1.3.</span> <span class="nav-text">测试用例</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#java代码"><span class="nav-number">2.</span> <span class="nav-text">java代码</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#总结"><span class="nav-number">3.</span> <span class="nav-text">总结</span></a></li></ol></div>
             
 
           </div>
@@ -785,7 +788,7 @@ show_date_time();
     
       <span class="post-meta-item-text">Site words total count&#58;</span>
     
-    <span title="Site words total count">139.8k</span>
+    <span title="Site words total count">142.8k</span>
   
 </div>
 
