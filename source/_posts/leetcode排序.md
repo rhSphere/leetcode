@@ -113,11 +113,11 @@ description:
 | 0097 | [Interleaving String](https://leetcode.com/problems/interleaving-string/) |          Medium           |
 | 0098 | [Validate Binary Search Tree](https://leetcode.com/problems/validate-binary-search-tree/) |          Medium           |
 | 0099 | [Recover Binary Search Tree](https://leetcode.com/problems/recover-binary-search-tree/) |           Hard            |
-| 0100 | [Same Tree](https://leetcode.com/problems/same-tree/) |           Easy            |
-| 0101 | [Symmetric Tree](https://leetcode.com/problems/symmetric-tree/) |           Easy            |
+| 0100 | [Same Tree](https://blogs.rhsphere.com/2019/08/28/same-tree.html) |        Tree、Easy            |
+| 0101 | [Symmetric Tree](https://blogs.rhsphere.com/2019/08/28/Symmetric-tree.html) |           Tree、Easy        |
 | 0102 | [Binary Tree Level Order Traversal](https://leetcode.com/problems/binary-tree-level-order-traversal/) |          Medium           |
 | 0103 | [Binary Tree Zigzag Level Order Traversal](https://leetcode.com/problems/binary-tree-zigzag-level-order-traversal/) |          Medium           |
-| 0104 | [Maximum Depth of Binary Tree](https://leetcode.com/problems/maximum-depth-of-binary-tree/) |           Easy            |
+| 0104 | [Maximum Depth of Binary Tree](https://blogs.rhsphere.com/leetcode/2019/08/29/max-depth-of-binary-tree.html) |           Tree、Easy             |
 | 0105 | [Construct Binary Tree from Preorder and Inorder Traversal](https://leetcode.com/problems/construct-binary-tree-from-preorder-and-inorder-traversal/) |          Medium           |
 | 0106 | [Construct Binary Tree from Inorder and Postorder Traversal](https://leetcode.com/problems/construct-binary-tree-from-inorder-and-postorder-traversal/) |          Medium           |
 | 0107 | [Binary Tree Level Order Traversal II](https://leetcode.com/problems/binary-tree-level-order-traversal-ii/) |           Easy            |
@@ -203,7 +203,7 @@ description:
 | 0217 | [Contains Duplicate](https://leetcode.com/problems/contains-duplicate/) |           Easy            |
 | 0219 | [Contains Duplicate II](https://leetcode.com/problems/contains-duplicate-ii/) |           Easy            |
 | 0222 | [Count Complete Tree Nodes](https://leetcode.com/problems/count-complete-tree-nodes/) |          Medium           |
-| 0226 | [Invert Binary Tree](https://leetcode.com/problems/invert-binary-tree/) |           Easy            |
+| 0226 | [Invert Binary Tree](https://blogs.rhsphere.com/leetcode/2019/08/28/invert-binary-tree.html) |           Tree、Easy            |
 | 0228 | [Summary Ranges](https://leetcode.com/problems/summary-ranges/) |          Medium           |
 | 0229 | [Majority Element II](https://leetcode.com/problems/majority-element-ii/) |          Medium           |
 | 0230 | [Kth Smallest Element in a BST](https://leetcode.com/problems/kth-smallest-element-in-a-bst/) |          Medium           |
