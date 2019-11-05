@@ -121,7 +121,7 @@
 
 
 
-  <meta name="keywords" content="Recursive,Tree,">
+  <meta name="keywords" content="Tree,Recursive,">
 
 
 
@@ -134,13 +134,13 @@
 
 
 
-<meta name="keywords" content="Recursive,Tree">
+<meta name="keywords" content="Tree,Recursive">
 <meta property="og:type" content="article">
 <meta property="og:title" content="110. Balanced Binary Tree">
 <meta property="og:url" content="https://rhsphere.github.io/leetcode/2019/08/29/balanced-binary-tree.html">
 <meta property="og:site_name" content="Depeng&#39;s Blog for Algorithms">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-11-04T15:09:10.892Z">
+<meta property="og:updated_time" content="2019-11-05T03:17:24.707Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="110. Balanced Binary Tree">
 
@@ -444,8 +444,10 @@
 
 
 <a id="more"></a>
-<h2 id="平衡二叉树"><a href="#平衡二叉树" class="headerlink" title="平衡二叉树"></a>平衡二叉树</h2><p>参考<a href="https://blogs.rhsphere.com/leetcode/2019/08/02/tree-depth.html" target="_blank" rel="noopener">剑指Offer(55) 题目二 平衡二叉树判定</a>的思路。<br><a href="https://leetcode-cn.com/problems/maximum-depth-of-binary-tree/" target="_blank" rel="noopener">LeetCode 110 英文版</a><br><a href="https://leetcode-cn.com/problems/balanced-binary-tree/" target="_blank" rel="noopener">LeetCode 110 中文版</a></p>
-<h3 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h3><p>给定一个二叉树，判断它是否是高度平衡的二叉树。</p>
+<h1 id="平衡二叉树"><a href="#平衡二叉树" class="headerlink" title="平衡二叉树"></a>平衡二叉树</h1><p>参考<a href="https://blogs.rhsphere.com/leetcode/2019/08/02/tree-depth.html" target="_blank" rel="noopener">剑指Offer(55) 题目二 平衡二叉树判定</a>的思路。</p>
+<p><a href="https://leetcode-cn.com/problems/maximum-depth-of-binary-tree/" target="_blank" rel="noopener">LeetCode 110 英文版</a><br><a href="https://leetcode-cn.com/problems/balanced-binary-tree/" target="_blank" rel="noopener">LeetCode 110 中文版</a></p>
+<h1 id="Java代码"><a href="#Java代码" class="headerlink" title="Java代码"></a>Java代码</h1><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@description</span>: leetcode 110</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@author</span>: rhsphere</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@since</span>: 2019-08-29 01:08 by jdk 1.8</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">BalancedBinaryTree</span> </span>&#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">TreeNode</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span> val;</span><br><span class="line">        TreeNode left;</span><br><span class="line">        TreeNode right;</span><br><span class="line"></span><br><span class="line">        TreeNode(<span class="keyword">int</span> x) &#123;</span><br><span class="line">            val = x;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">isBalanced</span><span class="params">(TreeNode root)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> getDepth(root) != -<span class="number">1</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">private</span> <span class="keyword">int</span> <span class="title">getDepth</span><span class="params">(TreeNode root)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (root == <span class="keyword">null</span>)</span><br><span class="line">            <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">int</span> left = getDepth(root.left);</span><br><span class="line">        <span class="keyword">if</span> (left == -<span class="number">1</span>)</span><br><span class="line">            <span class="keyword">return</span> -<span class="number">1</span>;</span><br><span class="line">        <span class="keyword">int</span> right = getDepth(root.right);</span><br><span class="line">        <span class="keyword">if</span> (right == -<span class="number">1</span>)</span><br><span class="line">            <span class="keyword">return</span> -<span class="number">1</span>;</span><br><span class="line">        <span class="keyword">return</span> Math.abs(left - right) &gt; <span class="number">1</span> ? -<span class="number">1</span> : Math.max(left + <span class="number">1</span>, right + <span class="number">1</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h1 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h1><p>给定一个二叉树，判断它是否是高度平衡的二叉树。</p>
 <p>本题中，一棵高度平衡二叉树定义为：</p>
 <p>一个二叉树每个节点 的左右两个子树的高度差的绝对值不超过1。</p>
 <p>示例 1:</p>
@@ -459,7 +461,6 @@
  2   2
 / \
 </code></pre><p>   3   3<br>  / \<br> 4   4<br>返回 false 。</p>
-<h2 id="Java代码"><a href="#Java代码" class="headerlink" title="Java代码"></a>Java代码</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@description</span>: leetcode 110</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@author</span>: rhsphere</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@since</span>: 2019-08-29 01:08 by jdk 1.8</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">BalancedBinaryTree</span> </span>&#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">TreeNode</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span> val;</span><br><span class="line">        TreeNode left;</span><br><span class="line">        TreeNode right;</span><br><span class="line"></span><br><span class="line">        TreeNode(<span class="keyword">int</span> x) &#123;</span><br><span class="line">            val = x;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">isBalanced</span><span class="params">(TreeNode root)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> getDepth(root) != -<span class="number">1</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">private</span> <span class="keyword">int</span> <span class="title">getDepth</span><span class="params">(TreeNode root)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (root == <span class="keyword">null</span>)</span><br><span class="line">            <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">int</span> left = getDepth(root.left);</span><br><span class="line">        <span class="keyword">if</span> (left == -<span class="number">1</span>)</span><br><span class="line">            <span class="keyword">return</span> -<span class="number">1</span>;</span><br><span class="line">        <span class="keyword">int</span> right = getDepth(root.right);</span><br><span class="line">        <span class="keyword">if</span> (right == -<span class="number">1</span>)</span><br><span class="line">            <span class="keyword">return</span> -<span class="number">1</span>;</span><br><span class="line">        <span class="keyword">return</span> Math.abs(left - right) &gt; <span class="number">1</span> ? -<span class="number">1</span> : Math.max(left + <span class="number">1</span>, right + <span class="number">1</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <hr>
       
     </div>
@@ -477,9 +478,9 @@
       
         <div class="post-tags">
           
-            <a href="/leetcode/tags/Recursive/" rel="tag"><i class="fa fa-tags"></i> Recursive</a>
-          
             <a href="/leetcode/tags/Tree/" rel="tag"><i class="fa fa-tags"></i> Tree</a>
+          
+            <a href="/leetcode/tags/Recursive/" rel="tag"><i class="fa fa-tags"></i> Recursive</a>
           
         </div>
       
@@ -600,7 +601,7 @@
               
                 <a href="/leetcode/archives/">
               
-                  <span class="site-state-item-count">145</span>
+                  <span class="site-state-item-count">147</span>
                   <span class="site-state-item-name">文章</span>
                 </a>
               </div>
@@ -622,7 +623,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/leetcode/tags/index.html">
-                  <span class="site-state-item-count">72</span>
+                  <span class="site-state-item-count">73</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
@@ -747,7 +748,7 @@ show_date_time();
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#平衡二叉树"><span class="nav-number">1.</span> <span class="nav-text">平衡二叉树</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#题目"><span class="nav-number">1.1.</span> <span class="nav-text">题目</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Java代码"><span class="nav-number">2.</span> <span class="nav-text">Java代码</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#平衡二叉树"><span class="nav-number">1.</span> <span class="nav-text">平衡二叉树</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Java代码"><span class="nav-number">2.</span> <span class="nav-text">Java代码</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#题目"><span class="nav-number">3.</span> <span class="nav-text">题目</span></a></li></ol></div>
             
 
           </div>
@@ -781,7 +782,7 @@ show_date_time();
     
       <span class="post-meta-item-text">Site words total count&#58;</span>
     
-    <span title="Site words total count">142.9k</span>
+    <span title="Site words total count">144.1k</span>
   
 </div>
 

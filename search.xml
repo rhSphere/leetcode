@@ -1,6 +1,67 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>109. 有序链表转换二叉查找树</title>
+    <url>/leetcode/2019/11/05/Convert-Sorted-List-to-Binary-Search-Tree.html</url>
+    <content><![CDATA[<p class="description"></p>
+
+
+<a id="more"></a>
+<h1 id="有序链表转换二叉查找树"><a href="#有序链表转换二叉查找树" class="headerlink" title="有序链表转换二叉查找树"></a>有序链表转换二叉查找树</h1><p>LeetCode 109</p>
+<p><a href="https://leetcode.com/problems/convert-sorted-list-to-binary-search-tree/" target="_blank" rel="noopener">英文版</a></p>
+<p><a href="https://leetcode-cn.com/problems/convert-sorted-list-to-binary-search-tree/" target="_blank" rel="noopener">中文版</a></p>
+<p>使用中序遍历，递归的方法 <a href="https://leetcode-cn.com/problems/convert-sorted-list-to-binary-search-tree/solution/you-xu-lian-biao-zhuan-huan-er-cha-sou-suo-shu-by-/" target="_blank" rel="noopener">方法 3：中序遍历模拟</a></p>
+<ol>
+<li>遍历整个链表获得它的长度，我们用两个指针标记结果数组的开始和结束，记为 start 和 end，他们的初始值分别为 0 和 length - 1。<br>记住，我们当前需要模拟中序遍历，找到中间元素 (start + end) / </li>
+<li>注意这里并不需要在链表中找到确定的元素是哪个，只需要用一个变量告诉我们中间元素的下标。我们只需要递归调用这两侧。</li>
+<li>递归左半边，其中开始和结束的值分别为 start, mid - 1。</li>
+<li>在这个算法中，每当我们构建完二叉搜索树的左半部分时，链表中的头指针将指向根节点或中间节点（它成为根节点）。 因此，我们只需使用头指针指向的当前值作为根节点，并将指针后移一位，即 head = head.next。</li>
+<li>我们在递归右半部分 mid + 1, end。</li>
+</ol>
+<h1 id="Java代码"><a href="#Java代码" class="headerlink" title="Java代码"></a>Java代码</h1><figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@description</span>:</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@author</span>: rhsphere</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@since</span>: 2019-11-05 10:50 by jdk 1.8</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">SortedListToBST</span> </span>&#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">ListNode</span> </span>&#123;</span><br><span class="line">      <span class="keyword">int</span> val;</span><br><span class="line">      ListNode next;</span><br><span class="line">      ListNode(<span class="keyword">int</span> x) &#123; val = x; &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">TreeNode</span> </span>&#123;</span><br><span class="line">      <span class="keyword">int</span> val;</span><br><span class="line">      TreeNode left;</span><br><span class="line">      TreeNode right;</span><br><span class="line">      TreeNode(<span class="keyword">int</span> x) &#123; val = x; &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">private</span> ListNode head;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> TreeNode <span class="title">sortedListToBST</span><span class="params">(ListNode head)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span> size = <span class="keyword">this</span>.size(head);</span><br><span class="line">        <span class="keyword">this</span>.head = head;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">this</span>.convertListToBST(<span class="number">0</span>, size-<span class="number">1</span>);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">private</span> <span class="keyword">int</span> <span class="title">size</span><span class="params">(ListNode head)</span> </span>&#123;</span><br><span class="line">        ListNode cur = head;</span><br><span class="line">        <span class="keyword">int</span> count = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">while</span> (cur != <span class="keyword">null</span>) &#123;</span><br><span class="line">            cur = cur.next;</span><br><span class="line">            count++;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> count;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">private</span> TreeNode <span class="title">convertListToBST</span><span class="params">(<span class="keyword">int</span> low, <span class="keyword">int</span> high)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (low &gt; high)</span><br><span class="line">            <span class="keyword">return</span> <span class="keyword">null</span>;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">int</span> mid = (low + high) / <span class="number">2</span>;</span><br><span class="line"></span><br><span class="line">        TreeNode left = <span class="keyword">this</span>.convertListToBST(low, mid-<span class="number">1</span>);</span><br><span class="line">        TreeNode node = <span class="keyword">new</span> TreeNode(<span class="keyword">this</span>.head.val);</span><br><span class="line">        node.left = left;</span><br><span class="line">        <span class="keyword">this</span>.head = <span class="keyword">this</span>.head.next;</span><br><span class="line"></span><br><span class="line">        node.right = <span class="keyword">this</span>.convertListToBST(mid+<span class="number">1</span>, high);</span><br><span class="line">        <span class="keyword">return</span> node;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h1 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h1><p>给定一个单链表，其中的元素按升序排序，将其转换为高度平衡的二叉搜索树。</p>
+<p>本题中，一个高度平衡二叉树是指一个二叉树每个节点 的左右两个子树的高度差的绝对值不超过 1。</p>
+<p>示例:</p>
+<p>给定的有序链表： [-10, -3, 0, 5, 9],</p>
+<p>一个可能的答案是：[0, -3, 9, -10, null, 5], 它可以表示下面这个高度平衡二叉搜索树：</p>
+<pre><code> 0
+/ \
+</code></pre><p>   -3   9<br>   /   /<br> -10  5</p>
+<hr>]]></content>
+      <categories>
+        <category>Medium</category>
+      </categories>
+      <tags>
+        <tag>Tree</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>098. 验证二叉查找树</title>
+    <url>/leetcode/2019/11/05/valid-binary-search-tree.html</url>
+    <content><![CDATA[<p class="description"></p>
+
+
+<a id="more"></a>
+<h1 id="验证二叉查找树"><a href="#验证二叉查找树" class="headerlink" title="验证二叉查找树"></a>验证二叉查找树</h1><p><a href="https://leetcode.com/problems/validate-binary-search-tree/" target="_blank" rel="noopener">英文版</a><br><a href="https://leetcode-cn.com/problems/validate-binary-search-tree/" target="_blank" rel="noopener">中文版</a></p>
+<p>这里使用树的中序遍历方法，参考<a href="https://blogs.rhsphere.com/leetcode/2019/07/04/traversal-treenode.html" target="_blank" rel="noopener">树的中序-非递归遍历</a></p>
+<p>注意一个错误  else分支中 cur = cur.right 是错误的！！！</p>
+<h1 id="Java代码"><a href="#Java代码" class="headerlink" title="Java代码"></a>Java代码</h1><figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@description</span>: 验证二叉搜索树</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@author</span>: rhsphere</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@since</span>: 2019-11-05 09:37 by jdk 1.8</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">IsValidBST</span> </span>&#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">TreeNode</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span> val;</span><br><span class="line">        TreeNode left;</span><br><span class="line">        TreeNode right;</span><br><span class="line">        TreeNode(<span class="keyword">int</span> x) &#123; val = x; &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">isValidBST</span><span class="params">(TreeNode root)</span> </span>&#123;</span><br><span class="line">        Stack&lt;TreeNode&gt; stack = <span class="keyword">new</span> Stack&lt;&gt;();</span><br><span class="line">        TreeNode cur = root;</span><br><span class="line">        <span class="keyword">double</span> inorder = -Double.MAX_VALUE;</span><br><span class="line">        <span class="keyword">while</span> (!stack.empty() || cur != <span class="keyword">null</span>) &#123;</span><br><span class="line">            <span class="keyword">if</span> (cur != <span class="keyword">null</span>) &#123;</span><br><span class="line">                stack.push(cur);</span><br><span class="line">                cur = cur.left;</span><br><span class="line">            &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                TreeNode node = stack.pop();</span><br><span class="line">                <span class="keyword">if</span> (node.val &lt;= inorder)</span><br><span class="line">                    <span class="keyword">return</span> <span class="keyword">false</span>;</span><br><span class="line">                inorder = node.val;</span><br><span class="line">                cur = node.right;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">true</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h1 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h1><p>给定一个二叉树，判断其是否是一个有效的二叉搜索树。</p>
+<p>假设一个二叉搜索树具有如下特征：</p>
+<p>节点的左子树只包含小于当前节点的数。 节点的右子树只包含大于当前节点的数。 所有左子树和右子树自身必须也是二叉搜索树。</p>
+<p>示例 1:</p>
+<p>输入:<br>    2<br>   / \<br>  1   3<br>输出: true<br>示例 2:</p>
+<p>输入:<br>    5<br>   / \<br>  1   4<br>     / \<br>    3   6<br>输出: false<br>解释: 输入为: [5,1,4,null,null,3,6]。<br>     根节点的值为 5 ，但是其右子节点值为 4 。</p>
+<hr>]]></content>
+      <categories>
+        <category>Medium</category>
+      </categories>
+      <tags>
+        <tag>Tree</tag>
+        <tag>Inorder</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>0-1背包问题(回溯法)</title>
     <url>/leetcode/2019/11/04/0-1-packages.html</url>
     <content><![CDATA[<p class="description"></p>
@@ -424,8 +485,10 @@
 
 
 <a id="more"></a>
-<h2 id="平衡二叉树"><a href="#平衡二叉树" class="headerlink" title="平衡二叉树"></a>平衡二叉树</h2><p>参考<a href="https://blogs.rhsphere.com/leetcode/2019/08/02/tree-depth.html" target="_blank" rel="noopener">剑指Offer(55) 题目二 平衡二叉树判定</a>的思路。<br><a href="https://leetcode-cn.com/problems/maximum-depth-of-binary-tree/" target="_blank" rel="noopener">LeetCode 110 英文版</a><br><a href="https://leetcode-cn.com/problems/balanced-binary-tree/" target="_blank" rel="noopener">LeetCode 110 中文版</a></p>
-<h3 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h3><p>给定一个二叉树，判断它是否是高度平衡的二叉树。</p>
+<h1 id="平衡二叉树"><a href="#平衡二叉树" class="headerlink" title="平衡二叉树"></a>平衡二叉树</h1><p>参考<a href="https://blogs.rhsphere.com/leetcode/2019/08/02/tree-depth.html" target="_blank" rel="noopener">剑指Offer(55) 题目二 平衡二叉树判定</a>的思路。</p>
+<p><a href="https://leetcode-cn.com/problems/maximum-depth-of-binary-tree/" target="_blank" rel="noopener">LeetCode 110 英文版</a><br><a href="https://leetcode-cn.com/problems/balanced-binary-tree/" target="_blank" rel="noopener">LeetCode 110 中文版</a></p>
+<h1 id="Java代码"><a href="#Java代码" class="headerlink" title="Java代码"></a>Java代码</h1><figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@description</span>: leetcode 110</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@author</span>: rhsphere</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@since</span>: 2019-08-29 01:08 by jdk 1.8</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">BalancedBinaryTree</span> </span>&#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">TreeNode</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span> val;</span><br><span class="line">        TreeNode left;</span><br><span class="line">        TreeNode right;</span><br><span class="line"></span><br><span class="line">        TreeNode(<span class="keyword">int</span> x) &#123;</span><br><span class="line">            val = x;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">isBalanced</span><span class="params">(TreeNode root)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> getDepth(root) != -<span class="number">1</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">private</span> <span class="keyword">int</span> <span class="title">getDepth</span><span class="params">(TreeNode root)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (root == <span class="keyword">null</span>)</span><br><span class="line">            <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">int</span> left = getDepth(root.left);</span><br><span class="line">        <span class="keyword">if</span> (left == -<span class="number">1</span>)</span><br><span class="line">            <span class="keyword">return</span> -<span class="number">1</span>;</span><br><span class="line">        <span class="keyword">int</span> right = getDepth(root.right);</span><br><span class="line">        <span class="keyword">if</span> (right == -<span class="number">1</span>)</span><br><span class="line">            <span class="keyword">return</span> -<span class="number">1</span>;</span><br><span class="line">        <span class="keyword">return</span> Math.abs(left - right) &gt; <span class="number">1</span> ? -<span class="number">1</span> : Math.max(left + <span class="number">1</span>, right + <span class="number">1</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h1 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h1><p>给定一个二叉树，判断它是否是高度平衡的二叉树。</p>
 <p>本题中，一棵高度平衡二叉树定义为：</p>
 <p>一个二叉树每个节点 的左右两个子树的高度差的绝对值不超过1。</p>
 <p>示例 1:</p>
@@ -439,14 +502,13 @@
  2   2
 / \
 </code></pre><p>   3   3<br>  / \<br> 4   4<br>返回 false 。</p>
-<h2 id="Java代码"><a href="#Java代码" class="headerlink" title="Java代码"></a>Java代码</h2><figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@description</span>: leetcode 110</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@author</span>: rhsphere</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@since</span>: 2019-08-29 01:08 by jdk 1.8</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">BalancedBinaryTree</span> </span>&#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">TreeNode</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span> val;</span><br><span class="line">        TreeNode left;</span><br><span class="line">        TreeNode right;</span><br><span class="line"></span><br><span class="line">        TreeNode(<span class="keyword">int</span> x) &#123;</span><br><span class="line">            val = x;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">isBalanced</span><span class="params">(TreeNode root)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> getDepth(root) != -<span class="number">1</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">private</span> <span class="keyword">int</span> <span class="title">getDepth</span><span class="params">(TreeNode root)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (root == <span class="keyword">null</span>)</span><br><span class="line">            <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">int</span> left = getDepth(root.left);</span><br><span class="line">        <span class="keyword">if</span> (left == -<span class="number">1</span>)</span><br><span class="line">            <span class="keyword">return</span> -<span class="number">1</span>;</span><br><span class="line">        <span class="keyword">int</span> right = getDepth(root.right);</span><br><span class="line">        <span class="keyword">if</span> (right == -<span class="number">1</span>)</span><br><span class="line">            <span class="keyword">return</span> -<span class="number">1</span>;</span><br><span class="line">        <span class="keyword">return</span> Math.abs(left - right) &gt; <span class="number">1</span> ? -<span class="number">1</span> : Math.max(left + <span class="number">1</span>, right + <span class="number">1</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <hr>]]></content>
       <categories>
         <category>Easy</category>
       </categories>
       <tags>
-        <tag>Recursive</tag>
         <tag>Tree</tag>
+        <tag>Recursive</tag>
       </tags>
   </entry>
   <entry>
@@ -456,22 +518,25 @@
 
 
 <a id="more"></a>
-<h2 id="二叉树的最大深度"><a href="#二叉树的最大深度" class="headerlink" title="二叉树的最大深度"></a>二叉树的最大深度</h2><p>参考<a href="https://blogs.rhsphere.com/leetcode/2019/08/02/tree-depth.html" target="_blank" rel="noopener">剑指Offer(55) 题目一 二叉树的深度</a>的思路。<br><a href="https://leetcode.com/problems/maximum-depth-of-binary-tree/" target="_blank" rel="noopener">LeetCode 104 英文版</a><br><a href="https://leetcode-cn.com/problems/maximum-depth-of-binary-tree/" target="_blank" rel="noopener">LeetCode 104 中文版</a></p>
-<h3 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h3><p>给定一个二叉树，找出其最大深度。</p>
+<h1 id="二叉树的最大深度"><a href="#二叉树的最大深度" class="headerlink" title="二叉树的最大深度"></a>二叉树的最大深度</h1><p>参考<a href="https://blogs.rhsphere.com/leetcode/2019/08/02/tree-depth.html" target="_blank" rel="noopener">剑指Offer(55) 题目一 二叉树的深度</a>的思路。</p>
+<p><a href="https://leetcode.com/problems/maximum-depth-of-binary-tree/" target="_blank" rel="noopener">英文版</a><br><a href="https://leetcode-cn.com/problems/maximum-depth-of-binary-tree/" target="_blank" rel="noopener">中文版</a></p>
+<h1 id="debug跟踪"><a href="#debug跟踪" class="headerlink" title="debug跟踪"></a>debug跟踪</h1><p>通过debug跟踪发现，<br>对于树<br>     0<br>   1   2<br> 3  4 5  6<br>7<br>一直递归计算left_height，直到7的左右子节点，然后返回0，然后递归栈向上返回一层，计算3的左右子树高度，于是得到 max{1, 0}=1；<br>然后递归栈返回计算1的左右子树，左子树已经计算出来了，递归计算右子树4的高度，依次类推。。。</p>
+<p>可以用  com.ludepeng.datastruct.base.datastruct.tree.leetcode104.DepthOfTree 进行查看。</p>
+<h1 id="Java代码"><a href="#Java代码" class="headerlink" title="Java代码"></a>Java代码</h1><figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@description</span>: leetcode 104</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@author</span>: rhsphere</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@since</span>: 2019-08-29 00:46 by jdk 1.8</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">MaxDepthOfBinaryTree</span> </span>&#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">TreeNode</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span> val;</span><br><span class="line">        TreeNode left;</span><br><span class="line">        TreeNode right;</span><br><span class="line"></span><br><span class="line">        TreeNode(<span class="keyword">int</span> x) &#123;</span><br><span class="line">            val = x;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">maxDepth</span><span class="params">(TreeNode root)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (root == <span class="keyword">null</span>) &#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">            <span class="keyword">int</span> left_height = maxDepth(root.left);</span><br><span class="line">            <span class="keyword">int</span> right_height = maxDepth(root.right);</span><br><span class="line">            <span class="keyword">return</span> Math.max(left_height, right_height) + <span class="number">1</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h1 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h1><p>给定一个二叉树，找出其最大深度。</p>
 <p>二叉树的深度为根节点到最远叶子节点的最长路径上的节点数。</p>
 <p>说明: 叶子节点是指没有子节点的节点。</p>
 <p>示例： 给定二叉树 [3,9,20,null,null,15,7]，</p>
 <pre><code>3
 </code></pre><p>   / \<br>  9  20<br>    /  \<br>   15   7<br>返回它的最大深度 3 。</p>
-<h3 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h3><p>时间复杂度：我们每个结点只访问一次，因此时间复杂度为 O(N)<br>其中 N 是结点的数量。<br>空间复杂度：在最糟糕的情况下，树是完全不平衡的，例如每个结点只剩下左子结点，递归将会被调用 N 次（树的高度），因此保持调用栈的存储将是 O(N) 但在最好的情况下（树是完全平衡的），树的高度将是 log(N)。因此，在这种情况下的空间复杂度将是 O(log(N))。</p>
-<h2 id="Java代码"><a href="#Java代码" class="headerlink" title="Java代码"></a>Java代码</h2><figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@description</span>: leetcode 104</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@author</span>: rhsphere</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@since</span>: 2019-08-29 00:46 by jdk 1.8</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">MaxDepthOfBinaryTree</span> </span>&#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">TreeNode</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span> val;</span><br><span class="line">        TreeNode left;</span><br><span class="line">        TreeNode right;</span><br><span class="line"></span><br><span class="line">        TreeNode(<span class="keyword">int</span> x) &#123;</span><br><span class="line">            val = x;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">maxDepth</span><span class="params">(TreeNode root)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (root == <span class="keyword">null</span>) &#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">            <span class="keyword">int</span> left_height = maxDepth(root.left);</span><br><span class="line">            <span class="keyword">int</span> right_height = maxDepth(root.right);</span><br><span class="line">            <span class="keyword">return</span> Math.max(left_height, right_height) + <span class="number">1</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h2><p>时间复杂度：我们每个结点只访问一次，因此时间复杂度为 O(N)<br>其中 N 是结点的数量。<br>空间复杂度：在最糟糕的情况下，树是完全不平衡的，例如每个结点只剩下左子结点，递归将会被调用 N 次（树的高度），因此保持调用栈的存储将是 O(N) 但在最好的情况下（树是完全平衡的），树的高度将是 log(N)。因此，在这种情况下的空间复杂度将是 O(log(N))。</p>
 <hr>]]></content>
       <categories>
         <category>Easy</category>
       </categories>
       <tags>
-        <tag>Recursive</tag>
         <tag>Tree</tag>
+        <tag>Recursive</tag>
       </tags>
   </entry>
   <entry>
@@ -481,25 +546,28 @@
 
 
 <a id="more"></a>
-<h2 id="翻转二叉树"><a href="#翻转二叉树" class="headerlink" title="翻转二叉树"></a>翻转二叉树</h2><p>注意区分和<a href="https://blogs.rhsphere.com/leetcode/2019/07/09/mirror-of-binary-tree.html" target="_blank" rel="noopener">剑指Offer(27) 二叉树的镜像</a>的区别，另一种迭代解法待完成。</p>
-<h3 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h3><p>翻转一棵二叉树。</p>
+<h1 id="翻转二叉树"><a href="#翻转二叉树" class="headerlink" title="翻转二叉树"></a>翻转二叉树</h1><p>注意区分和<a href="https://blogs.rhsphere.com/leetcode/2019/07/09/mirror-of-binary-tree.html" target="_blank" rel="noopener">剑指Offer(27) 二叉树的镜像</a>的区别，另一种迭代解法待完成。</p>
+<p><a href="https://leetcode.com/problems/invert-binary-tree/" target="_blank" rel="noopener">英文版</a></p>
+<p><a href="https://leetcode-cn.com/problems/invert-binary-tree/" target="_blank" rel="noopener">中文版</a></p>
+<h1 id="Java代码"><a href="#Java代码" class="headerlink" title="Java代码"></a>Java代码</h1><figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@description</span>:</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@author</span>: rhsphere</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@since</span>: 2019-08-28 01:06 by jdk 1.8</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">InvertBinaryTree</span> </span>&#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">TreeNode</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span> val;</span><br><span class="line">        TreeNode left;</span><br><span class="line">        TreeNode right;</span><br><span class="line">        TreeNode(<span class="keyword">int</span> x) &#123; val = x; &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> TreeNode <span class="title">invertTree</span><span class="params">(TreeNode root)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (root == <span class="keyword">null</span>) <span class="keyword">return</span> <span class="keyword">null</span>;</span><br><span class="line">        <span class="comment">//这里的left、right顺序注意</span></span><br><span class="line">        TreeNode left = invertTree(root.left);</span><br><span class="line">        TreeNode right = invertTree(root.right);</span><br><span class="line">        root.left = right;</span><br><span class="line">        root.right = left;</span><br><span class="line">        <span class="keyword">return</span> root;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h1 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h1><p>翻转一棵二叉树。</p>
 <p>示例：</p>
 <p>输入：</p>
 <pre><code>4
-</code></pre><p>   /   \<br>  2     7<br> / \   / \<br>1   3 6   9<br>输出：</p>
+</code></pre><p>   /   \<br>  2     7<br> / \   / \<br>1   3 6   9</p>
+<p>输出：</p>
 <pre><code>4
 </code></pre><p>   /   \<br>  7     2<br> / \   / \<br>9   6 3   1<br>备注: 这个问题是受到 Max Howell 的 原问题 启发的 ：</p>
 <p>谷歌：我们90％的工程师使用您编写的软件(Homebrew)，但是您却无法在面试时在白板上写出翻转二叉树这道题，这太糟糕了。</p>
-<h3 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h3><p>既然树中的每个节点都只被访问一次，那么时间复杂度就是 O(n)O(n)，其中 nn 是树中节点的个数。在反转之前，不论怎样我们至少都得访问每个节点至少一次，因此这个问题无法做地比 O(n)O(n) 更好了。</p>
-<p>本方法使用了递归，在最坏情况下栈内需要存放 O(h)O(h) 个方法调用，其中 hh 是树的高度。由于 h\in O(n)h∈O(n)，可得出空间复杂度为 O(n)O(n)。</p>
-<h2 id="Java代码"><a href="#Java代码" class="headerlink" title="Java代码"></a>Java代码</h2><figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@description</span>:</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@author</span>: rhsphere</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@since</span>: 2019-08-28 01:06 by jdk 1.8</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">InvertBinaryTree</span> </span>&#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">TreeNode</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span> val;</span><br><span class="line">        TreeNode left;</span><br><span class="line">        TreeNode right;</span><br><span class="line">        TreeNode(<span class="keyword">int</span> x) &#123; val = x; &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> TreeNode <span class="title">invertTree</span><span class="params">(TreeNode root)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (root == <span class="keyword">null</span>) <span class="keyword">return</span> <span class="keyword">null</span>;</span><br><span class="line">        <span class="comment">//这里的left、right顺序注意</span></span><br><span class="line">        TreeNode left = invertTree(root.left);</span><br><span class="line">        TreeNode right = invertTree(root.right);</span><br><span class="line">        root.left = right;</span><br><span class="line">        root.right = left;</span><br><span class="line">        <span class="keyword">return</span> root;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h2><p>既然树中的每个节点都只被访问一次，那么时间复杂度就是 O(n)，其中 n 是树中节点的个数。在反转之前，不论怎样我们至少都得访问每个节点至少一次，因此这个问题无法做地比 O(n)更好了。</p>
+<p>本方法使用了递归，在最坏情况下栈内需要存放 O(h)个方法调用，其中 h 是树的高度。由于 h\in O(n)h∈O(n)，可得出空间复杂度为 O(n)。</p>
 <hr>]]></content>
       <categories>
         <category>Easy</category>
       </categories>
       <tags>
-        <tag>Recursive</tag>
         <tag>Tree</tag>
+        <tag>Recursive</tag>
       </tags>
   </entry>
   <entry>
@@ -509,15 +577,20 @@
 
 
 <a id="more"></a>
-<h2 id="对称二叉树"><a href="#对称二叉树" class="headerlink" title="对称二叉树"></a>对称二叉树</h2><p>本题和 <a href="https://blogs.rhsphere.com/leetcode/2019/07/09/symmetrical-binary-tree.html" target="_blank" rel="noopener">剑指Offer(28) 对称的二叉树</a> 相似，请完成迭代解法。</p>
-<h3 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h3><p>给定一个二叉树，检查它是否是镜像对称的。</p>
+<h1 id="对称二叉树"><a href="#对称二叉树" class="headerlink" title="对称二叉树"></a>对称二叉树</h1><p>本题和 <a href="https://blogs.rhsphere.com/leetcode/2019/07/09/symmetrical-binary-tree.html" target="_blank" rel="noopener">剑指Offer(28) 对称的二叉树</a> 相似，请完成迭代解法。</p>
+<p><a href="https://leetcode.com/problems/symmetric-tree/" target="_blank" rel="noopener">英文版</a></p>
+<p><a href="https://leetcode-cn.com/problems/symmetric-tree/" target="_blank" rel="noopener">中文版</a></p>
+<h1 id="Java代码"><a href="#Java代码" class="headerlink" title="Java代码"></a>Java代码</h1><figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@description</span>: leetcode 101 使用递归</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@author</span>: rhsphere</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@since</span>: 2019-08-28 00:53 by jdk 1.8</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">StmmetricTree</span> </span>&#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">TreeNode</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span> val;</span><br><span class="line">        TreeNode left;</span><br><span class="line">        TreeNode right;</span><br><span class="line">        TreeNode(<span class="keyword">int</span> x) &#123; val = x; &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">isSymmetric</span><span class="params">(TreeNode root)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> isMirror(root, root);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">private</span> <span class="keyword">boolean</span> <span class="title">isMirror</span><span class="params">(TreeNode p, TreeNode q)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (p == <span class="keyword">null</span> &amp;&amp; q == <span class="keyword">null</span>) <span class="keyword">return</span> <span class="keyword">true</span>;</span><br><span class="line">        <span class="keyword">if</span> (p == <span class="keyword">null</span> || q == <span class="keyword">null</span>) <span class="keyword">return</span> <span class="keyword">false</span>;</span><br><span class="line">        <span class="keyword">return</span> p.val == q.val &amp;&amp; isMirror(p.left, q.right) &amp;&amp; isMirror(p.right, q.left);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h1 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h1><p>给定一个二叉树，检查它是否是镜像对称的。</p>
 <p>例如，二叉树 [1,2,2,3,4,4,3] 是对称的。</p>
 <pre><code>1
-</code></pre><p>   / \<br>  2   2<br> / \ / \<br>3  4 4  3<br>但是下面这个 [1,2,2,null,3,null,3] 则不是镜像对称的:</p>
+</code></pre><p>   / \<br>  2   2<br> / \ / \<br>3  4 4  3</p>
+<p>但是下面这个 [1,2,2,null,3,null,3] 则不是镜像对称的:</p>
 <pre><code>1
-</code></pre><p>   / \<br>  2   2<br>   \   \<br>   3    3<br>说明:</p>
+</code></pre><p>   / \<br>  2   2<br>   \   \<br>   3    3</p>
+<p>说明:</p>
 <p>如果你可以运用递归和迭代两种方法解决这个问题，会很加分。</p>
-<h3 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h3><p>如果一个树的左子树与右子树镜像对称，那么这个树是对称的。</p>
+<h2 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h2><p>如果一个树的左子树与右子树镜像对称，那么这个树是对称的。</p>
 <p>因此，该问题可以转化为：两个树在什么情况下互为镜像？</p>
 <p>如果同时满足下面的条件，两个树互为镜像：</p>
 <ol>
@@ -526,14 +599,13 @@
 </ol>
 <p>时间复杂度：O(n)，因为我们遍历整个输入树一次，所以总的运行时间为 O(n)，其中 n 是树中结点的总数。</p>
 <p>空间复杂度：递归调用的次数受树的高度限制。在最糟糕情况下，树是线性的，其高度为 O(n)。因此，在最糟糕的情况下，由栈上的递归调用造成的空间复杂度为 O(n))。</p>
-<h2 id="Java代码"><a href="#Java代码" class="headerlink" title="Java代码"></a>Java代码</h2><figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@description</span>: leetcode 101 使用递归</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@author</span>: rhsphere</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@since</span>: 2019-08-28 00:53 by jdk 1.8</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">StmmetricTree</span> </span>&#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">TreeNode</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span> val;</span><br><span class="line">        TreeNode left;</span><br><span class="line">        TreeNode right;</span><br><span class="line">        TreeNode(<span class="keyword">int</span> x) &#123; val = x; &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">isSymmetric</span><span class="params">(TreeNode root)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> isMirror(root, root);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">private</span> <span class="keyword">boolean</span> <span class="title">isMirror</span><span class="params">(TreeNode p, TreeNode q)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (p == <span class="keyword">null</span> &amp;&amp; q == <span class="keyword">null</span>) <span class="keyword">return</span> <span class="keyword">true</span>;</span><br><span class="line">        <span class="keyword">if</span> (p == <span class="keyword">null</span> || q == <span class="keyword">null</span>) <span class="keyword">return</span> <span class="keyword">false</span>;</span><br><span class="line">        <span class="keyword">return</span> p.val == q.val &amp;&amp; isMirror(p.left, q.right) &amp;&amp; isMirror(p.right, q.left);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <hr>]]></content>
       <categories>
         <category>Easy</category>
       </categories>
       <tags>
-        <tag>Recursive</tag>
         <tag>Tree</tag>
+        <tag>Recursive</tag>
       </tags>
   </entry>
   <entry>
@@ -543,8 +615,10 @@
 
 
 <a id="more"></a>
-<h2 id="相同的树"><a href="#相同的树" class="headerlink" title="相同的树"></a>相同的树</h2><p>思考：本题使用迭代法如何做？</p>
-<h3 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h3><p>给定两个二叉树，编写一个函数来检验它们是否相同。</p>
+<h1 id="相同的树"><a href="#相同的树" class="headerlink" title="相同的树"></a>相同的树</h1><p>思考：本题使用迭代法如何做？</p>
+<p><a href="https://leetcode.com/problems/same-tree/" target="_blank" rel="noopener">英文版</a><br><a href="https://leetcode-cn.com/problems/same-tree/" target="_blank" rel="noopener">中文版</a></p>
+<h1 id="Java代码"><a href="#Java代码" class="headerlink" title="Java代码"></a>Java代码</h1><figure class="highlight java"><table><tr><td class="code"><pre><span class="line">**</span><br><span class="line"> * <span class="meta">@description</span>: leetcode <span class="number">100</span> 使用递归</span><br><span class="line"> * <span class="meta">@author</span>: rhsphere</span><br><span class="line"> * <span class="meta">@since</span>: <span class="number">2019</span>-<span class="number">08</span>-<span class="number">28</span> <span class="number">00</span>:<span class="number">33</span> by jdk <span class="number">1.8</span></span><br><span class="line"> */</span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">SameTree</span> </span>&#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">TreeNode</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span> val;</span><br><span class="line">        TreeNode left;</span><br><span class="line">        TreeNode right;</span><br><span class="line">        TreeNode(<span class="keyword">int</span> x) &#123; val = x; &#125;</span><br><span class="line">     &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span>  <span class="title">isSameTree</span><span class="params">(TreeNode p, TreeNode q)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (p == <span class="keyword">null</span> &amp;&amp; q == <span class="keyword">null</span>)</span><br><span class="line">            <span class="keyword">return</span> <span class="keyword">true</span>;</span><br><span class="line">        <span class="keyword">if</span> (p == <span class="keyword">null</span> || q == <span class="keyword">null</span>)</span><br><span class="line">            <span class="keyword">return</span> <span class="keyword">false</span>;</span><br><span class="line">        <span class="keyword">if</span> (p.val != q.val)</span><br><span class="line">            <span class="keyword">return</span> <span class="keyword">false</span>;</span><br><span class="line">        <span class="keyword">return</span> isSameTree(p.left, q.left) &amp;&amp; isSameTree(p.right, q.right);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h1 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h1><p>给定两个二叉树，编写一个函数来检验它们是否相同。</p>
 <p>如果两个树在结构上相同，并且节点具有相同的值，则认为它们是相同的。</p>
 <p>示例 1:</p>
 <p>输入:       1         1<br>          / \       / \<br>         2   3     2   3</p>
@@ -556,17 +630,16 @@
 <p>输入:       1         1<br>          / \       / \<br>         2   1     1   2</p>
 <pre><code>[1,2,1],   [1,1,2]
 </code></pre><p>输出: false</p>
-<h3 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h3><p>最简单的策略是使用递归。首先判断 p 和 q 是不是 null，然后判断它们的值是否相等。</p>
+<h2 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h2><p>最简单的策略是使用递归。首先判断 p 和 q 是不是 null，然后判断它们的值是否相等。</p>
 <p>时间复杂度 : O(N)O(N)，其中 N 是树的结点数，因为每个结点都访问一次。</p>
 <p>空间复杂度 : 最优情况（完全平衡二叉树）时为 O(\log(N))O(log(N))，最坏情况下（完全不平衡二叉树）时为 {O}(N)O(N)，用于维护递归栈。</p>
-<h2 id="Java代码"><a href="#Java代码" class="headerlink" title="Java代码"></a>Java代码</h2><figure class="highlight java"><table><tr><td class="code"><pre><span class="line">**</span><br><span class="line"> * <span class="meta">@description</span>: leetcode <span class="number">100</span> 使用递归</span><br><span class="line"> * <span class="meta">@author</span>: rhsphere</span><br><span class="line"> * <span class="meta">@since</span>: <span class="number">2019</span>-<span class="number">08</span>-<span class="number">28</span> <span class="number">00</span>:<span class="number">33</span> by jdk <span class="number">1.8</span></span><br><span class="line"> */</span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">SameTree</span> </span>&#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">TreeNode</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span> val;</span><br><span class="line">        TreeNode left;</span><br><span class="line">        TreeNode right;</span><br><span class="line">        TreeNode(<span class="keyword">int</span> x) &#123; val = x; &#125;</span><br><span class="line">     &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span>  <span class="title">isSameTree</span><span class="params">(TreeNode p, TreeNode q)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (p == <span class="keyword">null</span> &amp;&amp; q == <span class="keyword">null</span>)</span><br><span class="line">            <span class="keyword">return</span> <span class="keyword">true</span>;</span><br><span class="line">        <span class="keyword">if</span> (p == <span class="keyword">null</span> || q == <span class="keyword">null</span>)</span><br><span class="line">            <span class="keyword">return</span> <span class="keyword">false</span>;</span><br><span class="line">        <span class="keyword">if</span> (p.val != q.val)</span><br><span class="line">            <span class="keyword">return</span> <span class="keyword">false</span>;</span><br><span class="line">        <span class="keyword">return</span> isSameTree(p.left, q.left) &amp;&amp; isSameTree(p.right, q.right);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <hr>]]></content>
       <categories>
         <category>Easy</category>
       </categories>
       <tags>
-        <tag>Recursive</tag>
         <tag>Tree</tag>
+        <tag>Recursive</tag>
       </tags>
   </entry>
   <entry>
@@ -1818,15 +1891,18 @@
 
 
 <a id="more"></a>
-<h2 id="二叉搜索树与双向链表"><a href="#二叉搜索树与双向链表" class="headerlink" title="二叉搜索树与双向链表"></a>二叉搜索树与双向链表</h2><h3 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h3><p>  输入一棵二叉搜索树，将该二叉搜索树转换成一个排序的双向链表，要求不能创建任何新的节点，只能调整树中节点指针。</p>
-<h3 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h3><pre><code>二叉搜索树、排序链表，想到使用中序遍历。
+<h1 id="二叉搜索树与双向链表"><a href="#二叉搜索树与双向链表" class="headerlink" title="二叉搜索树与双向链表"></a>二叉搜索树与双向链表</h1><h2 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h2><p>  输入一棵二叉搜索树，将该二叉搜索树转换成一个排序的双向链表，要求不能创建任何新的节点，只能调整树中节点指针。</p>
+<h2 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h2><pre><code>二叉搜索树、排序链表，想到使用中序遍历。
 </code></pre><p>要实现双向链表，必须知道当前节点的前一个节点。根据中序遍历，可以知道，当遍历到根节点的时候，左子树已经转化成了一个排序的链表了，根节点的前一节点就是该链表的最后一个节点（这个节点必须记录下来，将遍历函数的返回值设置为该节点即可），连接根节点和前一个节点，此时链表最后一个节点就是根节点了。再处理右子树，遍历右子树，将右子树的最小节点和根节点连接起来即可。左右子树的转化采用递归即可。</p>
 <p>首先想象一下中序遍历的大概代码结构（先处理左子树，再处理根节点，之后处理右子树），假设左子树处理完了，就要处理根节点，而根节点必须知道左子树的最大节点，所以要用函数返回值记录下来；之后处理右子树，右子树的最小节点（也是用中序遍历得到）要和根节点链接。</p>
-<h3 id="测试用例"><a href="#测试用例" class="headerlink" title="测试用例"></a>测试用例</h3><ol>
+<h2 id="测试用例"><a href="#测试用例" class="headerlink" title="测试用例"></a>测试用例</h2><ol>
 <li>功能测试(一个节点；左、右斜树；完全二叉树；普通二叉树)</li>
 <li>特殊测试(根节点为null)</li>
 </ol>
-<h2 id="java代码"><a href="#java代码" class="headerlink" title="java代码"></a>java代码</h2><figure class="highlight java"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<h1 id="java代码"><a href="#java代码" class="headerlink" title="java代码"></a>java代码</h1><h2 id="采用中序遍历非递归的方式"><a href="#采用中序遍历非递归的方式" class="headerlink" title="采用中序遍历非递归的方式"></a>采用中序遍历非递归的方式</h2><figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@description</span>:</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@author</span>: rhsphere</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@since</span>: 2019-11-05 10:28 by jdk 1.8</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">BSTConvertToDoubleList</span> </span>&#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">TreeNode</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span> val;</span><br><span class="line">        TreeNode left, right;</span><br><span class="line">        <span class="function"><span class="keyword">public</span> <span class="title">TreeNode</span><span class="params">(<span class="keyword">int</span> val)</span> </span>&#123;</span><br><span class="line">            <span class="keyword">this</span>.val = val;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> TreeNode <span class="title">convert</span><span class="params">(TreeNode root)</span> </span>&#123;</span><br><span class="line">        TreeNode head = <span class="keyword">null</span>;</span><br><span class="line">        TreeNode pre = <span class="keyword">null</span>;</span><br><span class="line"></span><br><span class="line">        Stack&lt;TreeNode&gt; stack = <span class="keyword">new</span> Stack&lt;&gt;();</span><br><span class="line">        TreeNode cur = root;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">while</span> (!stack.empty() || cur != <span class="keyword">null</span>) &#123;</span><br><span class="line">            <span class="keyword">if</span> (cur != <span class="keyword">null</span>) &#123;</span><br><span class="line">                stack.push(cur);</span><br><span class="line">                cur = cur.left;</span><br><span class="line">            &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                TreeNode node = stack.pop();</span><br><span class="line">                <span class="keyword">if</span> (head == <span class="keyword">null</span>) &#123;</span><br><span class="line">                    head = node;</span><br><span class="line">                    pre = node;</span><br><span class="line">                &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                    node.left = pre;</span><br><span class="line">                    pre.right = node;</span><br><span class="line">                    pre = node;</span><br><span class="line">                &#125;</span><br><span class="line">                cur = node.right;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> head;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>上面中序遍历里面if else嵌套过多，不便于阅读，进行如下修改。</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">public</span> TreeNode <span class="title">convert</span><span class="params">(TreeNode root)</span> </span>&#123;</span><br><span class="line">	TreeNode head = <span class="keyword">null</span>;</span><br><span class="line">	TreeNode pre = <span class="keyword">null</span>;</span><br><span class="line">	TreeNode cur = root;</span><br><span class="line"></span><br><span class="line">	Stack&lt;TreeNode&gt; stack = <span class="keyword">new</span> Stack&lt;&gt;();</span><br><span class="line">	<span class="keyword">while</span> (!stack.empty() || cur != <span class="keyword">null</span>) &#123;</span><br><span class="line">		<span class="keyword">while</span> (cur != <span class="keyword">null</span>) &#123;</span><br><span class="line">			stack.push(cur);</span><br><span class="line">			cur = cur.left;</span><br><span class="line">		&#125;</span><br><span class="line"></span><br><span class="line">		TreeNode node = stack.pop();</span><br><span class="line">		<span class="keyword">if</span> (head == <span class="keyword">null</span>) &#123;</span><br><span class="line">			head = node;</span><br><span class="line">			pre = node;</span><br><span class="line">		&#125; <span class="keyword">else</span> &#123;</span><br><span class="line">			node.left = pre;</span><br><span class="line">			pre.right = node;</span><br><span class="line">			pre = node;</span><br><span class="line">		&#125;</span><br><span class="line">		cur = node.right;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">return</span> head;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="采用递归的方法"><a href="#采用递归的方法" class="headerlink" title="采用递归的方法"></a>采用递归的方法</h2><p>//TODO</p>
 <hr>]]></content>
       <categories>
         <category>剑指Offer</category>
@@ -2185,8 +2261,8 @@
         <category>剑指Offer</category>
       </categories>
       <tags>
-        <tag>Recursive</tag>
         <tag>Tree</tag>
+        <tag>Recursive</tag>
       </tags>
   </entry>
   <entry>
@@ -3188,13 +3264,13 @@
 </tr>
 <tr>
 <td style="text-align:center">0100</td>
-<td style="text-align:center"><a href="https://leetcode.com/problems/same-tree/" target="_blank" rel="noopener">Same Tree</a></td>
-<td style="text-align:center">Easy</td>
+<td style="text-align:center"><a href="https://blogs.rhsphere.com/2019/08/28/same-tree.html" target="_blank" rel="noopener">Same Tree</a></td>
+<td style="text-align:center">Tree、Easy</td>
 </tr>
 <tr>
 <td style="text-align:center">0101</td>
-<td style="text-align:center"><a href="https://leetcode.com/problems/symmetric-tree/" target="_blank" rel="noopener">Symmetric Tree</a></td>
-<td style="text-align:center">Easy</td>
+<td style="text-align:center"><a href="https://blogs.rhsphere.com/2019/08/28/Symmetric-tree.html" target="_blank" rel="noopener">Symmetric Tree</a></td>
+<td style="text-align:center">Tree、Easy</td>
 </tr>
 <tr>
 <td style="text-align:center">0102</td>
@@ -3208,8 +3284,8 @@
 </tr>
 <tr>
 <td style="text-align:center">0104</td>
-<td style="text-align:center"><a href="https://leetcode.com/problems/maximum-depth-of-binary-tree/" target="_blank" rel="noopener">Maximum Depth of Binary Tree</a></td>
-<td style="text-align:center">Easy</td>
+<td style="text-align:center"><a href="https://blogs.rhsphere.com/leetcode/2019/08/29/max-depth-of-binary-tree.html" target="_blank" rel="noopener">Maximum Depth of Binary Tree</a></td>
+<td style="text-align:center">Tree、Easy</td>
 </tr>
 <tr>
 <td style="text-align:center">0105</td>
@@ -3638,8 +3714,8 @@
 </tr>
 <tr>
 <td style="text-align:center">0226</td>
-<td style="text-align:center"><a href="https://leetcode.com/problems/invert-binary-tree/" target="_blank" rel="noopener">Invert Binary Tree</a></td>
-<td style="text-align:center">Easy</td>
+<td style="text-align:center"><a href="https://blogs.rhsphere.com/leetcode/2019/08/28/invert-binary-tree.html" target="_blank" rel="noopener">Invert Binary Tree</a></td>
+<td style="text-align:center">Tree、Easy</td>
 </tr>
 <tr>
 <td style="text-align:center">0228</td>

@@ -121,7 +121,7 @@
 
 
 
-  <meta name="keywords" content="Recursive,Tree,">
+  <meta name="keywords" content="Tree,Recursive,">
 
 
 
@@ -134,13 +134,13 @@
 
 
 
-<meta name="keywords" content="Recursive,Tree">
+<meta name="keywords" content="Tree,Recursive">
 <meta property="og:type" content="article">
 <meta property="og:title" content="104. Maximum Depth of Binary Tree">
 <meta property="og:url" content="https://rhsphere.github.io/leetcode/2019/08/29/max-depth-of-binary-tree.html">
 <meta property="og:site_name" content="Depeng&#39;s Blog for Algorithms">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-11-04T15:09:10.892Z">
+<meta property="og:updated_time" content="2019-11-05T03:17:24.707Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="104. Maximum Depth of Binary Tree">
 
@@ -444,15 +444,18 @@
 
 
 <a id="more"></a>
-<h2 id="二叉树的最大深度"><a href="#二叉树的最大深度" class="headerlink" title="二叉树的最大深度"></a>二叉树的最大深度</h2><p>参考<a href="https://blogs.rhsphere.com/leetcode/2019/08/02/tree-depth.html" target="_blank" rel="noopener">剑指Offer(55) 题目一 二叉树的深度</a>的思路。<br><a href="https://leetcode.com/problems/maximum-depth-of-binary-tree/" target="_blank" rel="noopener">LeetCode 104 英文版</a><br><a href="https://leetcode-cn.com/problems/maximum-depth-of-binary-tree/" target="_blank" rel="noopener">LeetCode 104 中文版</a></p>
-<h3 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h3><p>给定一个二叉树，找出其最大深度。</p>
+<h1 id="二叉树的最大深度"><a href="#二叉树的最大深度" class="headerlink" title="二叉树的最大深度"></a>二叉树的最大深度</h1><p>参考<a href="https://blogs.rhsphere.com/leetcode/2019/08/02/tree-depth.html" target="_blank" rel="noopener">剑指Offer(55) 题目一 二叉树的深度</a>的思路。</p>
+<p><a href="https://leetcode.com/problems/maximum-depth-of-binary-tree/" target="_blank" rel="noopener">英文版</a><br><a href="https://leetcode-cn.com/problems/maximum-depth-of-binary-tree/" target="_blank" rel="noopener">中文版</a></p>
+<h1 id="debug跟踪"><a href="#debug跟踪" class="headerlink" title="debug跟踪"></a>debug跟踪</h1><p>通过debug跟踪发现，<br>对于树<br>     0<br>   1   2<br> 3  4 5  6<br>7<br>一直递归计算left_height，直到7的左右子节点，然后返回0，然后递归栈向上返回一层，计算3的左右子树高度，于是得到 max{1, 0}=1；<br>然后递归栈返回计算1的左右子树，左子树已经计算出来了，递归计算右子树4的高度，依次类推。。。</p>
+<p>可以用  com.ludepeng.datastruct.base.datastruct.tree.leetcode104.DepthOfTree 进行查看。</p>
+<h1 id="Java代码"><a href="#Java代码" class="headerlink" title="Java代码"></a>Java代码</h1><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@description</span>: leetcode 104</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@author</span>: rhsphere</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@since</span>: 2019-08-29 00:46 by jdk 1.8</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">MaxDepthOfBinaryTree</span> </span>&#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">TreeNode</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span> val;</span><br><span class="line">        TreeNode left;</span><br><span class="line">        TreeNode right;</span><br><span class="line"></span><br><span class="line">        TreeNode(<span class="keyword">int</span> x) &#123;</span><br><span class="line">            val = x;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">maxDepth</span><span class="params">(TreeNode root)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (root == <span class="keyword">null</span>) &#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">            <span class="keyword">int</span> left_height = maxDepth(root.left);</span><br><span class="line">            <span class="keyword">int</span> right_height = maxDepth(root.right);</span><br><span class="line">            <span class="keyword">return</span> Math.max(left_height, right_height) + <span class="number">1</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h1 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h1><p>给定一个二叉树，找出其最大深度。</p>
 <p>二叉树的深度为根节点到最远叶子节点的最长路径上的节点数。</p>
 <p>说明: 叶子节点是指没有子节点的节点。</p>
 <p>示例： 给定二叉树 [3,9,20,null,null,15,7]，</p>
 <pre><code>3
 </code></pre><p>   / \<br>  9  20<br>    /  \<br>   15   7<br>返回它的最大深度 3 。</p>
-<h3 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h3><p>时间复杂度：我们每个结点只访问一次，因此时间复杂度为 O(N)<br>其中 N 是结点的数量。<br>空间复杂度：在最糟糕的情况下，树是完全不平衡的，例如每个结点只剩下左子结点，递归将会被调用 N 次（树的高度），因此保持调用栈的存储将是 O(N) 但在最好的情况下（树是完全平衡的），树的高度将是 log(N)。因此，在这种情况下的空间复杂度将是 O(log(N))。</p>
-<h2 id="Java代码"><a href="#Java代码" class="headerlink" title="Java代码"></a>Java代码</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@description</span>: leetcode 104</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@author</span>: rhsphere</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@since</span>: 2019-08-29 00:46 by jdk 1.8</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">MaxDepthOfBinaryTree</span> </span>&#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">TreeNode</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span> val;</span><br><span class="line">        TreeNode left;</span><br><span class="line">        TreeNode right;</span><br><span class="line"></span><br><span class="line">        TreeNode(<span class="keyword">int</span> x) &#123;</span><br><span class="line">            val = x;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">maxDepth</span><span class="params">(TreeNode root)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (root == <span class="keyword">null</span>) &#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">            <span class="keyword">int</span> left_height = maxDepth(root.left);</span><br><span class="line">            <span class="keyword">int</span> right_height = maxDepth(root.right);</span><br><span class="line">            <span class="keyword">return</span> Math.max(left_height, right_height) + <span class="number">1</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h2><p>时间复杂度：我们每个结点只访问一次，因此时间复杂度为 O(N)<br>其中 N 是结点的数量。<br>空间复杂度：在最糟糕的情况下，树是完全不平衡的，例如每个结点只剩下左子结点，递归将会被调用 N 次（树的高度），因此保持调用栈的存储将是 O(N) 但在最好的情况下（树是完全平衡的），树的高度将是 log(N)。因此，在这种情况下的空间复杂度将是 O(log(N))。</p>
 <hr>
       
     </div>
@@ -470,9 +473,9 @@
       
         <div class="post-tags">
           
-            <a href="/leetcode/tags/Recursive/" rel="tag"><i class="fa fa-tags"></i> Recursive</a>
-          
             <a href="/leetcode/tags/Tree/" rel="tag"><i class="fa fa-tags"></i> Tree</a>
+          
+            <a href="/leetcode/tags/Recursive/" rel="tag"><i class="fa fa-tags"></i> Recursive</a>
           
         </div>
       
@@ -593,7 +596,7 @@
               
                 <a href="/leetcode/archives/">
               
-                  <span class="site-state-item-count">145</span>
+                  <span class="site-state-item-count">147</span>
                   <span class="site-state-item-name">文章</span>
                 </a>
               </div>
@@ -615,7 +618,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/leetcode/tags/index.html">
-                  <span class="site-state-item-count">72</span>
+                  <span class="site-state-item-count">73</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
@@ -740,7 +743,7 @@ show_date_time();
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#二叉树的最大深度"><span class="nav-number">1.</span> <span class="nav-text">二叉树的最大深度</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#题目"><span class="nav-number">1.1.</span> <span class="nav-text">题目</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#思路"><span class="nav-number">1.2.</span> <span class="nav-text">思路</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Java代码"><span class="nav-number">2.</span> <span class="nav-text">Java代码</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#二叉树的最大深度"><span class="nav-number">1.</span> <span class="nav-text">二叉树的最大深度</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#debug跟踪"><span class="nav-number">2.</span> <span class="nav-text">debug跟踪</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Java代码"><span class="nav-number">3.</span> <span class="nav-text">Java代码</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#题目"><span class="nav-number">4.</span> <span class="nav-text">题目</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#思路"><span class="nav-number">4.1.</span> <span class="nav-text">思路</span></a></li></ol></li></ol></div>
             
 
           </div>
@@ -774,7 +777,7 @@ show_date_time();
     
       <span class="post-meta-item-text">Site words total count&#58;</span>
     
-    <span title="Site words total count">142.9k</span>
+    <span title="Site words total count">144.1k</span>
   
 </div>
 
